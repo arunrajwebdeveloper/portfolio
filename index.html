@@ -4,11 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arun Raj | Software Developer</title>
+
+    <!-- FONTS -->
+    <!-- 400,500,600,700,800,900 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      * {
+        font-family: "Lexend Deca", sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
   </head>
   <body>
     <section class="main-section">
-      <aside class="sidebar sidebar__left">
-        <img src="./images/avatar.jpg" loading="lazy" alt="arun_avatar" />
+      <aside class="sidebar sidebar__left d-none">
+        <div class="identity">
+          <div class="identity__content">
+            <div class="identity__avatar">
+              <img
+                class="avatar__image"
+                src="./images/avatar.jpg"
+                loading="lazy"
+                alt="arun_avatar"
+              />
+            </div>
+            <div class="identity__info">
+              <p class="identity__name">arun raj</p>
+              <p class="identity__subtext">arun raj</p>
+            </div>
+          </div>
+        </div>
       </aside>
       <main class="main">
         <div class="canvas">
@@ -45,7 +77,10 @@
           <footer class="footer"></footer>
         </div>
       </main>
-      <aside class="sidebar sidebar__right"></aside>
+      <aside class="sidebar sidebar__right d-none"></aside>
     </section>
+
+    <!-- SCRIPTS -->
+    <script src="./script/index.js"></script>
   </body>
 </html>
