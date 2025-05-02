@@ -43,7 +43,7 @@ p.text {
 } */
 
 .d-none {
-  display: none;
+  display: none !important;
 }
 
 .identity__content {

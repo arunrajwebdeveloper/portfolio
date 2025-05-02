@@ -86,14 +86,6 @@
             </p>
           </article>
 
-          <div>
-            <label for="voiceSelect">Choose Voice:</label>
-            <select id="voiceSelect"></select>
-          </div>
-
-          <button id="readBtn" disabled>🔊 Read Page</button>
-          <button id="stopBtn">⏹ Stop</button>
-
           <!-- Skills -->
           <article class="article skills"></article>
 
@@ -110,87 +102,85 @@
       <aside class="sidebar sidebar__right d-none"></aside>
     </section>
 
+    <div class="buttons d-none">
+      <button id="play">Play</button>
+      <button id="pause">Pause</button>
+      <button id="stop">Stop</button>
+    </div>
+
     <!-- SCRIPTS -->
     <script>
-      let voices = [];
-      let speech;
+      onload = function () {
+        if ("speechSynthesis" in window)
+          with (speechSynthesis) {
+            var playEle = document.querySelector("#play");
+            var pauseEle = document.querySelector("#pause");
+            var stopEle = document.querySelector("#stop");
+            var flag = false;
 
-      function isVisible(el) {
-        const style = window.getComputedStyle(el);
-        return (
-          style.display !== "none" &&
-          style.visibility !== "hidden" &&
-          el.offsetParent !== null
-        );
-      }
+            playEle.addEventListener("click", onClickPlay);
+            pauseEle.addEventListener("click", onClickPause);
+            stopEle.addEventListener("click", onClickStop);
 
-      function populateVoices() {
-        voices = speechSynthesis.getVoices();
-        const select = document.getElementById("voiceSelect");
-        select.innerHTML = "";
-        voices.forEach((voice, i) => {
-          const option = document.createElement("option");
-          option.value = i;
-          option.textContent = `${voice.name} (${voice.lang})`;
-          select.appendChild(option);
-        });
+            function onClickPlay() {
+              if (!flag) {
+                flag = true;
+                utterance = new SpeechSynthesisUtterance(
+                  document.querySelector(".canvas").textContent
+                );
+                utterance.voice = getVoices()[4]; // female voice
+                // utterance.voice = getVoices()[6]; // male voice
+                utterance.rate = 1; // Speed of speech
+                utterance.pitch = 1; // Pitch of speech
+                utterance.volume = 1; // Volume of speech
+                utterance.onend = function () {
+                  flag = false;
+                  playEle.className = pauseEle.className = "";
+                  stopEle.className = "stopped";
+                };
+                playEle.className = "played";
+                stopEle.className = "";
+                speak(utterance);
+              }
+              if (paused) {
+                /* unpause/resume narration */
+                playEle.className = "played";
+                pauseEle.className = "";
+                resume();
+              }
+            }
 
-        // Enable the read button only after voices are ready
-        document.getElementById("readBtn").disabled = false;
-      }
+            function onClickPause() {
+              if (speaking && !paused) {
+                /* pause narration */
+                pauseEle.className = "paused";
+                playEle.className = "";
+                pause();
+              }
+            }
 
-      function readVisibleContent() {
-        speechSynthesis.cancel(); // Prevent repeat issue
-
-        let textContent = "";
-        document.querySelectorAll("body *").forEach((el) => {
-          if (isVisible(el) && el.innerText.trim()) {
-            textContent += el.innerText + " ";
+            function onClickStop() {
+              if (speaking) {
+                /* stop narration */
+                /* for safari */
+                stopEle.className = "stopped";
+                playEle.className = pauseEle.className = "";
+                flag = false;
+                cancel();
+              }
+            }
           }
-        });
-
-        const imageDescriptions = Array.from(document.querySelectorAll("img"))
-          .filter((img) => isVisible(img) && img.alt)
-          .map((img) => img.alt)
-          .join(". ");
-
-        const fullText =
-          textContent +
-          (imageDescriptions ? ". Images: " + imageDescriptions : "");
-
-        speech = new SpeechSynthesisUtterance(fullText);
-        const selectedIndex = document.getElementById("voiceSelect").value;
-        if (voices[selectedIndex]) {
-          speech.voice = voices[selectedIndex];
-          speech.lang = voices[selectedIndex].lang;
+        else {
+          /* speech synthesis not supported */
+          msg = document.createElement("h5");
+          msg.textContent = "Detected no support for Speech Synthesis";
+          msg.style.textAlign = "center";
+          msg.style.backgroundColor = "red";
+          msg.style.color = "white";
+          msg.style.marginTop = msg.style.marginBottom = 0;
+          document.body.insertBefore(msg, document.querySelector("div"));
         }
-
-        speech.pitch = 1;
-        speech.rate = 1;
-
-        speechSynthesis.speak(speech);
-      }
-
-      function stopSpeech() {
-        speechSynthesis.cancel();
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        // Sometimes voices are already available
-        if (speechSynthesis.getVoices().length !== 0) {
-          populateVoices();
-        } else {
-          // Otherwise, wait for them
-          speechSynthesis.onvoiceschanged = populateVoices;
-        }
-
-        document
-          .getElementById("readBtn")
-          .addEventListener("click", readVisibleContent);
-        document
-          .getElementById("stopBtn")
-          .addEventListener("click", stopSpeech);
-      });
+      };
     </script>
 
     <!-- <script src="./script/index.js"></script> -->
