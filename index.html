@@ -86,8 +86,9 @@
             </p>
           </article>
 
-          <button onclick="readVisibleContent()">🔊 Read Page</button>
-          <button onclick="stopSpeech()">⏹ Stop</button>
+          <select id="voiceSelect"></select>
+          <button id="readBtn">🔊 Read Page</button>
+          <button id="stopBtn">⏹ Stop</button>
 
           <!-- Skills -->
           <article class="article skills"></article>
@@ -122,6 +123,7 @@
       function populateVoices() {
         voices = speechSynthesis.getVoices();
         const select = document.getElementById("voiceSelect");
+        if (!select) return; // prevent crash
         select.innerHTML = "";
         voices.forEach((voice, i) => {
           const option = document.createElement("option");
@@ -132,12 +134,14 @@
       }
 
       function readVisibleContent() {
+        const select = document.getElementById("voiceSelect");
+        if (!select) return;
+
         if (speechSynthesis.speaking) {
-          speechSynthesis.cancel(); // stop existing
+          speechSynthesis.cancel();
         }
 
         let textContent = "";
-
         document.querySelectorAll("body *").forEach((el) => {
           if (isVisible(el) && el.innerText.trim()) {
             textContent += el.innerText + " ";
@@ -154,7 +158,7 @@
           (imageDescriptions ? ". Images: " + imageDescriptions : "");
 
         speech = new SpeechSynthesisUtterance(fullText);
-        const selectedIndex = document.getElementById("voiceSelect").value;
+        const selectedIndex = select.value;
         if (voices[selectedIndex]) {
           speech.voice = voices[selectedIndex];
         }
@@ -163,17 +167,25 @@
         speech.pitch = 1;
         speech.rate = 1;
 
-        window.speechSynthesis.speak(speech);
+        speechSynthesis.speak(speech);
       }
 
       function stopSpeech() {
-        window.speechSynthesis.cancel();
+        speechSynthesis.cancel();
       }
 
-      // Load voices when ready
-      if ("speechSynthesis" in window) {
-        window.speechSynthesis.onvoiceschanged = populateVoices;
-      }
+      // Initialize everything after DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        populateVoices(); // Call initially
+
+        if ("speechSynthesis" in window) {
+          speechSynthesis.onvoiceschanged = populateVoices;
+        }
+
+        // Attach click handlers here
+        document.getElementById("readBtn").onclick = readVisibleContent;
+        document.getElementById("stopBtn").onclick = stopSpeech;
+      });
     </script>
 
     <!-- <script src="./script/index.js"></script> -->
