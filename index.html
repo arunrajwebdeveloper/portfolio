@@ -32,7 +32,7 @@
                 class="avatar__image"
                 src="./images/avatar.jpg"
                 loading="lazy"
-                alt="arun_avatar"
+                alt="arunraj avatar image"
               />
             </div>
             <div class="identity__info">
@@ -52,7 +52,7 @@
                 class="avatar__image"
                 src="./images/avatar.jpg"
                 loading="lazy"
-                alt="arun_avatar"
+                alt="arunraj avatar image"
               />
             </div>
             <div class="identity__info">
@@ -103,6 +103,51 @@
     </section>
 
     <!-- SCRIPTS -->
-    <script src="./script/index.js"></script>
+    <script>
+      // Helper: check if an element is visible (not display: none or visibility: hidden)
+      function isVisible(el) {
+        const style = window.getComputedStyle(el);
+        return (
+          style.display !== "none" &&
+          style.visibility !== "hidden" &&
+          el.offsetParent !== null
+        );
+      }
+
+      function readPageText() {
+        // Get only visible elements' text
+        const elements = document.body.querySelectorAll("*");
+        const visibleText = Array.from(elements)
+          .filter((el) => isVisible(el))
+          .map((el) => el.innerText)
+          .filter((text) => text.trim() !== "")
+          .join(" ");
+
+        // Collect alt text from visible images only
+        const images = document.querySelectorAll("img");
+        const imageDescriptions = Array.from(images)
+          .filter((img) => isVisible(img) && img.alt)
+          .map((img) => img.alt)
+          .join(". ");
+
+        const fullText =
+          visibleText +
+          (imageDescriptions ? ". Images: " + imageDescriptions : "");
+
+        const speech = new SpeechSynthesisUtterance(fullText);
+        speech.lang = "en-US";
+        speech.pitch = 1;
+        speech.rate = 1;
+        window.speechSynthesis.speak(speech);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+          readPageText();
+        }, 3000);
+      });
+    </script>
+
+    <!-- <script src="./script/index.js"></script> -->
   </body>
 </html>
