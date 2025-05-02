@@ -86,6 +86,9 @@
             </p>
           </article>
 
+          <button onclick="readVisibleContent()">🔊 Read Page</button>
+          <button onclick="stopSpeech()">⏹ Stop</button>
+
           <!-- Skills -->
           <article class="article skills"></article>
 
@@ -104,7 +107,9 @@
 
     <!-- SCRIPTS -->
     <script>
-      // Helper: check if an element is visible (not display: none or visibility: hidden)
+      let voices = [];
+      let speech;
+
       function isVisible(el) {
         const style = window.getComputedStyle(el);
         return (
@@ -114,38 +119,61 @@
         );
       }
 
-      function readPageText() {
-        // Get only visible elements' text
-        const elements = document.body.querySelectorAll("*");
-        const visibleText = Array.from(elements)
-          .filter((el) => isVisible(el))
-          .map((el) => el.innerText)
-          .filter((text) => text.trim() !== "")
-          .join(" ");
+      function populateVoices() {
+        voices = speechSynthesis.getVoices();
+        const select = document.getElementById("voiceSelect");
+        select.innerHTML = "";
+        voices.forEach((voice, i) => {
+          const option = document.createElement("option");
+          option.value = i;
+          option.textContent = `${voice.name} (${voice.lang})`;
+          select.appendChild(option);
+        });
+      }
 
-        // Collect alt text from visible images only
-        const images = document.querySelectorAll("img");
-        const imageDescriptions = Array.from(images)
+      function readVisibleContent() {
+        if (speechSynthesis.speaking) {
+          speechSynthesis.cancel(); // stop existing
+        }
+
+        let textContent = "";
+
+        document.querySelectorAll("body *").forEach((el) => {
+          if (isVisible(el) && el.innerText.trim()) {
+            textContent += el.innerText + " ";
+          }
+        });
+
+        const imageDescriptions = Array.from(document.querySelectorAll("img"))
           .filter((img) => isVisible(img) && img.alt)
           .map((img) => img.alt)
           .join(". ");
 
         const fullText =
-          visibleText +
+          textContent +
           (imageDescriptions ? ". Images: " + imageDescriptions : "");
 
-        const speech = new SpeechSynthesisUtterance(fullText);
-        speech.lang = "en-US";
+        speech = new SpeechSynthesisUtterance(fullText);
+        const selectedIndex = document.getElementById("voiceSelect").value;
+        if (voices[selectedIndex]) {
+          speech.voice = voices[selectedIndex];
+        }
+
+        speech.lang = speech.voice?.lang || "en-US";
         speech.pitch = 1;
         speech.rate = 1;
+
         window.speechSynthesis.speak(speech);
       }
 
-      document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(() => {
-          readPageText();
-        }, 3000);
-      });
+      function stopSpeech() {
+        window.speechSynthesis.cancel();
+      }
+
+      // Load voices when ready
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.onvoiceschanged = populateVoices;
+      }
     </script>
 
     <!-- <script src="./script/index.js"></script> -->
