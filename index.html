@@ -102,7 +102,7 @@
       <aside class="sidebar sidebar__right d-none"></aside>
     </section>
 
-    <div class="buttons d-none">
+    <div class="buttons d-nonez">
       <button id="play">Play</button>
       <button id="pause">Pause</button>
       <button id="stop">Stop</button>
@@ -117,10 +117,15 @@
           const stopEle = document.querySelector("#stop");
           let flag = false;
           let utterance;
+          // let voices = [];
 
           playEle.addEventListener("click", onClickPlay);
           pauseEle.addEventListener("click", onClickPause);
           stopEle.addEventListener("click", onClickStop);
+
+          // window.speechSynthesis.onvoiceschanged = () => {
+          //   voices = speechSynthesis.getVoices();
+          // };
 
           function onClickPlay() {
             if (!flag) {
@@ -128,8 +133,11 @@
               utterance = new SpeechSynthesisUtterance(
                 document.querySelector(".canvas").textContent
               );
-              utterance.voice = speechSynthesis.getVoices()[4]; // female voice
-              // utterance.voice = speechSynthesis.getVoices()[6]; // male voice
+
+              // utterance.voice = speechSynthesis.getVoices()[4]; // female voice
+              utterance.voice = speechSynthesis.getVoices()[6]; // male voice
+
+              //utterance.voice = voices.find((v) => v.name.includes("Female")) || voices[0];
               utterance.rate = 1; // Speed of speech
               utterance.pitch = 1; // Pitch of speech
               utterance.volume = 1; // Volume of speech
