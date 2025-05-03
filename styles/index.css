@@ -38,9 +38,9 @@ p.text {
   font-weight: 400;
 }
 
-/* mark {
-  background-color: var(--mark);
-} */
+p .bold {
+  font-weight: 700;
+}
 
 .d-none {
   display: none !important;
@@ -91,4 +91,22 @@ p.text {
 
 .article {
   padding: 40px 0;
+}
+.article__header {
+  margin-bottom: 30px;
+}
+.article__header h3 {
+  font-size: 20px;
+  color: var(--black);
+}
+.article__content .skills-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.article__content .skills-list img {
+  aspect-ratio: 1;
+  width: calc(33.33333% - 15px);
+  border: 1px solid #ccc;
+  padding: 10px;
 }
