@@ -99,6 +99,7 @@ p .bold {
   left: 0;
   width: 100%;
   background-color: var(--background);
+  z-index: 200;
 }
 
 .article {
