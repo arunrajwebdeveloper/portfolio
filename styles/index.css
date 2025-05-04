@@ -5,9 +5,21 @@
 }
 
 :root {
-  --black: #000;
-  --white: #fff;
-  --mark: #dec387;
+  --background: #fff;
+  --text-color: #000;
+  --invert: 0;
+}
+
+body {
+  background-color: var(--background);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #131315;
+    --text-color: #ededed;
+    --invert: 1;
+  }
 }
 
 a {
@@ -20,21 +32,21 @@ li {
 h1.main-title {
   font-size: 124px;
   margin-bottom: 40px;
-  color: var(--black);
+  color: var(--text-color);
   font-weight: 900;
 }
 
 p.sub-text {
   font-size: 28px;
   font-weight: 800;
-  color: var(--black);
-  line-height: 34px;
+  color: var(--text-color);
+  line-height: 36px;
   margin-bottom: 30px;
 }
 p.text {
   font-size: 16px;
-  line-height: 26px;
-  color: var(--black);
+  line-height: 30px;
+  color: var(--text-color);
   font-weight: 400;
 }
 
@@ -63,14 +75,14 @@ p .bold {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 0;
-  color: var(--black);
+  color: var(--text-color);
 }
 
 .identity__info p.identity__subtext {
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 0;
-  color: var(--black);
+  color: var(--text-color);
 }
 .canvas,
 .header__content {
@@ -86,7 +98,7 @@ p .bold {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--white);
+  background-color: var(--background);
 }
 
 .article {
@@ -97,8 +109,9 @@ p .bold {
 }
 .article__header h3 {
   font-size: 24px;
-  color: var(--black);
+  color: var(--text-color);
 }
+
 .article__content .skills-list {
   display: flex;
   gap: 20px;
@@ -109,4 +122,43 @@ p .bold {
   width: calc(33.33333% - 15px);
   border: 1px solid #ccc;
   padding: 10px;
+  filter: invert(var(--invert));
+}
+
+ul.experience li.experience__item:not(:last-child) {
+  margin-bottom: 30px;
+}
+ul.experience h3.job-position {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+ul.experience h4.company {
+  font-size: 16px;
+  color: var(--text-color);
+}
+.responsibilities {
+  margin-top: 20px;
+}
+.responsibilities h5 {
+  font-size: 16px;
+  margin-bottom: 14px;
+  color: var(--text-color);
+}
+.responsibilities ul {
+  padding-left: 18px;
+}
+.responsibilities li {
+  list-style-type: circle;
+  padding-left: 10px;
+  color: var(--text-color);
+  line-height: 22px;
+  font-size: 16px;
+}
+.responsibilities li:not(:last-child) {
+  margin-bottom: 14px;
+}
+ul.experience h3.job-position small,
+ul.experience h4.company small {
+  color: #696969;
 }
