@@ -44,7 +44,9 @@
         </div>
 
         <div class="header-actions">
-          <button class="header-action-btn action__info">info</button>
+          <button id="info-btn" class="header-action-btn action__info">
+            info
+          </button>
           <button class="header-action-btn action__settings">
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none">
               <path
@@ -270,11 +272,11 @@
 
     <!-- Modal -->
 
-    <div class="modal" style="display: none">
+    <div id="modal" class="modal" style="display: none">
       <div class="modal-container">
         <div class="modal-header">
           <h3>Modal</h3>
-          <button>
+          <button class="modal-close">
             <svg width="26px" height="26px" viewBox="0 0 24 24" fill="none">
               <g>
                 <path
@@ -300,7 +302,7 @@
         </div>
       </div>
     </div>
-    <div class="modal-backdrop" style="display: none"></div>
+    <div id="backdrop" class="modal-backdrop" style="display: none"></div>
 
     <!-- SCRIPTS -->
 

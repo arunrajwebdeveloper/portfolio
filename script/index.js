@@ -68,4 +68,37 @@ window.onload = function () {
   }
 
   // INFO MODAL
+
+  var modal = document.getElementById("modal");
+  const backdrop = document.getElementById("backdrop");
+  var btn = document.getElementById("info-btn");
+  var modalClose = document.getElementsByClassName("modal-close")[0];
+
+  btn.onclick = function () {
+    modal.style.display = "flex";
+    backdrop.style.display = "block";
+  };
+
+  modalClose.onclick = function () {
+    modal.style.display = "none";
+    backdrop.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+      backdrop.style.display = "none";
+    }
+  };
+
+  document.onkeydown = function (e) {
+    switch (e.key) {
+      case "Escape":
+        modal.style.display = "none";
+        backdrop.style.display = "none";
+        break;
+      default:
+        return;
+    }
+  };
 };
