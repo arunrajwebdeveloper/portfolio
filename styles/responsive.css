@@ -2,6 +2,18 @@
   .d-sm-none {
     display: none !important;
   }
+
+  .identity__avatar img.avatar__image {
+    width: 40px;
+    height: 40px;
+  }
+  .identity__info p.identity__name {
+    font-size: 16px;
+  }
+
+  .identity__info p.identity__subtext {
+    font-size: 12px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {

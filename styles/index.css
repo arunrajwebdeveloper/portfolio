@@ -191,7 +191,7 @@ p .bold {
 .header-action-btn.action__theme.active {
   display: none !important;
 }
-.header-action-btn.action__theme svg {
+.header-action-btn svg {
   vertical-align: middle;
 }
 .header-action-btn.action__theme svg.svg-moon path {
@@ -199,6 +199,9 @@ p .bold {
 }
 .header-action-btn.action__theme svg.svg-sun circle,
 .header-action-btn.action__theme svg.svg-sun path {
+  stroke: var(--text-color);
+}
+.header-action-btn.action__speak svg path {
   stroke: var(--text-color);
 }
 .article {
