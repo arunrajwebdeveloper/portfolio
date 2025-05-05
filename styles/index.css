@@ -343,8 +343,9 @@ ul.experience h4.company small {
   right: 0;
   z-index: 500;
   background-color: rgb(90 95 123 / 23%);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  animation: backdropAnimation 300ms ease-out;
 }
 .modal {
   z-index: 510;
@@ -355,7 +356,33 @@ ul.experience h4.company small {
   justify-content: center;
   align-items: flex-start;
   overflow-y: auto;
+  animation: modalAnimation 500ms ease-out;
 }
+
+@keyframes modalAnimation {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+@keyframes backdropAnimation {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 .modal-container {
   background-color: var(--background);
   border-radius: 8px;
