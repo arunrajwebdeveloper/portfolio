@@ -446,3 +446,22 @@ ul.experience h4.company small {
 .modal-content a {
   text-decoration: underline;
 }
+
+/* WORKS */
+
+.work-list-wrap ul.work-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+ul.work-list li.work-list-item {
+  width: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  flex: none;
+}
+ul.work-list li.work-list-item img {
+  max-width: 100%;
+  vertical-align: middle;
+}
