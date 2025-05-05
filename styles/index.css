@@ -38,6 +38,16 @@ button {
   outline: 0 !important;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  cursor: default;
+}
+
 h1.main-title {
   font-size: 100px;
   margin-bottom: 40px;
@@ -65,6 +75,31 @@ p .bold {
 
 .d-none {
   display: none !important;
+}
+
+.cursor-element {
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #f6d309;
+  pointer-events: none;
+  z-index: 6000;
+  transition: transform 0.2s ease;
+}
+
+.cursor-element.hover {
+  transform: scale(1.6);
+}
+
+@media screen and (max-width: 1023px) {
+  .cursor-element {
+    display: none !important;
+  }
 }
 
 .identity__content {
@@ -130,10 +165,14 @@ p .bold {
   cursor: pointer;
   padding: 5px;
 }
-.header-action-btn.action__settings svg {
+.header-action-btn.action__theme svg {
   vertical-align: middle;
 }
-.header-action-btn.action__settings svg path {
+.header-action-btn.action__theme svg.svg-moon path {
+  fill: var(--text-color);
+}
+.header-action-btn.action__theme svg.svg-sun circle,
+.header-action-btn.action__theme svg.svg-sun path {
   stroke: var(--text-color);
 }
 .article {
@@ -239,7 +278,7 @@ ul.experience h4.company small {
 }
 .modal-header h3 {
   color: var(--text-color);
-  font-size: 18px;
+  font-size: 22px;
 }
 .modal-header button {
   border: 0;
@@ -265,4 +304,23 @@ ul.experience h4.company small {
 }
 .modal-content p {
   color: var(--text-color);
+}
+
+.info-item {
+  margin-bottom: 30px;
+}
+.info-item h4 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.modal-content p,
+.modal-content a {
+  color: var(--text-color);
+  font-size: 16px;
+}
+.modal-content p:not(:last-child) {
+  margin-bottom: 16px;
+}
+.modal-content a {
+  text-decoration: underline;
 }

@@ -101,4 +101,39 @@ window.onload = function () {
         return;
     }
   };
+
+  // Cursor
+
+  const CURSOR_DOT_OUTLINE = document.querySelector(".cursor-element");
+
+  let x = 0,
+    y = 0;
+  let endX = 0,
+    endY = 0;
+
+  const animateDotOutline = () => {
+    x += (endX - x) / 8;
+    y += (endY - y) / 8;
+    CURSOR_DOT_OUTLINE.style.top = y + "px";
+    CURSOR_DOT_OUTLINE.style.left = x + "px";
+
+    requestAnimationFrame(animateDotOutline);
+  };
+
+  animateDotOutline();
+
+  document.addEventListener("mousemove", (e) => {
+    endX = e.clientX - CURSOR_DOT_OUTLINE.offsetWidth / 2;
+    endY = e.clientY - CURSOR_DOT_OUTLINE.offsetHeight / 2;
+  });
+
+  document.querySelectorAll("a, button").forEach((interactiveElement) => {
+    interactiveElement.addEventListener("mouseenter", () => {
+      CURSOR_DOT_OUTLINE.classList.add("hover");
+    });
+
+    interactiveElement.addEventListener("mouseleave", () => {
+      CURSOR_DOT_OUTLINE.classList.remove("hover");
+    });
+  });
 };
