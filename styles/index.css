@@ -8,10 +8,13 @@
   --background: #fff;
   --text-color: #000;
   --invert: 0;
+  --yellow: #f6d309;
+  --scroll-bar-color: #f6d309;
 }
 
 body {
   background-color: var(--background);
+  cursor: default;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,9 +25,39 @@ body {
   }
 }
 
+body[data-theme="dark"] {
+  --background: #131315;
+  --text-color: #ededed;
+  --invert: 1;
+}
+
+body[data-theme="light"] {
+  --background: #fff;
+  --text-color: #000;
+  --invert: 0;
+}
+
 ::selection {
-  background-color: #f6d309;
+  background-color: var(--yellow);
   color: black;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-bar-color);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-bar-color);
 }
 
 a {
@@ -36,16 +69,6 @@ li {
 
 button {
   outline: 0 !important;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  cursor: default;
 }
 
 h1.main-title {
@@ -86,7 +109,7 @@ p .bold {
   left: 0;
   border-radius: 50%;
   background-color: transparent;
-  border: 2px solid #f6d309;
+  border: 2px solid var(--yellow);
   pointer-events: none;
   z-index: 6000;
   transition: transform 0.2s ease;
@@ -165,6 +188,9 @@ p .bold {
   cursor: pointer;
   padding: 5px;
 }
+.header-action-btn.action__theme.active {
+  display: none !important;
+}
 .header-action-btn.action__theme svg {
   vertical-align: middle;
 }
@@ -198,21 +224,61 @@ p .bold {
   padding: 10px;
   filter: invert(var(--invert));
 }
-
+ul.experience {
+  margin-left: 6px;
+}
 ul.experience li.experience__item:not(:last-child) {
-  margin-bottom: 30px;
+  padding-bottom: 60px;
+}
+ul.experience li.experience__item {
+  padding-left: 40px;
+  border-left: 1px solid #434343;
+  position: relative;
+  line-height: 1;
+  transition: border-color 0.3s ease;
+}
+ul.experience li.experience__item::after,
+ul.experience li.experience__item::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  left: -10px;
+  top: 0;
+  border-radius: 50%;
+}
+ul.experience li.experience__item::after {
+  background-color: #434343;
+  z-index: 9;
+  left: -8px;
+  top: 2px;
+  transition: transform 0.3s ease;
+}
+ul.experience li.experience__item::before {
+  border: 2px solid #434343;
+  z-index: 10;
+  background-color: var(--background);
+}
+
+/* ul.experience li.experience__item:hover::before {
+  border-color: var(--text-color);
+} */
+ul.experience li.experience__item:hover::after {
+  transform: scale(1.6);
 }
 ul.experience h3.job-position {
-  font-size: 22px;
-  margin-bottom: 5px;
+  font-size: 20px;
+  margin-bottom: 10px;
   color: var(--text-color);
 }
 ul.experience h4.company {
   font-size: 16px;
   color: var(--text-color);
+  font-weight: 400;
 }
 .responsibilities {
-  margin-top: 20px;
+  margin-top: 26px;
 }
 .responsibilities h5 {
   font-size: 16px;
@@ -235,6 +301,7 @@ ul.experience h4.company {
 ul.experience h3.job-position small,
 ul.experience h4.company small {
   color: #696969;
+  font-weight: 500;
 }
 
 /* Modal */
@@ -248,8 +315,9 @@ ul.experience h4.company small {
   bottom: 0;
   right: 0;
   z-index: 500;
-  background-color: #62667d;
-  opacity: 0.3;
+  background-color: rgb(90 95 123 / 23%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 }
 .modal {
   z-index: 510;

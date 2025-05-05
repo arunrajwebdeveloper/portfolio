@@ -74,28 +74,36 @@ window.onload = function () {
   var btn = document.getElementById("info-btn");
   var modalClose = document.getElementsByClassName("modal-close")[0];
 
-  btn.onclick = function () {
+  const onOpenModal = () => {
     modal.style.display = "flex";
     backdrop.style.display = "block";
+    document.body.style.overflow = "hidden";
   };
 
-  modalClose.onclick = function () {
+  const onCloseModal = () => {
     modal.style.display = "none";
     backdrop.style.display = "none";
+    document.body.style.overflow = "";
   };
 
-  window.onclick = function (event) {
+  btn.onclick = () => {
+    onOpenModal();
+  };
+
+  modalClose.onclick = () => {
+    onCloseModal();
+  };
+
+  window.onclick = (event) => {
     if (event.target === modal) {
-      modal.style.display = "none";
-      backdrop.style.display = "none";
+      onCloseModal();
     }
   };
 
-  document.onkeydown = function (e) {
+  document.onkeydown = (e) => {
     switch (e.key) {
       case "Escape":
-        modal.style.display = "none";
-        backdrop.style.display = "none";
+        onCloseModal();
         break;
       default:
         return;
@@ -136,4 +144,32 @@ window.onload = function () {
       CURSOR_DOT_OUTLINE.classList.remove("hover");
     });
   });
+
+  // Theme
+
+  const THEME_BUTTONS = document.querySelectorAll(".action__theme");
+  const DEFAULT_THEME = "light";
+  const SAVED_THEME = localStorage.getItem("portflio-theme") || DEFAULT_THEME;
+
+  document.body.setAttribute("data-theme", SAVED_THEME);
+  highlightActiveButton(SAVED_THEME);
+
+  THEME_BUTTONS.forEach((button) => {
+    button.addEventListener("click", () => {
+      const SELECTED_THEME = button.getAttribute("data-theme");
+      document.body.setAttribute("data-theme", SELECTED_THEME);
+      localStorage.setItem("portflio-theme", SELECTED_THEME);
+      highlightActiveButton(SELECTED_THEME);
+    });
+  });
+
+  function highlightActiveButton(theme) {
+    THEME_BUTTONS.forEach((button) => {
+      if (button.getAttribute("data-theme") === theme) {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
+      }
+    });
+  }
 };
