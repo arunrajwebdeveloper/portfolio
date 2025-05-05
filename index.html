@@ -42,6 +42,26 @@
             </div>
           </div>
         </div>
+
+        <div class="header-actions">
+          <button class="header-action-btn action__info">info</button>
+          <button class="header-action-btn action__settings">
+            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M10.255 4.18806C9.84269 5.17755 8.68655 5.62456 7.71327 5.17535C6.10289 4.4321 4.4321 6.10289 5.17535 7.71327C5.62456 8.68655 5.17755 9.84269 4.18806 10.255C2.63693 10.9013 2.63693 13.0987 4.18806 13.745C5.17755 14.1573 5.62456 15.3135 5.17535 16.2867C4.4321 17.8971 6.10289 19.5679 7.71327 18.8246C8.68655 18.3754 9.84269 18.8224 10.255 19.8119C10.9013 21.3631 13.0987 21.3631 13.745 19.8119C14.1573 18.8224 15.3135 18.3754 16.2867 18.8246C17.8971 19.5679 19.5679 17.8971 18.8246 16.2867C18.3754 15.3135 18.8224 14.1573 19.8119 13.745C21.3631 13.0987 21.3631 10.9013 19.8119 10.255C18.8224 9.84269 18.3754 8.68655 18.8246 7.71327C19.5679 6.10289 17.8971 4.4321 16.2867 5.17535C15.3135 5.62456 14.1573 5.17755 13.745 4.18806C13.0987 2.63693 10.9013 2.63693 10.255 4.18806Z"
+                stroke="#000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
     <section class="main-section">
@@ -49,7 +69,7 @@
         <div class="canvas">
           <!-- Banner -->
           <article class="article landing">
-            <h1 class="main-title">Hey!</h1>
+            <h1 class="main-title">Hello!</h1>
             <p class="sub-text">
               I'm Arun Raj — Software Developer from Kerala, building powerful
               web applications with 10+ years of hands-on experience.
@@ -248,77 +268,42 @@
       <button id="stop">Stop</button>
     </div>
 
+    <!-- Modal -->
+
+    <div class="modal" style="display: none">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Modal</h3>
+          <button>
+            <svg width="26px" height="26px" viewBox="0 0 24 24" fill="none">
+              <g>
+                <path
+                  d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16"
+                  stroke="#000000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop" style="display: none"></div>
+
     <!-- SCRIPTS -->
-    <script>
-      window.onload = function () {
-        if ("speechSynthesis" in window) {
-          const playEle = document.querySelector("#play");
-          const pauseEle = document.querySelector("#pause");
-          const stopEle = document.querySelector("#stop");
-          let flag = false;
-          let utterance;
-          // let voices = [];
 
-          playEle.addEventListener("click", onClickPlay);
-          pauseEle.addEventListener("click", onClickPause);
-          stopEle.addEventListener("click", onClickStop);
-
-          // window.speechSynthesis.onvoiceschanged = () => {
-          //   voices = speechSynthesis.getVoices();
-          // };
-
-          function onClickPlay() {
-            if (!flag) {
-              flag = true;
-              utterance = new SpeechSynthesisUtterance(
-                document.querySelector(".canvas").textContent
-              );
-
-              // utterance.voice = speechSynthesis.getVoices()[4]; // female voice
-              utterance.voice = speechSynthesis.getVoices()[6]; // male voice
-
-              //utterance.voice = voices.find((v) => v.name.includes("Female")) || voices[0];
-              utterance.rate = 1; // Speed of speech
-              utterance.pitch = 1; // Pitch of speech
-              utterance.volume = 1; // Volume of speech
-              utterance.onend = function () {
-                flag = false;
-                playEle.className = pauseEle.className = "";
-                stopEle.className = "stopped";
-              };
-              playEle.className = "played";
-              stopEle.className = "";
-              speechSynthesis.speak(utterance);
-            }
-            if (speechSynthesis.paused) {
-              playEle.className = "played";
-              pauseEle.className = "";
-              speechSynthesis.resume();
-            }
-          }
-
-          function onClickPause() {
-            if (speechSynthesis.speaking && !speechSynthesis.paused) {
-              pauseEle.className = "paused";
-              playEle.className = "";
-              speechSynthesis.pause();
-            }
-          }
-
-          function onClickStop() {
-            if (speechSynthesis.speaking) {
-              stopEle.className = "stopped";
-              playEle.className = pauseEle.className = "";
-              flag = false;
-              speechSynthesis.cancel();
-            }
-          }
-        } else {
-          console.log("Detected no support for Speech Synthesis");
-        }
-      };
-    </script>
-
-    <!-- <script src="./script/index.js"></script> -->
+    <script src="./script/index.js"></script>
   </body>
 </html>
