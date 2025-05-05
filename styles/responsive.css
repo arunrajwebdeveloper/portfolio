@@ -25,7 +25,7 @@
 @media screen and (min-width: 768px) {
   .canvas,
   .header__content {
-    max-width: 600px;
+    max-width: 680px;
   }
 
   .article__content .skills-list {

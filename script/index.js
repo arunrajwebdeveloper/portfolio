@@ -1,70 +1,94 @@
 window.onload = function () {
-  // SPEACH
+  // Lenis
+
+  const lenis = new Lenis({ duration: 2 });
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Speak
 
   if ("speechSynthesis" in window) {
-    const playEle = document.querySelector("#play");
-    const pauseEle = document.querySelector("#pause");
-    const stopEle = document.querySelector("#stop");
+    const speakButton = document.getElementById("speak-btn");
     let flag = false;
     let utterance;
-    // let voices = [];
+    let voices = [];
 
-    playEle.addEventListener("click", onClickPlay);
-    pauseEle.addEventListener("click", onClickPause);
-    stopEle.addEventListener("click", onClickStop);
-
-    // window.speechSynthesis.onvoiceschanged = () => {
-    //   voices = speechSynthesis.getVoices();
-    // };
-
-    function onClickPlay() {
-      if (!flag) {
-        flag = true;
-        utterance = new SpeechSynthesisUtterance(
-          document.querySelector(".canvas").textContent
-        );
-
-        // utterance.voice = speechSynthesis.getVoices()[4]; // female voice
-        utterance.voice = speechSynthesis.getVoices()[6]; // male voice
-
-        //utterance.voice = voices.find((v) => v.name.includes("Female")) || voices[0];
-        utterance.rate = 1; // Speed of speech
-        utterance.pitch = 1; // Pitch of speech
-        utterance.volume = 1; // Volume of speech
-        utterance.onend = function () {
-          flag = false;
-          playEle.className = pauseEle.className = "";
-          stopEle.className = "stopped";
-        };
-        playEle.className = "played";
-        stopEle.className = "";
-        speechSynthesis.speak(utterance);
-      }
-      if (speechSynthesis.paused) {
-        playEle.className = "played";
-        pauseEle.className = "";
-        speechSynthesis.resume();
-      }
+    function loadVoices() {
+      return new Promise((resolve) => {
+        const interval = setInterval(() => {
+          voices = speechSynthesis.getVoices();
+          if (voices.length > 0) {
+            clearInterval(interval);
+            resolve(voices);
+          }
+        }, 100);
+      });
     }
 
-    function onClickPause() {
-      if (speechSynthesis.speaking && !speechSynthesis.paused) {
-        pauseEle.className = "paused";
-        playEle.className = "";
-        speechSynthesis.pause();
-      }
+    function pickVoice(voice = "male") {
+      const soundList = {
+        male: ["male", "david", "alex", "mark", "fred"],
+        female: ["female", "zira", "samantha", "victoria", "karen"],
+      }[voice];
+
+      const match = voices.find((v) =>
+        soundList?.some((keyword) => v.name.toLowerCase().includes(keyword))
+      );
+
+      return match || voices[0];
     }
 
-    function onClickStop() {
+    loadVoices().then((loadedVoices) => {
+      voices = loadedVoices;
+
+      speakButton.addEventListener("click", () => {
+        if (!flag) {
+          handleStartSpeak();
+        } else {
+          handleStopSpeak();
+        }
+      });
+    });
+
+    function handleStartSpeak() {
+      flag = true;
+
+      utterance = new SpeechSynthesisUtterance(
+        document.querySelector(".canvas").textContent
+      );
+
+      // female / male / default: male
+      utterance.voice = pickVoice();
+
+      utterance.rate = 1;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+
+      utterance.onend = function () {
+        flag = false;
+        speakButton.classList.add("stopped");
+        speakButton.classList.remove("playing");
+      };
+
+      speakButton.classList.add("playing");
+      speakButton.classList.remove("stopped");
+
+      speechSynthesis.speak(utterance);
+    }
+
+    function handleStopSpeak() {
       if (speechSynthesis.speaking) {
-        stopEle.className = "stopped";
-        playEle.className = pauseEle.className = "";
         flag = false;
         speechSynthesis.cancel();
+        speakButton.classList.add("stopped");
+        speakButton.classList.remove("playing");
       }
     }
   } else {
-    console.log("Detected no support for Speech Synthesis");
+    console.log("Speech Synthesis not supported.");
   }
 
   // INFO MODAL
