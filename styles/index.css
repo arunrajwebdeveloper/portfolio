@@ -247,6 +247,7 @@ p .bold {
   border: 1px solid #ccc;
   padding: 10px;
   filter: invert(var(--invert));
+  border-radius: 5px;
 }
 ul.experience {
   margin-left: 6px;
