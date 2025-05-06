@@ -118,6 +118,7 @@ window.onload = function () {
     modal.style.display = "flex";
     backdrop.style.display = "block";
     document.body.style.overflow = "hidden";
+    lenis.stop();
   };
 
   const onCloseModal = () => {
@@ -130,6 +131,7 @@ window.onload = function () {
       modal.style.display = "none";
       backdrop.style.display = "none";
       document.body.style.overflow = "";
+      lenis.start();
     }, 500);
   };
 
