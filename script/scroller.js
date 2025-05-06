@@ -1,3 +1,5 @@
+// source: https://codepen.io/samwong/pen/xxJMaMP
+
 window.addEventListener("load", () => {
   const COMPONENT_SELECTOR = ".carousel__wrapper";
   const CONTROLS_SELECTOR = ".carousel__controls";
