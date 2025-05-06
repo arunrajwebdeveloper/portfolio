@@ -256,7 +256,7 @@ ul.experience li.experience__item:not(:last-child) {
   padding-bottom: 60px;
 }
 ul.experience li.experience__item {
-  padding-left: 40px;
+  padding-left: 30px;
   border-left: 1px solid #434343;
   position: relative;
   line-height: 1;
@@ -486,10 +486,10 @@ button.arrow-prev {
   height: 30px;
 }
 button.arrow-next {
-  right: -30px;
+  right: -50px;
 }
 button.arrow-prev {
-  left: -30px;
+  left: -50px;
 }
 button.arrow-next:not(.disabled),
 button.arrow-prev:not(.disabled) {
