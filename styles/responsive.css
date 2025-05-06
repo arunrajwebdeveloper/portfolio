@@ -21,6 +21,10 @@
   ul.work-list li.work-list-item:last-child {
     margin-right: 20px;
   }
+
+  .carousel__controls {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -40,15 +44,4 @@
   .article__header h3 {
     font-size: 32px;
   }
-
-  /* .work-list-wrap ul.work-list {
-    gap: 40px 20px;
-    flex-wrap: wrap;
-    overflow: hidden;
-    padding-bottom: 0;
-  }
-  ul.work-list li.work-list-item {
-    width: calc(50% - 10px);
-    flex: auto;
-  } */
 }

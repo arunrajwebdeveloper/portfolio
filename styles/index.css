@@ -64,8 +64,8 @@ body[data-theme="light"] {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 2px;
+  height: 2px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
@@ -470,11 +470,43 @@ ul.experience h4.company small {
   color: var(--text-color);
   text-decoration: underline;
 }
+.work-list-wrap {
+  position: relative;
+}
+button.arrow-next,
+button.arrow-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  background-color: transparent;
+  border: 0;
+  font-size: 0;
+  width: 30px;
+  height: 30px;
+}
+button.arrow-next {
+  right: -30px;
+}
+button.arrow-prev {
+  left: -30px;
+}
+button.arrow-next:not(.disabled),
+button.arrow-prev:not(.disabled) {
+  cursor: pointer;
+}
+button.arrow-next.disabled,
+button.arrow-prev.disabled {
+  cursor: not-allowed;
+  opacity: 0.5 !important;
+}
 .work-list-wrap ul.work-list {
   display: flex;
   gap: 20px;
   overflow-x: auto;
   padding-bottom: 10px;
+  cursor: grab;
+  user-select: none;
 }
 ul.work-list li.work-list-item {
   width: 300px;
@@ -485,6 +517,8 @@ ul.work-list li.work-list-item {
 ul.work-list li.work-list-item img {
   max-width: 100%;
   vertical-align: middle;
+  user-select: none;
+  pointer-events: none;
 }
 
 /* FOOTER */
