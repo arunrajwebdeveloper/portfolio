@@ -210,4 +210,33 @@ window.onload = function () {
       }
     });
   }
+
+  // Scroll to top
+
+  // const toTop = document.querySelector(".to-top");
+
+  // const displayButton = () => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.scrollY > 100) {
+  //       toTop.classList.remove("hide");
+  //       toTop.classList.add("show");
+  //     } else {
+  //       toTop.classList.remove("show");
+  //       toTop.classList.add("hide");
+  //     }
+  //   });
+  // };
+
+  // const scrollToTop = () => {
+  //   toTop.addEventListener("click", () => {
+  //     window.scroll({
+  //       top: 0,
+  //       left: 0,
+  //       behavior: "smooth",
+  //     });
+  //   });
+  // };
+
+  // displayButton();
+  // scrollToTop();
 };
