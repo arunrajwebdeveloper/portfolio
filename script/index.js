@@ -102,30 +102,39 @@ window.onload = function () {
 
   // INFO MODAL
 
-  var modal = document.getElementById("modal");
+  const modal = document.getElementById("modal");
   const backdrop = document.getElementById("backdrop");
-  var btn = document.getElementById("info-btn");
-  var modalClose = document.getElementsByClassName("modal-close")[0];
+  const btn = document.getElementById("info-btn");
+  const modalClose = document.getElementsByClassName("modal-close")[0];
+
+  let closeTimeoutId = null;
 
   const onOpenModal = () => {
+    clearTimeout(closeTimeoutId);
+    modal.classList.remove("hide");
+    modal.classList.add("show");
+    backdrop.classList.remove("hide");
+    backdrop.classList.add("show");
     modal.style.display = "flex";
     backdrop.style.display = "block";
     document.body.style.overflow = "hidden";
   };
 
   const onCloseModal = () => {
-    modal.style.display = "none";
-    backdrop.style.display = "none";
-    document.body.style.overflow = "";
+    modal.classList.remove("show");
+    modal.classList.add("hide");
+    backdrop.classList.remove("show");
+    backdrop.classList.add("hide");
+
+    closeTimeoutId = setTimeout(() => {
+      modal.style.display = "none";
+      backdrop.style.display = "none";
+      document.body.style.overflow = "";
+    }, 500);
   };
 
-  btn.onclick = () => {
-    onOpenModal();
-  };
-
-  modalClose.onclick = () => {
-    onCloseModal();
-  };
+  btn.onclick = () => onOpenModal();
+  modalClose.onclick = () => onCloseModal();
 
   window.onclick = (event) => {
     if (event.target === modal) {
@@ -134,12 +143,8 @@ window.onload = function () {
   };
 
   document.onkeydown = (e) => {
-    switch (e.key) {
-      case "Escape":
-        onCloseModal();
-        break;
-      default:
-        return;
+    if (e.key === "Escape") {
+      onCloseModal();
     }
   };
 

@@ -5,11 +5,10 @@
 }
 
 :root {
-  --background: #fff;
+  --background: #eff5f0;
   --text-color: #000;
   --invert: 0;
   --yellow: #f6d309;
-  /* --scroll-bar-color: #f6d309; */
   --scroll-bar-color: #414141;
 }
 
@@ -52,7 +51,7 @@ body[data-theme="dark"] {
 }
 
 body[data-theme="light"] {
-  --background: #fff;
+  --background: #eff5f0;
   --text-color: #000;
   --invert: 0;
 }
@@ -176,7 +175,7 @@ p .bold {
 }
 
 .header {
-  padding: 20px 0;
+  padding: 10px 0;
   position: sticky;
   top: 0;
   left: 0;
@@ -351,10 +350,23 @@ ul.experience h4.company small {
   justify-content: center;
   align-items: flex-start;
   overflow-y: auto;
-  animation: modalAnimation 500ms ease-out;
 }
 
-@keyframes modalAnimation {
+.modal.show {
+  animation: modalShowAnimation 500ms ease-out;
+}
+.modal.hide {
+  animation: modalHideAnimation 500ms ease-out;
+}
+
+.modal-backdrop.show {
+  animation: backdropShowAnimation 500ms ease-out;
+}
+.modal-backdrop.hide {
+  animation: backdropHideAnimation 500ms ease-out;
+}
+
+@keyframes modalShowAnimation {
   from {
     opacity: 0;
     visibility: hidden;
@@ -367,7 +379,20 @@ ul.experience h4.company small {
   }
 }
 
-@keyframes backdropAnimation {
+@keyframes modalHideAnimation {
+  from {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes backdropShowAnimation {
   from {
     opacity: 0;
     visibility: hidden;
@@ -375,6 +400,17 @@ ul.experience h4.company small {
   to {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+@keyframes backdropHideAnimation {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
