@@ -22,8 +22,9 @@
     margin-right: 20px;
   }
 
-  .carousel__controls {
-    display: none;
+  .carousel__controls,
+  .progress-circle-container {
+    display: none !important;
   }
 }
 

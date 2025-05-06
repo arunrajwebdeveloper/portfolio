@@ -215,30 +215,29 @@ window.onload = function () {
 
   // Scroll to top
 
-  // const toTop = document.querySelector(".to-top");
+  function updateProgressCircle() {
+    const progressElement = document.querySelector(".progress-circle-bar");
+    const scrollToTopElement = document.querySelector(".scroll-to-top");
+    const totalHeight = document.body.scrollHeight - window.innerHeight;
+    let progress = (window.pageYOffset / totalHeight) * 283;
+    progress = Math.min(progress, 283);
+    progressElement.style.strokeDashoffset = 283 - progress;
 
-  // const displayButton = () => {
-  //   window.addEventListener("scroll", () => {
-  //     if (window.scrollY > 100) {
-  //       toTop.classList.remove("hide");
-  //       toTop.classList.add("show");
-  //     } else {
-  //       toTop.classList.remove("show");
-  //       toTop.classList.add("hide");
-  //     }
-  //   });
-  // };
+    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+      scrollToTopElement.style.opacity = "1";
+    } else {
+      scrollToTopElement.style.opacity = "0";
+    }
+  }
 
-  // const scrollToTop = () => {
-  //   toTop.addEventListener("click", () => {
-  //     window.scroll({
-  //       top: 0,
-  //       left: 0,
-  //       behavior: "smooth",
-  //     });
-  //   });
-  // };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
-  // displayButton();
-  // scrollToTop();
+  const scrollToTopElement = document.querySelector(".scroll-to-top");
+  scrollToTopElement.addEventListener("click", scrollToTop);
+
+  updateProgressCircle();
+  window.addEventListener("scroll", updateProgressCircle);
+  window.addEventListener("resize", updateProgressCircle);
 };

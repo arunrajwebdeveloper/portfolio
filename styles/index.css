@@ -623,28 +623,54 @@ svg.heart-footer {
   }
 }
 
-/* .to-top {
-  width: 40px;
-  height: 40px;
+/* Progress */
+
+.progress-circle-container {
   position: fixed;
-  right: 0;
-  bottom: 0;
-  background-color: var(--text-color);
-  z-index: 50;
+  bottom: 10px;
+  right: 10px;
+  z-index: 400;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.to-top svg path {
-  fill: var(--background);
+.progress-circle {
+  width: 40px;
+  height: 40px;
 }
-
-.to-top.show {
-  opacity: 1;
-  visibility: visible;
+.progress-circle-bar {
+  fill: none;
+  stroke: var(--text-color);
+  stroke-width: 5;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  transition: stroke-dashoffset 0.3s ease;
 }
-.to-top.hide {
+.progress-background {
+  fill: transparent;
+  stroke: var(--background);
+  stroke-width: 5;
+  stroke-dasharray: none;
+}
+.scroll-to-top {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
-  visibility: hidden;
-} */
+}
+.scroll-to-top svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  stroke: var(--background);
+  transition: all 0.1s ease;
+}
