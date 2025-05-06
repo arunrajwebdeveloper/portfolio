@@ -41,7 +41,7 @@
     font-size: 32px;
   }
 
-  .work-list-wrap ul.work-list {
+  /* .work-list-wrap ul.work-list {
     gap: 40px 20px;
     flex-wrap: wrap;
     overflow: hidden;
@@ -50,5 +50,5 @@
   ul.work-list li.work-list-item {
     width: calc(50% - 10px);
     flex: auto;
-  }
+  } */
 }

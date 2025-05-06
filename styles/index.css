@@ -9,7 +9,8 @@
   --text-color: #000;
   --invert: 0;
   --yellow: #f6d309;
-  --scroll-bar-color: #f6d309;
+  /* --scroll-bar-color: #f6d309; */
+  --scroll-bar-color: #414141;
 }
 
 body {
@@ -17,13 +18,13 @@ body {
   cursor: default;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #131315;
     --text-color: #ededed;
     --invert: 1;
   }
-}
+} */
 
 html.lenis,
 html.lenis body {
@@ -63,8 +64,8 @@ body[data-theme="light"] {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
+  width: 5px;
+  height: 5px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
@@ -243,7 +244,7 @@ p .bold {
 }
 .article__content .skills-list img {
   aspect-ratio: 1;
-  width: calc(33.33333% - 15px);
+  width: calc(25% - 15px);
   border: 1px solid #ccc;
   padding: 10px;
   filter: invert(var(--invert));
@@ -444,6 +445,31 @@ ul.experience h4.company small {
 
 /* WORKS */
 
+.work-list-group:not(:last-child) {
+  margin-bottom: 40px;
+}
+.work-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.work-list-header p.work-title {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 600;
+}
+.work-links {
+  display: flex;
+  gap: 12px;
+}
+.work-links a {
+  display: inline-block;
+  padding: 2px 5px;
+  font-size: 14px;
+  color: var(--text-color);
+  text-decoration: underline;
+}
 .work-list-wrap ul.work-list {
   display: flex;
   gap: 20px;
@@ -451,7 +477,7 @@ ul.experience h4.company small {
   padding-bottom: 10px;
 }
 ul.work-list li.work-list-item {
-  width: 360px;
+  width: 300px;
   overflow: hidden;
   border-radius: 8px;
   flex: none;
@@ -461,9 +487,11 @@ ul.work-list li.work-list-item img {
   vertical-align: middle;
 }
 
+/* FOOTER */
+
 footer.footer {
   background-color: #8c83a51c;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 
 .footer-content {

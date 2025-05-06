@@ -175,7 +175,8 @@
             <h1 class="main-title">Hello!</h1>
             <p class="sub-text">
               I'm Arun Raj — Software Developer from Kerala, building powerful
-              web applications with 10+ years of hands-on experience.
+              web applications with <span id="experience-years"></span>+ years
+              of hands-on experience.
             </p>
             <p class="text">
               I'm a passionate software developer with over a decade of
@@ -361,37 +362,97 @@
               <h3>Works</h3>
             </div>
             <div class="article__content">
-              <div class="work-list-wrap">
-                <ul class="work-list">
-                  <li class="work-list-item">
-                    <img
-                      src="./images/works/watch-store/2.jpg"
-                      alt="watch store screenshot"
-                      loading="lazy"
-                    />
-                  </li>
-                  <li class="work-list-item">
-                    <img
-                      src="./images/works/photography-portfolio/1.jpg"
-                      alt="Photoraphy portfolio screenshot"
-                      loading="lazy"
-                    />
-                  </li>
-                  <li class="work-list-item">
-                    <img
-                      src="./images/works/photography-portfolio/2.jpg"
-                      alt="Photoraphy portfolio screenshot"
-                      loading="lazy"
-                    />
-                  </li>
-                  <li class="work-list-item">
-                    <img
-                      src="./images/works/watch-store/3.jpg"
-                      alt="watch store screenshot"
-                      loading="lazy"
-                    />
-                  </li>
-                </ul>
+              <div class="work-list-group carousel__wrapper">
+                <div class="work-list-header">
+                  <p class="work-title">Watch store</p>
+                  <div class="work-links">
+                    <a target="_blank" href="">github</a>
+                    <a target="_blank" href="">demo</a>
+                  </div>
+                </div>
+                <div class="work-list-wrap">
+                  <button class="arrow-next">Next</button>
+                  <button class="arrow-prev">Prev</button>
+                  <ul class="work-list carousel__content">
+                    <li class="work-list-item">
+                      <img
+                        src="./images/works/watch-store/1.jpg"
+                        alt="watch store signin screenshot"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li class="work-list-item">
+                      <img
+                        src="./images/works/watch-store/2.jpg"
+                        alt="watch store create account screenshot"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li class="work-list-item">
+                      <img
+                        src="./images/works/watch-store/3.jpg"
+                        alt="watch store home page screenshot"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li class="work-list-item">
+                      <img
+                        src="./images/works/watch-store/4.jpg"
+                        alt="watch store products list screenshot"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li class="work-list-item">
+                      <img
+                        src="./images/works/watch-store/5.jpg"
+                        alt="watch store product page screenshot"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li class="work-list-item">
+                      <img
+                        src="./images/works/watch-store/6.jpg"
+                        alt="watch store cart screenshot"
+                        loading="lazy"
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="work-list-group">
+                <div class="work-list-header">
+                  <p class="work-title">Photography</p>
+                  <div class="work-links">
+                    <a target="_blank" href="">github</a>
+                    <a target="_blank" href="">demo</a>
+                  </div>
+                </div>
+                <div class="work-list-wrap">
+                  <ul class="work-list">
+                    <li class="work-list-item">
+                      <img
+                        src="./images/works/photography-portfolio/1.jpg"
+                        alt="photography home screenshot"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li class="work-list-item">
+                      <img
+                        src="./images/works/photography-portfolio/2.jpg"
+                        alt="photography gallery screenshot"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li class="work-list-item">
+                      <img
+                        src="./images/works/photography-portfolio/3.jpg"
+                        alt="photography about screenshot"
+                        loading="lazy"
+                      />
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </article>
@@ -480,6 +541,7 @@
 
     <!-- SCRIPTS -->
     <script src="./script/lenis.min.js"></script>
+    <script src="./script/scroller.js"></script>
     <script src="./script/index.js"></script>
   </body>
 </html>

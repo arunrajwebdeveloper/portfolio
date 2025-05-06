@@ -1,12 +1,21 @@
 window.onload = function () {
   // Lenis
 
-  const lenis = new Lenis({ duration: 2 });
+  const lenis = new Lenis({ duration: 2, allowNestedScroll: true });
   function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
+
+  // Experience year
+
+  const joiningDate = new Date("2015-02-01");
+  const today = new Date();
+  const diffInYears = today.getFullYear() - joiningDate.getFullYear();
+  const monthDifference = today.getMonth() - joiningDate.getMonth();
+  const yearsOfExperience = monthDifference < 0 ? diffInYears - 1 : diffInYears;
+  document.getElementById("experience-years").textContent = yearsOfExperience;
 
   // Speak
 
