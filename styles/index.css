@@ -527,6 +527,11 @@ button.arrow-next {
 button.arrow-prev {
   left: -50px;
 }
+
+button.arrow-next svg path,
+button.arrow-prev svg path {
+  fill: var(--text-color) !important;
+}
 button.arrow-next:not(.disabled),
 button.arrow-prev:not(.disabled) {
   cursor: pointer;
