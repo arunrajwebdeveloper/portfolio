@@ -223,7 +223,10 @@ window.onload = function () {
     progress = Math.min(progress, 283);
     progressElement.style.strokeDashoffset = 283 - progress;
 
-    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+    if (
+      window.innerHeight + window.pageYOffset >=
+      document.body.offsetHeight - 300
+    ) {
       scrollToTopElement.style.opacity = "1";
     } else {
       scrollToTopElement.style.opacity = "0";
