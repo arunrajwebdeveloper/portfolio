@@ -177,7 +177,7 @@ p .bold {
 
 .header {
   padding: 10px 0;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
