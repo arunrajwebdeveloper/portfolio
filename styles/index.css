@@ -242,6 +242,8 @@ p .bold {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  user-select: none;
+  pointer-events: none;
 }
 .article__content .skills-list img {
   aspect-ratio: 1;
@@ -250,6 +252,8 @@ p .bold {
   padding: 10px;
   filter: invert(var(--invert));
   border-radius: 5px;
+  user-select: none;
+  pointer-events: none;
 }
 ul.experience {
   margin-left: 6px;
