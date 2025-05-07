@@ -15,6 +15,7 @@
 body {
   background-color: var(--background);
   cursor: default;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -182,6 +183,7 @@ p .bold {
   width: 100%;
   background-color: var(--background);
   z-index: 200;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header__content {
@@ -661,12 +663,12 @@ svg.heart-footer {
   background-color: var(--text-color);
   border-radius: 50%;
   cursor: pointer;
-  transition: opacity 0.3s ease;
   z-index: 9998;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 .scroll-to-top svg {
   display: block;
