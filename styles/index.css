@@ -686,3 +686,19 @@ svg.heart-footer {
   stroke: var(--background);
   transition: all 0.1s ease;
 }
+
+.pdf-canvas {
+  margin: auto;
+  max-width: 680px;
+  width: 100%;
+  padding: 30px 20px;
+  display: block;
+}
+.resume-link {
+  margin-top: 30px;
+}
+.resume-link a {
+  font-size: 16px;
+  color: var(--text-color);
+  text-decoration: underline;
+}
