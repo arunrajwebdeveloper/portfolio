@@ -49,9 +49,13 @@
         </div>
 
         <div class="header-actions">
-          <button class="header-action-btn action__download-resume">
+          <a
+            download
+            href="./documents/git-cheat-sheet-education.pdf"
+            class="header-action-btn action__download-resume"
+          >
             Download resume
-          </button>
+          </a>
         </div>
       </div>
     </header>
@@ -68,7 +72,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
     <script type="text/javascript">
       window.onload = function () {
-        const url = "/documents/git-cheat-sheet-education.pdf";
+        const url = "/portfolio/documents/git-cheat-sheet-education.pdf";
 
         const container = document.getElementById("pdf-canvas");
 
