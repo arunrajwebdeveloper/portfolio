@@ -62,6 +62,18 @@
     <section class="main-section">
       <main class="main">
         <div class="canvas">
+          <div style="height: 30px"></div>
+          <div
+            id="pdf-loader"
+            style="
+              text-align: center;
+              padding: 40px;
+              font-size: 16px;
+              color: #555;
+            "
+          >
+            Loading PDF...
+          </div>
           <div class="pdf-canvas" id="pdf-canvas"></div>
         </div>
       </main>
@@ -70,34 +82,53 @@
     <!-- SCRIPTS -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
-    <script type="text/javascript">
+    <script>
       window.onload = function () {
         const url = "/portfolio/documents/git-cheat-sheet-education.pdf";
-
         const container = document.getElementById("pdf-canvas");
+        const loader = document.getElementById("pdf-loader");
 
-        pdfjsLib.getDocument(url).promise.then((pdf) => {
-          for (let i = 1; i <= pdf.numPages; i++) {
-            pdf.getPage(i).then((page) => {
-              const viewport = page.getViewport({ scale: 1 });
-              const canvas = document.createElement("canvas");
-              canvas.style.display = "block";
-              canvas.style.margin = "auto";
-              canvas.style.width = "100%";
+        // Clear existing content and show loader
+        container.innerHTML = "";
+        loader.style.display = "block";
 
-              const context = canvas.getContext("2d");
-              canvas.height = viewport.height;
-              canvas.width = viewport.width;
+        pdfjsLib
+          .getDocument(url)
+          .promise.then((pdf) => {
+            const renderTasks = [];
 
-              container.appendChild(canvas);
+            for (let i = 1; i <= pdf.numPages; i++) {
+              renderTasks.push(
+                pdf.getPage(i).then((page) => {
+                  const viewport = page.getViewport({ scale: 1 });
+                  const canvas = document.createElement("canvas");
+                  canvas.style.display = "block";
+                  canvas.style.margin = "20px auto";
+                  canvas.style.width = "100%";
 
-              page.render({
-                canvasContext: context,
-                viewport: viewport,
-              });
+                  const context = canvas.getContext("2d");
+                  canvas.height = viewport.height;
+                  canvas.width = viewport.width;
+
+                  container.appendChild(canvas);
+
+                  return page.render({
+                    canvasContext: context,
+                    viewport: viewport,
+                  }).promise;
+                })
+              );
+            }
+
+            // Hide loader when all pages are rendered
+            Promise.all(renderTasks).then(() => {
+              loader.style.display = "none";
             });
-          }
-        });
+          })
+          .catch((err) => {
+            loader.innerText = "Failed to load PDF.";
+            console.error("PDF load error:", err);
+          });
       };
     </script>
   </body>
