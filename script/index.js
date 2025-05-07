@@ -243,4 +243,32 @@ window.onload = function () {
   updateProgressCircle();
   window.addEventListener("scroll", updateProgressCircle);
   window.addEventListener("resize", updateProgressCircle);
+
+  // PDF viewer
+
+  const url = "/documents/git-cheat-sheet-education.pdf";
+  const container = document.getElementById("pdfViewer");
+  if (container) {
+    pdfjsLib.getDocument(url).promise.then((pdf) => {
+      for (let i = 1; i <= pdf.numPages; i++) {
+        pdf.getPage(i).then((page) => {
+          const viewport = page.getViewport({ scale: 1.5 });
+          const canvas = document.createElement("canvas");
+          canvas.style.display = "block";
+          canvas.style.margin = "0 auto 20px";
+
+          const context = canvas.getContext("2d");
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          container.appendChild(canvas);
+
+          page.render({
+            canvasContext: context,
+            viewport: viewport,
+          });
+        });
+      }
+    });
+  }
 };
