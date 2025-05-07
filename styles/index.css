@@ -226,6 +226,11 @@ p .bold {
 .header-action-btn.action__speak:not(.playing) svg.stop-speak {
   display: none;
 }
+
+section.main-section {
+  margin-top: 60px;
+}
+
 .article {
   padding-top: 40px;
   padding-bottom: 40px;
