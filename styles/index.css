@@ -707,3 +707,9 @@ svg.heart-footer {
   text-decoration: underline;
   font-weight: 800;
 }
+.pdf-loader {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #555;
+}
