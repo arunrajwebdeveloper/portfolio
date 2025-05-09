@@ -217,7 +217,7 @@ window.onload = function () {
     function startSpeaking(text) {
       isSpeaking = true;
 
-      utterance = new SpeechSynthesisUtterance(text);
+      utterance = new SpeechSynthesisUtterance("Hello world");
       utterance.voice = pickVoice(); // or pickVoice("female")
       utterance.rate = 1;
       utterance.pitch = 1;
