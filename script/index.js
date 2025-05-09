@@ -152,18 +152,36 @@ window.onload = function () {
 
     // Pick voice by gender
     function pickVoice(gender = "male") {
-      const soundList = {
-        male: ["male", "david", "alex", "mark", "fred"],
-        female: ["female", "zira", "samantha", "victoria", "karen"],
-      }[gender];
+      const maleKeywords = ["male", "david", "alex", "mark", "fred", "daniel"];
+      const femaleKeywords = [
+        "female",
+        "zira",
+        "samantha",
+        "victoria",
+        "karen",
+        "moira",
+      ];
 
-      return (
-        voices.find((v) =>
-          soundList?.some((keyword) => v.name.toLowerCase().includes(keyword))
-        ) ||
-        voices[0] ||
-        null
+      const keywordList = gender === "female" ? femaleKeywords : maleKeywords;
+
+      // Try matching by name first (case-insensitive)
+      let voice = voices.find((v) =>
+        keywordList.some((k) => v.name.toLowerCase().includes(k.toLowerCase()))
       );
+
+      // If no match, try Google voices often available on mobile
+      if (!voice) {
+        voice = voices.find(
+          (v) =>
+            v.name.toLowerCase().includes("google") &&
+            (gender === "female"
+              ? v.name.toLowerCase().includes("female")
+              : !v.name.toLowerCase().includes("female"))
+        );
+      }
+
+      // Fallback to first available voice
+      return voice || voices[0] || null;
     }
 
     // Ensure voices are loaded
