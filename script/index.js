@@ -19,117 +19,130 @@ window.onload = function () {
 
   // Speak
 
-  if ("speechSynthesis" in window) {
-    const speakButton = document.getElementById("speak-btn");
-    let flag = false;
-    let utterance;
-    let voices = [];
+  // if ("speechSynthesis" in window) {
+  //   const speakButton = document.getElementById("speak-btn");
+  //   let flag = false;
+  //   let utterance;
+  //   let voices = [];
 
-    function loadVoices() {
-      return new Promise((resolve) => {
-        const interval = setInterval(() => {
-          voices = speechSynthesis.getVoices();
-          if (voices.length > 0) {
-            clearInterval(interval);
-            resolve(voices);
-          }
-        }, 100);
-      });
-    }
+  //   function loadVoices() {
+  //     return new Promise((resolve) => {
+  //       const interval = setInterval(() => {
+  //         voices = speechSynthesis.getVoices();
+  //         if (voices.length > 0) {
+  //           clearInterval(interval);
+  //           resolve(voices);
+  //         }
+  //       }, 100);
+  //     });
+  //   }
 
-    function pickVoice(gender = "male") {
-      const soundList = {
-        male: ["male", "david", "alex", "mark", "fred"],
-        female: ["female", "zira", "samantha", "victoria", "karen"],
-      }[gender];
+  //   function pickVoice(gender = "male") {
+  //     const soundList = {
+  //       male: ["male", "david", "alex", "mark", "fred"],
+  //       female: ["female", "zira", "samantha", "victoria", "karen"],
+  //     }[gender];
 
-      const match = voices.find((v) =>
-        soundList?.some((keyword) => v.name.toLowerCase().includes(keyword))
-      );
+  //     const match = voices.find((v) =>
+  //       soundList?.some((keyword) => v.name.toLowerCase().includes(keyword))
+  //     );
 
-      return match || voices[0] || null;
-    }
+  //     return match || voices[0] || null;
+  //   }
 
-    async function ensureVoicesLoaded() {
-      voices = speechSynthesis.getVoices();
-      if (!voices.length) {
-        voices = await loadVoices();
-      }
-    }
+  //   async function ensureVoicesLoaded() {
+  //     voices = speechSynthesis.getVoices();
+  //     if (!voices.length) {
+  //       voices = await loadVoices();
+  //     }
+  //   }
 
-    async function initialize() {
-      await ensureVoicesLoaded();
+  //   async function initialize() {
+  //     await ensureVoicesLoaded();
 
-      if (!voices.length) {
-        speakButton.style.display = "none";
-        console.warn("No speech synthesis voices available.");
-        return;
-      }
+  //     if (!voices.length) {
+  //       speakButton.style.display = "none";
+  //       console.warn("No speech synthesis voices available.");
+  //       return;
+  //     }
 
-      speakButton.addEventListener("click", async () => {
-        if (!voices.length) {
-          await ensureVoicesLoaded();
-        }
+  //     speakButton.addEventListener("click", async () => {
+  //       if (!voices.length) {
+  //         await ensureVoicesLoaded();
+  //       }
 
-        if (!flag) {
-          handleStartSpeak();
-        } else {
-          handleStopSpeak();
-        }
-      });
-    }
+  //       if (!flag) {
+  //         handleStartSpeak();
+  //       } else {
+  //         handleStopSpeak();
+  //       }
+  //     });
+  //   }
 
-    function handleStartSpeak() {
-      flag = true;
+  //   function handleStartSpeak() {
+  //     flag = true;
 
-      const text = document.querySelector(".canvas")?.textContent?.trim();
-      if (!text) {
-        console.warn("No content to speak");
-        return;
-      }
+  //     const text = document.querySelector(".canvas")?.textContent?.trim();
+  //     if (!text) {
+  //       console.warn("No content to speak");
+  //       return;
+  //     }
 
-      utterance = new SpeechSynthesisUtterance(text);
+  //     utterance = new SpeechSynthesisUtterance(text);
 
-      const selectedVoice = pickVoice(); // "male" or "female"
-      if (selectedVoice) {
-        utterance.voice = selectedVoice;
-      }
+  //     const selectedVoice = pickVoice(); // "male" or "female"
+  //     if (selectedVoice) {
+  //       utterance.voice = selectedVoice;
+  //     }
 
-      utterance.rate = 1;
-      utterance.pitch = 1;
-      utterance.volume = 1;
+  //     utterance.rate = 1;
+  //     utterance.pitch = 1;
+  //     utterance.volume = 1;
 
-      utterance.onend = function () {
-        flag = false;
-        speakButton.classList.add("stopped");
-        speakButton.classList.remove("playing");
-      };
+  //     utterance.onend = function () {
+  //       flag = false;
+  //       speakButton.classList.add("stopped");
+  //       speakButton.classList.remove("playing");
+  //     };
 
-      speakButton.classList.add("playing");
-      speakButton.classList.remove("stopped");
+  //     speakButton.classList.add("playing");
+  //     speakButton.classList.remove("stopped");
 
-      // Add a small delay for mobile browsers
-      setTimeout(() => {
-        speechSynthesis.speak(utterance);
-      }, 100);
-    }
+  //     // Add a small delay for mobile browsers
+  //     setTimeout(() => {
+  //       speechSynthesis.speak(utterance);
+  //     }, 100);
+  //   }
 
-    function handleStopSpeak() {
-      if (speechSynthesis.speaking) {
-        flag = false;
-        speechSynthesis.cancel();
-        speakButton.classList.add("stopped");
-        speakButton.classList.remove("playing");
-      }
-    }
+  //   function handleStopSpeak() {
+  //     if (speechSynthesis.speaking) {
+  //       flag = false;
+  //       speechSynthesis.cancel();
+  //       speakButton.classList.add("stopped");
+  //       speakButton.classList.remove("playing");
+  //     }
+  //   }
 
-    // Start init
-    initialize();
-  } else {
-    const speakButton = document.getElementById("speak-btn");
-    if (speakButton) speakButton.style.display = "none";
-    console.warn("Speech Synthesis not supported in this browser.");
-  }
+  //   // Start init
+  //   initialize();
+  // } else {
+  //   const speakButton = document.getElementById("speak-btn");
+  //   if (speakButton) speakButton.style.display = "none";
+  //   console.warn("Speech Synthesis not supported in this browser.");
+  // }
+
+  const playbutton = document.getElementById("speak-btn");
+  playbutton.onclick = function () {
+    responsiveVoice.cancel();
+    responsiveVoice.speak(
+      document.querySelector(".canvas")?.textContent?.trim(),
+      "US English Female"
+    );
+  };
+
+  stopbutton.onclick = function () {
+    responsiveVoice.cancel();
+  };
 
   // INFO MODAL
 
