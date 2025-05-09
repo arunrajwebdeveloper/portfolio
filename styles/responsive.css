@@ -28,6 +28,12 @@
   }
 }
 
+@media screen and (max-width: 1023px) {
+  .header-action-btn.action__speak {
+    display: none !important;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .article,
   .header__content {
