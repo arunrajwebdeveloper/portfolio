@@ -97,6 +97,7 @@ window.onload = function () {
       }
     }
   } else {
+    speakButton.style.display = "none";
     console.log("Speech Synthesis not supported.");
   }
 
