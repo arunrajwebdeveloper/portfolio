@@ -66,12 +66,6 @@ window.onload = function () {
         return;
       }
 
-      // Optional: log voices for debugging
-      console.log(
-        "Available voices:",
-        voices.map((v) => v.name)
-      );
-
       speakButton.addEventListener("click", async () => {
         if (!voices.length) {
           await ensureVoicesLoaded();
