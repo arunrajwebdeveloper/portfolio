@@ -131,6 +131,118 @@ window.onload = function () {
   //   console.warn("Speech Synthesis not supported in this browser.");
   // }
 
+  if ("speechSynthesis" in window) {
+    const speakButton = document.getElementById("speak-btn");
+    let isSpeaking = false;
+    let utterance;
+    let voices = [];
+
+    // Load voices
+    function loadVoices() {
+      return new Promise((resolve) => {
+        const interval = setInterval(() => {
+          voices = speechSynthesis.getVoices();
+          if (voices.length > 0) {
+            clearInterval(interval);
+            resolve(voices);
+          }
+        }, 100);
+      });
+    }
+
+    // Pick voice by gender
+    function pickVoice(gender = "male") {
+      const soundList = {
+        male: ["male", "david", "alex", "mark", "fred"],
+        female: ["female", "zira", "samantha", "victoria", "karen"],
+      }[gender];
+
+      return (
+        voices.find((v) =>
+          soundList?.some((keyword) => v.name.toLowerCase().includes(keyword))
+        ) ||
+        voices[0] ||
+        null
+      );
+    }
+
+    // Ensure voices are loaded
+    async function ensureVoicesLoaded() {
+      voices = speechSynthesis.getVoices();
+      if (!voices.length) {
+        voices = await loadVoices();
+      }
+    }
+
+    // Initialize speech logic
+    async function initialize() {
+      await ensureVoicesLoaded();
+
+      if (!voices.length) {
+        speakButton.style.display = "none";
+        console.warn("No speech synthesis voices available.");
+        return;
+      }
+
+      speakButton.addEventListener("click", () => {
+        const text = document.querySelector(".canvas")?.textContent?.trim();
+        if (!text) return;
+
+        if (isSpeaking) {
+          stopSpeaking();
+        } else {
+          startSpeaking(text);
+        }
+      });
+    }
+
+    function startSpeaking(text) {
+      isSpeaking = true;
+
+      utterance = new SpeechSynthesisUtterance(text);
+      utterance.voice = pickVoice(); // or pickVoice("female")
+      utterance.rate = 1;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+
+      utterance.onend = () => {
+        isSpeaking = false;
+        speakButton.classList.remove("playing");
+        speakButton.classList.add("stopped");
+      };
+
+      speakButton.classList.add("playing");
+      speakButton.classList.remove("stopped");
+
+      // On mobile, ensure it's in response to user gesture
+      setTimeout(() => {
+        speechSynthesis.cancel(); // Clear anything before
+        speechSynthesis.speak(utterance);
+      }, 100);
+    }
+
+    function stopSpeaking() {
+      if (speechSynthesis.speaking || speechSynthesis.pending) {
+        speechSynthesis.cancel();
+        isSpeaking = false;
+        speakButton.classList.remove("playing");
+        speakButton.classList.add("stopped");
+      }
+    }
+
+    // Bind voiceschanged (for Safari + mobile)
+    window.speechSynthesis.onvoiceschanged = () => {
+      voices = speechSynthesis.getVoices();
+    };
+
+    // Start logic
+    initialize();
+  } else {
+    const speakButton = document.getElementById("speak-btn");
+    if (speakButton) speakButton.style.display = "none";
+    console.warn("Speech Synthesis not supported in this browser.");
+  }
+
   // INFO MODAL
 
   const modal = document.getElementById("modal");
