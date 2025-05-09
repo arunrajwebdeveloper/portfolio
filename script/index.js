@@ -203,7 +203,7 @@ window.onload = function () {
       }
 
       speakButton.addEventListener("click", () => {
-        const text = document.querySelector(".canvas")?.textContent?.trim();
+        const text = 'document.querySelector(".canvas")?.textContent?.trim()';
         if (!text) return;
 
         if (isSpeaking) {
@@ -217,7 +217,7 @@ window.onload = function () {
     function startSpeaking(text) {
       isSpeaking = true;
 
-      utterance = new SpeechSynthesisUtterance("Hello world");
+      utterance = new SpeechSynthesisUtterance(text);
       utterance.voice = pickVoice(); // or pickVoice("female")
       utterance.rate = 1;
       utterance.pitch = 1;
