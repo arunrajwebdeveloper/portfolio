@@ -24,6 +24,49 @@
     </style>
     <link rel="stylesheet" href="./styles/index.css" />
     <link rel="stylesheet" href="./styles/responsive.css" />
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+        const speakButton = document.getElementById("speaks-btn");
+        const stopButton = document.getElementById("stop-btn");
+        let utterance;
+        let isSpeaking = false;
+
+        function speakText(text) {
+          if (!window.speechSynthesis) {
+            alert("Speech Synthesis not supported in your browser.");
+            return;
+          }
+
+          if (isSpeaking) return;
+
+          utterance = new SpeechSynthesisUtterance(text);
+          utterance.rate = 1;
+          utterance.pitch = 1;
+          utterance.volume = 1;
+
+          utterance.onend = () => {
+            isSpeaking = false;
+            console.log("Speech ended");
+          };
+
+          isSpeaking = true;
+          speechSynthesis.speak(utterance);
+        }
+
+        speakButton.addEventListener("click", () => {
+          const text = document.querySelector(".canvas")?.textContent?.trim();
+          if (text) speakText(text);
+        });
+
+        stopButton.addEventListener("click", () => {
+          if (window.speechSynthesis && isSpeaking) {
+            speechSynthesis.cancel();
+            isSpeaking = false;
+          }
+        });
+      });
+    </script>
   </head>
   <body>
     <!-- HEADER -->
@@ -638,46 +681,5 @@
     <script defer src="./script/lenis.min.js"></script>
     <script defer src="./script/scroller.js"></script>
     <script defer src="./script/index.js"></script>
-
-    <script>
-      const speakButton = document.getElementById("speaks-btn");
-      const stopButton = document.getElementById("stop-btn");
-      let utterance;
-      let isSpeaking = false;
-
-      function speakText(text) {
-        if (!window.speechSynthesis) {
-          alert("Speech Synthesis not supported in your browser.");
-          return;
-        }
-
-        if (isSpeaking) return;
-
-        utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 1;
-        utterance.pitch = 1;
-        utterance.volume = 1;
-
-        utterance.onend = () => {
-          isSpeaking = false;
-          console.log("Speech ended");
-        };
-
-        isSpeaking = true;
-        speechSynthesis.speak(utterance);
-      }
-
-      speakButton.addEventListener("click", () => {
-        const text = document.querySelector(".canvas")?.textContent?.trim();
-        if (text) speakText(text);
-      });
-
-      stopButton.addEventListener("click", () => {
-        if (window.speechSynthesis && isSpeaking) {
-          speechSynthesis.cancel();
-          isSpeaking = false;
-        }
-      });
-    </script>
   </body>
 </html>
