@@ -37,40 +37,69 @@ window.onload = function () {
       });
     }
 
-    function pickVoice(voice = "male") {
+    function pickVoice(gender = "male") {
       const soundList = {
         male: ["male", "david", "alex", "mark", "fred"],
         female: ["female", "zira", "samantha", "victoria", "karen"],
-      }[voice];
+      }[gender];
 
       const match = voices.find((v) =>
         soundList?.some((keyword) => v.name.toLowerCase().includes(keyword))
       );
 
-      return match || voices[0];
+      return match || voices[0] || null;
     }
 
-    loadVoices().then((loadedVoices) => {
-      voices = loadedVoices;
+    async function ensureVoicesLoaded() {
+      voices = speechSynthesis.getVoices();
+      if (!voices.length) {
+        voices = await loadVoices();
+      }
+    }
 
-      speakButton.addEventListener("click", () => {
+    async function initialize() {
+      await ensureVoicesLoaded();
+
+      if (!voices.length) {
+        speakButton.style.display = "none";
+        console.warn("No speech synthesis voices available.");
+        return;
+      }
+
+      // Optional: log voices for debugging
+      console.log(
+        "Available voices:",
+        voices.map((v) => v.name)
+      );
+
+      speakButton.addEventListener("click", async () => {
+        if (!voices.length) {
+          await ensureVoicesLoaded();
+        }
+
         if (!flag) {
           handleStartSpeak();
         } else {
           handleStopSpeak();
         }
       });
-    });
+    }
 
     function handleStartSpeak() {
       flag = true;
 
-      utterance = new SpeechSynthesisUtterance(
-        document.querySelector(".canvas").textContent
-      );
+      const text = document.querySelector(".canvas")?.textContent?.trim();
+      if (!text) {
+        console.warn("No content to speak");
+        return;
+      }
 
-      // female / male / default: male
-      utterance.voice = pickVoice();
+      utterance = new SpeechSynthesisUtterance(text);
+
+      const selectedVoice = pickVoice(); // "male" or "female"
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
+      }
 
       utterance.rate = 1;
       utterance.pitch = 1;
@@ -85,7 +114,10 @@ window.onload = function () {
       speakButton.classList.add("playing");
       speakButton.classList.remove("stopped");
 
-      speechSynthesis.speak(utterance);
+      // Add a small delay for mobile browsers
+      setTimeout(() => {
+        speechSynthesis.speak(utterance);
+      }, 100);
     }
 
     function handleStopSpeak() {
@@ -96,9 +128,13 @@ window.onload = function () {
         speakButton.classList.remove("playing");
       }
     }
+
+    // Start init
+    initialize();
   } else {
-    speakButton.style.display = "none";
-    console.log("Speech Synthesis not supported.");
+    const speakButton = document.getElementById("speak-btn");
+    if (speakButton) speakButton.style.display = "none";
+    console.warn("Speech Synthesis not supported in this browser.");
   }
 
   // INFO MODAL
