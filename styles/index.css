@@ -96,11 +96,12 @@ h1.main-title {
   margin-bottom: 40px;
   color: var(--text-color);
   font-weight: 900;
+  font-family: "Lexend Deca", sans-serif !important;
 }
 
 p.sub-text {
   font-size: 28px;
-  font-weight: 800;
+  font-weight: 500;
   color: var(--text-color);
   line-height: 36px;
   margin-bottom: 30px;
@@ -241,6 +242,7 @@ section.main-section {
 .article__header h3 {
   font-size: 30px;
   color: var(--text-color);
+  font-family: "Lexend Deca", sans-serif !important;
 }
 
 .article__content .skills-list {
