@@ -47,7 +47,7 @@ html.lenis body {
 
 body[data-theme="dark"] {
   --background: #18181c;
-  --text-color: #c9c9c9;
+  --text-color: #e1e1e1;
   --invert: 1;
 }
 
