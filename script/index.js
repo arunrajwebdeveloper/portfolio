@@ -247,6 +247,9 @@ window.onload = function () {
   // Scroll to top
 
   function updateProgressCircle() {
+    const progressCircleContainer = document.querySelector(
+      ".progress-circle-container"
+    );
     const progressElement = document.querySelector(".progress-circle-bar");
     const scrollToTopElement = document.querySelector(".scroll-to-top");
     const percentageNode = document.getElementById("progress-value");
@@ -258,6 +261,15 @@ window.onload = function () {
     progressElement.style.strokeDashoffset = 283 - progress;
 
     const percent = Math.min(Math.round(scrolled * 100), 100);
+
+    if (percent === 0) {
+      progressCircleContainer.style.opacity = "0";
+      progressCircleContainer.style.visibility = "hidden";
+    } else {
+      progressCircleContainer.style.opacity = "1";
+      progressCircleContainer.style.visibility = "visible";
+    }
+
     percentageNode.textContent = `${percent}%`;
 
     if (
