@@ -662,6 +662,9 @@ svg.heart-footer {
   transform-origin: center;
   transition: stroke-dashoffset 0.3s ease;
 }
+.progress-circle-text {
+  fill: var(--text-color);
+}
 .progress-background {
   fill: transparent;
   stroke: var(--background);
