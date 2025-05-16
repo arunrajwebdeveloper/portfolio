@@ -256,7 +256,7 @@ window.onload = function () {
 
     if (
       window.innerHeight + window.pageYOffset >=
-      document.body.offsetHeight - 300
+      document.body.offsetHeight - 100
     ) {
       scrollToTopElement.style.opacity = "1";
     } else {
