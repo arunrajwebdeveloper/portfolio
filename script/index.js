@@ -249,10 +249,16 @@ window.onload = function () {
   function updateProgressCircle() {
     const progressElement = document.querySelector(".progress-circle-bar");
     const scrollToTopElement = document.querySelector(".scroll-to-top");
+    const percentageNode = document.getElementById("progress-value");
     const totalHeight = document.body.scrollHeight - window.innerHeight;
-    let progress = (window.pageYOffset / totalHeight) * 283;
-    progress = Math.min(progress, 283);
+
+    let scrolled = window.pageYOffset / totalHeight;
+    let progress = Math.min(scrolled * 283, 283);
+
     progressElement.style.strokeDashoffset = 283 - progress;
+
+    const percent = Math.min(Math.round(scrolled * 100), 100);
+    percentageNode.textContent = `${percent}%`;
 
     if (
       window.innerHeight + window.pageYOffset >=
