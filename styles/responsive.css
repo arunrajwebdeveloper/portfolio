@@ -29,8 +29,7 @@
 }
 
 @media screen and (max-width: 1023px) {
-  .header-action-btn.action__speak,
-  .article__content .skills-list .tooltip-element {
+  .header-action-btn.action__speak {
     display: none !important;
   }
 }
