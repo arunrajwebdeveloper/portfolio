@@ -78,7 +78,7 @@
     </section>
 
     <!-- SCRIPTS -->
-    <script src="/data/blog-data.js"></script>
+    <script src="/portfolio/data/blog-data.js"></script>
     <script>
       window.onload = function () {
         function truncateText(text, maxLength) {
@@ -92,7 +92,7 @@
         blogData.blog.forEach((item) => {
           const blogItem = `
           <div class="blog-item">
-            <a href="/read.html?id=${item.id}">
+            <a href="/portfolio/read.html?id=${item.id}">
               <img src="${item.thumbnail}" alt="${item.title}" />
               <div class="blog-display-content">
                 <div class="tags-list">
