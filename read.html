@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arun Raj | Software Developer</title>
+
+    <link
+      rel="shortcut icon"
+      href="/portfolio/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="/portfolio/favicon.ico" type="image/x-icon" />
+
+    <!-- FONTS -->
+    <!-- 400,500,600,700,800,900 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Prism.js  Theme -->
+    <link rel="stylesheet" href="./styles/prism-themes/prism-lucario.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.css"
+    />
+    <!-- Prism.js Core -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+    <!-- Load Specific Languages -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markup.min.js"></script>
+    <!-- HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-jsx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+    <style>
+      body,
+      * {
+        font-family: "Roboto Mono", monospace;
+      }
+
+      pre,
+      code {
+        border-radius: 4px;
+        white-space: pre-wrap; /* Ensures line breaks and indentation are preserved */
+        word-break: break-word; /* Prevents overflow on long words */
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+        font-size: 14px !important;
+      }
+    </style>
+
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header__content">
+        <div class="identity">
+          <a href="/portfolio">
+            <div class="identity__content">
+              <div class="identity__avatar">
+                <img
+                  class="avatar__image"
+                  src="./images/avatar.jpg"
+                  loading="lazy"
+                  alt="arunraj avatar image"
+                />
+              </div>
+              <div class="identity__info">
+                <p class="identity__name">arun raj</p>
+                <p class="identity__subtext">software developer</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- <div class="header-actions">
+          <a
+            download
+            href="./documents/git-cheat-sheet-education.pdf"
+            class="header-action-btn action__download-resume"
+          >
+            Download resume
+          </a>
+        </div> -->
+      </div>
+    </header>
+    <section class="main-section">
+      <main class="main">
+        <div class="canvas">
+          <article class="article">
+            <div id="blog-content" class="blog-content"></div>
+          </article>
+        </div>
+      </main>
+    </section>
+
+    <!-- SCRIPTS -->
+    <script src="/data/blog-data.js"></script>
+    <script>
+      window.onload = function () {
+        function addCopyButtons() {
+          document.querySelectorAll("pre code").forEach((codeBlock) => {
+            const button = document.createElement("button");
+            button.innerText = "Copy";
+            button.className = "copy-button";
+
+            button.addEventListener("click", () => {
+              const code = codeBlock.innerText;
+
+              navigator.clipboard.writeText(code).then(() => {
+                button.innerText = "Copied!";
+                setTimeout(() => (button.innerText = "Copy"), 1500);
+              });
+            });
+
+            const pre = codeBlock.parentElement;
+            pre.style.position = "relative";
+            pre.appendChild(button);
+          });
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const blogId = decodeURIComponent(params.get("id") || "");
+
+        const container = document.getElementById("blog-content");
+
+        const currentBlog = blogData.blog?.find(
+          (blog) => parseInt(blog.id) === parseInt(blogId)
+        );
+
+        if (currentBlog) {
+          const blogContent = `
+        <div class="blog-single-item">
+          <img src="${currentBlog.thumbnail}" />
+          <div class="single-blog-content">
+              <div class="tags-list">
+                ${currentBlog?.tags
+                  ?.map((tag) => {
+                    return `<span class="tag">${tag}</span>`;
+                  })
+                  .join("")}
+              </div>
+            <h2>${currentBlog.title}</h2>
+            <p>${currentBlog.description}</p>
+            <div class="code-details">
+              ${currentBlog?.body
+                ?.map((item) => {
+                  const lang = item?.code?.language || "javascript";
+                  const code = Prism.highlight(
+                    item?.code?.content || "",
+                    Prism.languages[lang],
+                    lang
+                  );
+                  return `<div class="code-section">
+                    <h4>${item.title}</h4>
+                    <p>${item.description}</p>
+                    <pre class="line-numbers"><code class="language-${lang}">${code}</code></pre>
+                  </div>`;
+                })
+                .join("")}
+            </div>
+          </div>
+        </div>
+      `;
+
+          container.innerHTML = blogContent;
+
+          Prism.highlightAll();
+          addCopyButtons();
+        }
+      };
+    </script>
+  </body>
+</html>

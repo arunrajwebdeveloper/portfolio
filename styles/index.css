@@ -769,3 +769,108 @@ svg.heart-footer {
   font-size: 16px;
   color: #555;
 }
+
+/* Blog */
+
+.blog-list .blog-item {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.blog-display-content {
+  padding: 40px 30px;
+}
+.blog-list .blog-item a {
+  display: block;
+}
+.blog-list .blog-item h2 {
+  color: #000;
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+.blog-list .blog-item p {
+  font-size: 16px;
+  color: #222;
+}
+.blog-list .blog-item img {
+  display: block;
+  max-width: 100%;
+}
+
+.blog-single-item {
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.single-blog-content {
+  padding: 30px;
+}
+.blog-single-item img {
+  max-width: 100%;
+  vertical-align: middle;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.blog-single-item h2 {
+  font-size: 30px;
+  line-height: 38px;
+  color: #000;
+  margin-bottom: 25px;
+}
+.blog-single-item p {
+  font-size: 16px;
+  color: #222;
+  line-height: 26px;
+  margin-bottom: 16px;
+}
+
+.blog-single-item .copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #e5e5e5;
+  border: none;
+  padding: 2px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+  line-height: normal;
+  color: #000000;
+}
+
+.blog-single-item .copy-button:hover {
+  background: #ddd;
+}
+
+.code-details {
+  margin-top: 34px;
+}
+.code-section:not(:last-child) {
+  margin-bottom: 20px;
+}
+.code-section h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #000;
+}
+.tags-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.tags-list span.tag {
+  display: inline-block;
+  padding: 6px;
+  background-color: #e7e7e7;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1;
+  color: #000;
+}
