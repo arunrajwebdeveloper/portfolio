@@ -54,74 +54,72 @@ type UserNameAndEmail = Pick<User, 'name' | 'email'>;
     },
     {
       id: "2",
-      title:
-        "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.",
+      title: "Understanding || and && in JavaScript",
       description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
-      thumbnail: "./data/blog-images/dropdown-image.png",
+        "JavaScript provides logical operators like || (OR) and && (AND) to perform short-circuit evaluation. These are not just boolean logic operators — they are expression evaluators, which return values based on operand truthiness.",
+      thumbnail: "./data/blog-images/js.png",
       body: [
         {
-          title: "HTML",
-          description: "This is html",
-          code: {
-            language: "markup",
-            content: `<div class="container">
-  <h1>Hello, World!</h1>
-</div>`,
-          },
-          image: "",
-        },
-        {
-          title: "CSS",
-          description: "Hiii",
-          code: {
-            language: "css",
-            content: `.container {
-  padding: 20px;
-  background-color: #f0f0f0;
-  color: #333;
-}`,
-          },
-          image: "",
-        },
-        {
-          title: "JavaScript",
-          description: "hellaaa",
+          title: "|| (Logical OR)",
+          description:
+            "Returns the first truthy operand or the last one if all are falsy. Falsy values: false, 0, '', null, undefined, NaN. Everything else is truthy",
           code: {
             language: "javascript",
-            content: `function greet(name) {
-  console.log(\`Hello, \${name}!\`);
+            content: `function greet(userName) {
+  const name = userName || "Anonymous";
+  console.log('Hello: ' ${name});
 }
-greet("VS Code");`,
+greet("");       // Hello, Anonymous
+greet("Alice");  // Hello, Alice`,
           },
           image: "",
         },
         {
-          title: "React functional component",
-          description: "Simple react component",
+          title: "&& (Logical AND)",
+          description:
+            "Returns the first falsy operand, or the last one if all are truthy.",
           code: {
-            language: "jsx",
-            content: `import React, { useState } from 'react';
+            language: "javascript",
+            content: `const isLoggedIn = true;
+isLoggedIn && console.log("User is logged in");
+// Prints only if isLoggedIn is truthy`,
+          },
+          image: "",
+        },
+        {
+          title: "Pro Tips",
+          description:
+            "Prefer ?? (nullish coalescing) when you want to treat only null and undefined as defaults:",
+          code: {
+            language: "javascript",
+            content: `const title = "" || "Default";   // "Default"
+const safeTitle = "" ?? "Default"; // ""`,
+          },
+          image: "",
+        },
+        {
+          title: "Conclusion with Real-World Example",
+          description:
+            "Use || for defaults or fallback values. Use && for conditional logic or safe evaluations. They return values, not strictly true or false. Understand short-circuiting to write cleaner and more efficient code.",
+          code: {
+            language: "javascript",
+            content: `function getConfig(userConfig) {
+  return {
+    theme: userConfig.theme || "light",
+    lang: userConfig.lang || "en",
+    showSidebar: userConfig.showSidebar ?? true // using nullish
+  };
+}
 
-function Example() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}`,
+const config = getConfig({ theme: "", lang: "fr" });
+console.log(config); 
+// { theme: "light", lang: "fr", showSidebar: true }`,
           },
           image: "",
         },
       ],
 
-      tags: ["Html", "Css", "Javascript", "Jsx", "Hook"],
+      tags: ["Javascript"],
     },
     {
       id: "3",
