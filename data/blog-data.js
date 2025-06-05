@@ -2,6 +2,58 @@ const blogData = {
   blog: [
     {
       id: "1",
+      title: "Pick, Omit, and Partial in Typescript",
+      description:
+        "In TypeScript, utility types like Pick, Omit, and Partial are used to transform existing types. Here's a breakdown and examples of each, including how you can combine them (Pick + Partial, Omit + Partial, etc.).",
+      thumbnail: "./data/blog-images/TypeScript-Banner.jpg",
+      body: [
+        {
+          title: "1. Pick<Type, Keys>",
+          description:
+            "Creates a type by picking a set of properties from another type.",
+          code: {
+            language: "typescript",
+            content: `type User = {
+  id: number;
+  name: string;
+  email: string;
+  age: number;
+};
+
+type UserNameAndEmail = Pick<User, 'name' | 'email'>;
+// Result:
+// { name: string; email: string; }`,
+          },
+          image: "",
+        },
+        {
+          title: "2. Omit<Type, Keys>",
+          description:
+            "Creates a type by omitting a set of properties from another type.",
+          code: {
+            language: "typescript",
+            content: `type UserWithoutEmail = Omit<User, 'email'>;
+// Result:
+// { id: number; name: string; age: number; }`,
+          },
+          image: "",
+        },
+        {
+          title: "3. Partial<Type>",
+          description: "Creates a type with all properties optional.",
+          code: {
+            language: "typescript",
+            content: `type PartialUser = Partial<User>;
+// Result:
+// { id?: number; name?: string; email?: string; age?: number; }`,
+          },
+          image: "",
+        },
+      ],
+      tags: ["Typescript"],
+    },
+    {
+      id: "2",
       title:
         "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.",
       description:
@@ -72,7 +124,7 @@ function Example() {
       tags: ["Html", "Css", "Javascript", "Jsx", "Hook"],
     },
     {
-      id: "2",
+      id: "3",
       title:
         "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
       description:
@@ -117,58 +169,6 @@ greet("VS Code");`,
         },
       ],
       tags: ["React", "Ui/Ux", "Typescript", "SocketIo"],
-    },
-    {
-      id: "3",
-      title: "Pick, Omit, and Partial in Typescript",
-      description:
-        "In TypeScript, utility types like Pick, Omit, and Partial are used to transform existing types. Here's a breakdown and examples of each, including how you can combine them (Pick + Partial, Omit + Partial, etc.).",
-      thumbnail: "./data/blog-images/TypeScript-Banner.jpg",
-      body: [
-        {
-          title: "1. Pick<Type, Keys>",
-          description:
-            "Creates a type by picking a set of properties from another type.",
-          code: {
-            language: "typescript",
-            content: `type User = {
-  id: number;
-  name: string;
-  email: string;
-  age: number;
-};
-
-type UserNameAndEmail = Pick<User, 'name' | 'email'>;
-// Result:
-// { name: string; email: string; }`,
-          },
-          image: "",
-        },
-        {
-          title: "2. Omit<Type, Keys>",
-          description:
-            "Creates a type by omitting a set of properties from another type.",
-          code: {
-            language: "typescript",
-            content: `type UserWithoutEmail = Omit<User, 'email'>;
-// Result:
-// { id: number; name: string; age: number; }`,
-          },
-          image: "",
-        },
-        {
-          title: "3. Partial<Type>",
-          description: "Creates a type with all properties optional.",
-          code: {
-            language: "typescript",
-            content: `type PartialUser = Partial<User>;
-// Result:
-// { id?: number; name?: string; email?: string; age?: number; }`,
-          },
-          image: "",
-        },
-      ],
-      tags: ["Typescript"],
     },
   ],
 };
