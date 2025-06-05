@@ -55,4 +55,7 @@
   .article__header h3 {
     font-size: 32px;
   }
+  a.footer__action__blog {
+    bottom: 80px;
+  }
 }

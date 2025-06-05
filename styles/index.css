@@ -875,3 +875,21 @@ svg.heart-footer {
   line-height: 1;
   color: #000;
 }
+
+a.footer__action__blog {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  z-index: 100;
+  background-color: #efc432;
+  color: #000;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  outline: 0;
+}
