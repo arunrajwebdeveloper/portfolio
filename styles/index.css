@@ -400,7 +400,7 @@ ul.experience h4.company small {
   bottom: 0;
   right: 0;
   z-index: 500;
-  background-color: rgb(90 95 123 / 23%);
+  background-color: rgb(49 52 70 / 38%);
   /* -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px); */
   animation: backdropAnimation 300ms ease-out;
