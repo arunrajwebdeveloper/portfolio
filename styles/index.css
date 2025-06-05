@@ -780,7 +780,7 @@ svg.heart-footer {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 .blog-display-content {
-  padding: 40px 30px;
+  padding: 30px;
 }
 .blog-list .blog-item a {
   display: block;
@@ -812,7 +812,6 @@ svg.heart-footer {
 .blog-single-item img {
   max-width: 100%;
   vertical-align: middle;
-  margin-bottom: 30px;
   overflow: hidden;
 }
 .blog-single-item h2 {
