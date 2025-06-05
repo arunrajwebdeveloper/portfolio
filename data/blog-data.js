@@ -44,9 +44,32 @@ greet("VS Code");`,
           },
           image: "",
         },
+        {
+          title: "React functional component",
+          description: "Simple react component",
+          code: {
+            language: "jsx",
+            content: `import React, { useState } from 'react';
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}`,
+          },
+          image: "",
+        },
       ],
 
-      tags: ["Html", "Css", "Javascript"],
+      tags: ["Html", "Css", "Javascript", "Jsx", "Hook"],
     },
     {
       id: "2",
