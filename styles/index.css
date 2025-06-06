@@ -15,6 +15,7 @@
 body {
   background-color: var(--background);
   cursor: default;
+  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -92,13 +93,17 @@ button {
 }
 
 h1.main-title {
-  font-size: 100px;
+  /* font-size: 100px; */
   margin-bottom: 40px;
-  color: var(--text-color);
-  font-weight: 900;
-  /* font-family: "Lexend Deca", sans-serif !important; */
+  color: var(--yellow);
+  font-weight: 400;
+  font-family: "Sacramento", cursive !important;
+  line-height: 1;
+  font-style: normal;
 }
-
+.-mt-50 {
+  margin-top: -50px;
+}
 p.sub-text {
   font-size: 28px;
   font-weight: 500;
