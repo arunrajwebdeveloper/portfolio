@@ -11,11 +11,13 @@
   --yellow: #f6d309;
   --scroll-bar-color: #414141;
 }
-
+html {
+  overflow-x: hidden !important;
+}
 body {
   background-color: var(--background);
   cursor: default;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
