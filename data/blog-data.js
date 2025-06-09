@@ -123,50 +123,38 @@ console.log(config);
     },
     {
       id: "3",
-      title:
-        "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      title: "Efficient DOM Handling with Event Delegation in JavaScript",
       description:
-        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.",
-      thumbnail: "./data/blog-images/code-snapshot.png",
+        "Event delegation is a powerful JavaScript pattern that allows you to handle events efficiently by assigning a single event listener to a parent element rather than multiple listeners to individual child elements. This technique takes advantage of event bubbling in the DOM, where events propagate from the target element up through its ancestors. By using event delegation, you not only improve performance but also simplify the handling of dynamic content, as newly added child elements are automatically covered by the existing event listener. In this blog post, we demonstrate a clean and minimal example using <div> elements, showing how a single listener on a container can manage interactions for all its child boxes—whether they exist at page load or are added later dynamically.",
+      thumbnail: "./data/blog-images/event-delegation.png",
       body: [
         {
           title: "HTML",
-          description: "This is html",
+          description: "Example: Event Delegation with <div> Elements",
           code: {
             language: "markup",
-            content: `<div class="container">
-  <h1>Hello, World!</h1>
-</div>`,
-          },
-          image: "",
-        },
-        {
-          title: "CSS",
-          description: "Hiii",
-          code: {
-            language: "css",
-            content: `.container {
-  padding: 20px;
-  background-color: #f0f0f0;
-  color: #333;
-}`,
-          },
-          image: "",
-        },
-        {
-          title: "JavaScript",
-          description: "hellaaa",
-          code: {
-            language: "javascript",
-            content: `function greet(name) {
-  console.log(\`Hello, \${name}!\`);
-}
-greet("VS Code");`,
+            content: `<div id="container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+</div>
+
+<script>
+  const container = document.getElementById('container');
+
+  container.addEventListener('click', function(event) {
+    // Check if a div with class "box" was clicked
+    if (event.target.classList.contains('box')) {
+      alert('You clicked: ' + event.target.textContent);
+    }
+  });
+</script>
+`,
           },
           image: "",
         },
       ],
-      tags: ["React", "Ui/Ux", "Typescript", "SocketIo"],
+      tags: ["JavaScript", "Html"],
     },
   ],
 };
