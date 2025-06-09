@@ -172,11 +172,11 @@
                   return `<div class="code-section">
                     <h4>${item.title}</h4>
                     <p>${item.description}</p>
-                    <div class="code-display-canvas">
+                   
                       <pre class="line-numbers">
                         <code class="language-${lang}">${code}</code>
                       </pre>  
-                    </div>
+                   
                   </div>`;
                 })
                 .join("")}
@@ -188,7 +188,7 @@
           container.innerHTML = blogContent;
 
           Prism.highlightAll();
-          addCopyButtons();
+          // addCopyButtons();
         }
       };
     </script>
