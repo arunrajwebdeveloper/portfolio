@@ -121,40 +121,40 @@ console.log(config);
 
       tags: ["Javascript"],
     },
-    {
-      id: "3",
-      title: "Efficient DOM Handling with Event Delegation in JavaScript",
-      description:
-        "Event delegation is a powerful JavaScript pattern that allows you to handle events efficiently by assigning a single event listener to a parent element rather than multiple listeners to individual child elements. This technique takes advantage of event bubbling in the DOM, where events propagate from the target element up through its ancestors. By using event delegation, you not only improve performance but also simplify the handling of dynamic content, as newly added child elements are automatically covered by the existing event listener. In this blog post, we demonstrate a clean and minimal example using 'div' elements, showing how a single listener on a container can manage interactions for all its child boxes—whether they exist at page load or are added later dynamically.",
-      thumbnail: "./data/blog-images/event-delegation.png",
-      body: [
-        {
-          title: "HTML",
-          description: "Example: Event Delegation with 'div' Elements",
-          code: {
-            language: "markup",
-            content: `<div id="container">
-  <div class="box">Box 1</div>
-  <div class="box">Box 2</div>
-  <div class="box">Box 3</div>
-</div>
+    //     {
+    //       id: "3",
+    //       title: "Efficient DOM Handling with Event Delegation in JavaScript",
+    //       description:
+    //         "Event delegation is a powerful JavaScript pattern that allows you to handle events efficiently by assigning a single event listener to a parent element rather than multiple listeners to individual child elements. This technique takes advantage of event bubbling in the DOM, where events propagate from the target element up through its ancestors. By using event delegation, you not only improve performance but also simplify the handling of dynamic content, as newly added child elements are automatically covered by the existing event listener. In this blog post, we demonstrate a clean and minimal example using 'div' elements, showing how a single listener on a container can manage interactions for all its child boxes—whether they exist at page load or are added later dynamically.",
+    //       thumbnail: "./data/blog-images/event-delegation.png",
+    //       body: [
+    //         {
+    //           title: "HTML",
+    //           description: "Example: Event Delegation with 'div' Elements",
+    //           code: {
+    //             language: "markup",
+    //             content: `<div id="container">
+    //   <div class="box">Box 1</div>
+    //   <div class="box">Box 2</div>
+    //   <div class="box">Box 3</div>
+    // </div>
 
-<script>
-  const container = document.getElementById('container');
+    // <script>
+    //   const container = document.getElementById('container');
 
-  container.addEventListener('click', function(event) {
-    // Check if a div with class "box" was clicked
-    if (event.target.classList.contains('box')) {
-      alert('You clicked: ' + event.target.textContent);
-    }
-  });
-</script>
-`,
-          },
-          image: "",
-        },
-      ],
-      tags: ["JavaScript", "Html"],
-    },
+    //   container.addEventListener('click', function(event) {
+    //     // Check if a div with class "box" was clicked
+    //     if (event.target.classList.contains('box')) {
+    //       alert('You clicked: ' + event.target.textContent);
+    //     }
+    //   });
+    // </script>
+    // `,
+    //           },
+    //           image: "",
+    //         },
+    //       ],
+    //       tags: ["JavaScript", "Html"],
+    //     },
   ],
 };
