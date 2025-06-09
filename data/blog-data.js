@@ -134,21 +134,21 @@ console.log(config);
           code: {
             language: "markup",
             content: `<div id="container">
-      <div class="box">Box 1</div>
-      <div class="box">Box 2</div>
-      <div class="box">Box 3</div>
-    </div>
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+</div>
 
-    <script>
-      const container = document.getElementById('container');
+<script>
+  const container = document.getElementById('container');
 
-      container.addEventListener('click', function(event) {
-        // Check if a div with class "box" was clicked
-        if (event.target.classList.contains('box')) {
-          alert('You clicked: ' + event.target.textContent);
-        }
-      });
-    </script>
+  container.addEventListener('click', function(event) {
+    // Check if a div with class "box" was clicked
+    if (event.target.classList.contains('box')) {
+      alert('You clicked: ' + event.target.textContent);
+    }
+  });
+</script>
     `,
           },
           image: "",
