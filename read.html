@@ -111,7 +111,6 @@
     <script>
       window.onload = function () {
         function addCopyButtons() {
-          // document.querySelectorAll("pre code").forEach((codeBlock) => {
           document
             .querySelectorAll(".code-display-canvas")
             .forEach((codeBlock) => {
@@ -119,9 +118,11 @@
               button.innerText = "Copy";
               button.className = "copy-button";
 
-              const codeElement = codeBlock.querySelectorAll("pre code");
+              const codeElement = codeBlock.querySelector("pre code");
 
               button.addEventListener("click", () => {
+                if (!codeElement) return;
+
                 const code = codeElement.innerText;
 
                 navigator.clipboard.writeText(code).then(() => {
@@ -130,10 +131,8 @@
                 });
               });
 
-              // const pre = codeBlock.parentElement;
-              const pre = codeBlock;
-              pre.style.position = "relative";
-              pre.appendChild(button);
+              codeBlock.style.position = "relative";
+              codeBlock.appendChild(button);
             });
         }
 
