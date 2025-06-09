@@ -130,7 +130,7 @@ console.log(config);
       body: [
         {
           title: "HTML",
-          description: "Example: Event Delegation with <div> Elements",
+          description: "Example: Event Delegation with '<div>' Elements",
           code: {
             language: "markup",
             content: `<div id="container">
