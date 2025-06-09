@@ -111,24 +111,29 @@
     <script>
       window.onload = function () {
         function addCopyButtons() {
-          document.querySelectorAll("pre code").forEach((codeBlock) => {
-            const button = document.createElement("button");
-            button.innerText = "Copy";
-            button.className = "copy-button";
+          // document.querySelectorAll("pre code").forEach((codeBlock) => {
+          document
+            .querySelectorAll(".code-display-canvas")
+            .forEach((codeBlock) => {
+              const button = document.createElement("button");
+              button.innerText = "Copy";
+              button.className = "copy-button";
 
-            button.addEventListener("click", () => {
-              const code = codeBlock.innerText;
+              const codeElement = codeBlock.querySelectorAll("pre code");
 
-              navigator.clipboard.writeText(code).then(() => {
-                button.innerText = "Copied!";
-                setTimeout(() => (button.innerText = "Copy"), 1500);
+              button.addEventListener("click", () => {
+                const code = codeElement.innerText;
+
+                navigator.clipboard.writeText(code).then(() => {
+                  button.innerText = "Copied!";
+                  setTimeout(() => (button.innerText = "Copy"), 1500);
+                });
               });
-            });
 
-            const pre = codeBlock.parentElement;
-            pre.style.position = "relative";
-            pre.appendChild(button);
-          });
+              const pre = codeBlock.parentElement;
+              pre.style.position = "relative";
+              pre.appendChild(button);
+            });
         }
 
         const params = new URLSearchParams(window.location.search);
@@ -166,7 +171,11 @@
                   return `<div class="code-section">
                     <h4>${item.title}</h4>
                     <p>${item.description}</p>
-                    <pre class="line-numbers"><code class="language-${lang}">${code}</code></pre>
+                    <div class="code-display-canvas">
+                      <pre class="line-numbers">
+                        <code class="language-${lang}">${code}</code>
+                      </pre>  
+                    </div>
                   </div>`;
                 })
                 .join("")}
