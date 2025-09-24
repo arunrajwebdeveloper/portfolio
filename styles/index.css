@@ -445,17 +445,17 @@ ul.experience h4.company small {
 }
 
 .modal.show {
-  animation: modalShowAnimation 500ms ease-out;
+  animation: modalShowAnimation 500ms linear ease-out;
 }
 .modal.hide {
-  animation: modalHideAnimation 500ms ease-out;
+  animation: modalHideAnimation 500ms linear ease-out;
 }
 
 .modal-backdrop.show {
-  animation: backdropShowAnimation 500ms ease-out;
+  animation: backdropShowAnimation 500ms linear ease-out;
 }
 .modal-backdrop.hide {
-  animation: backdropHideAnimation 500ms ease-out;
+  animation: backdropHideAnimation 500ms linear ease-out;
 }
 
 @keyframes modalShowAnimation {
