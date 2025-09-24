@@ -138,14 +138,7 @@ window.onload = function () {
   const btn = document.getElementById("info-btn");
   const modalClose = document.getElementsByClassName("modal-close")[0];
 
-  let closeTimeoutId = null;
-
   const onOpenModal = () => {
-    clearTimeout(closeTimeoutId);
-    modal.classList.remove("hide");
-    modal.classList.add("show");
-    backdrop.classList.remove("hide");
-    backdrop.classList.add("show");
     modal.style.display = "flex";
     backdrop.style.display = "block";
     document.body.style.overflow = "hidden";
@@ -153,17 +146,10 @@ window.onload = function () {
   };
 
   const onCloseModal = () => {
-    modal.classList.remove("show");
-    modal.classList.add("hide");
-    backdrop.classList.remove("show");
-    backdrop.classList.add("hide");
-
-    closeTimeoutId = setTimeout(() => {
-      modal.style.display = "none";
-      backdrop.style.display = "none";
-      document.body.style.overflow = "";
-      lenis.start();
-    }, 800);
+    modal.style.display = "none";
+    backdrop.style.display = "none";
+    document.body.style.overflow = "";
+    lenis.start();
   };
 
   btn.onclick = () => onOpenModal();

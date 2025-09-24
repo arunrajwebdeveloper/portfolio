@@ -427,83 +427,17 @@ ul.experience h4.company small {
   background-color: rgb(49 52 70 / 38%);
   /* -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px); */
-  opacity: 0;
-  visibility: hidden;
-  animation: backdropAnimation 300ms ease-out;
+  display: none;
 }
 .modal {
   z-index: 510;
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   gap: 0;
   justify-content: center;
   align-items: flex-start;
   overflow-y: auto;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.modal.show {
-  animation: modalShowAnimation 500ms linear ease-out;
-}
-.modal.hide {
-  animation: modalHideAnimation 500ms linear ease-out;
-}
-
-.modal-backdrop.show {
-  animation: backdropShowAnimation 500ms linear ease-out;
-}
-.modal-backdrop.hide {
-  animation: backdropHideAnimation 500ms linear ease-out;
-}
-
-@keyframes modalShowAnimation {
-  from {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-}
-
-@keyframes modalHideAnimation {
-  from {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes backdropShowAnimation {
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-@keyframes backdropHideAnimation {
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
 }
 
 .modal-container {
