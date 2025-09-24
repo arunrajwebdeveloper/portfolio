@@ -163,7 +163,7 @@ window.onload = function () {
       backdrop.style.display = "none";
       document.body.style.overflow = "";
       lenis.start();
-    }, 500);
+    }, 800);
   };
 
   btn.onclick = () => onOpenModal();
