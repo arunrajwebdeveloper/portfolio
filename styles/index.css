@@ -427,6 +427,8 @@ ul.experience h4.company small {
   background-color: rgb(49 52 70 / 38%);
   /* -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px); */
+  opacity: 0;
+  visibility: hidden;
   animation: backdropAnimation 300ms ease-out;
 }
 .modal {
@@ -438,6 +440,8 @@ ul.experience h4.company small {
   justify-content: center;
   align-items: flex-start;
   overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .modal.show {
