@@ -773,10 +773,13 @@ svg.heart-footer {
   width: 100%;
   padding: 30px 20px;
   display: block;
-  background-color: #fff;
+  /* background-color: #fff; */
   border-radius: 10px;
   margin-bottom: 30px;
   margin-top: 30px;
+}
+.pdf-canvas canvas {
+  border-radius: 15px;
 }
 .resume-link {
   margin-top: 30px;
@@ -792,6 +795,7 @@ svg.heart-footer {
   padding: 40px;
   font-size: 16px;
   color: #555;
+  background-color: white;
 }
 
 /* Blog */
