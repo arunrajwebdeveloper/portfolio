@@ -1,13 +1,22 @@
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-      <h1 className="text-blue-600 font-text text-5xl">
-        Hello Tailwind v4 + Vite + TypeScript 🎉
-      </h1>
-      <p className="mt-4 text-gray-700 text-lg">
-        This is using the Inter Google Font.
-      </p>
-    </div>
+    <>
+      <div className="flex max-w-6xl flex-col justify-center min-h-screen mx-auto space-y-8">
+        <h1 className="text-black font-display font-semibold text-9xl">
+          Building modern, responsive web experiences with passion.
+        </h1>
+        <p className="mt-4 text-gray-700 text-6xl">
+          I’m <span className="font-sans">Arun Raj</span>, by the way — thanks
+          for visiting my portfolio!
+        </p>
+      </div>
+      <div className="flex max-w-6xl flex-col justify-center min-h-screen mx-auto space-y-8">
+        <p className="mt-4 text-gray-700 text-7xl">
+          My main focus is creating modern, responsive Frontend applications
+          with ReactJS — but I also enjoy developing scalable APIs with NestJS.
+        </p>
+      </div>
+    </>
   );
 }
 
