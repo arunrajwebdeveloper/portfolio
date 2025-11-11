@@ -5,7 +5,6 @@ import { useLenis } from "./hooks/useLenis";
 
 function App() {
   useLenis();
-  //---
   return (
     <>
       <Section className="flex flex-col justify-center space-y-8">
@@ -31,7 +30,7 @@ function App() {
       <Section className="flex justify-center items-center">
         <div className="flex flex-wrap">
           {stackList?.map((stack) => {
-            return <StackItem stack={stack} />;
+            return <StackItem key={stack.title} stack={stack} />;
           })}
         </div>
       </Section>
