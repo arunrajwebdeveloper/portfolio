@@ -60,7 +60,7 @@ function HexagonSpinner({ baseVelocity }: HexagonSpinnerProps) {
         width: "100%",
         position: "sticky",
         top: 0,
-        zIndex: 10,
+        zIndex: 1,
         pointerEvents: "none",
         overflow: "hidden",
       }}

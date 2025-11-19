@@ -6,7 +6,7 @@ const StackItem = ({
   stack: { title: string; icon: string; alt: string };
 }) => {
   return (
-    <div className="group w-1/6 p-6 border border-slate-100 relative">
+    <div className="group w-1/6 p-6 relative">
       <Tooltip title={stack.title} />
       <img
         src={stack.icon}
