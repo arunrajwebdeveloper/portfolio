@@ -1,27 +1,51 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
+import { useMotionValue } from "framer-motion";
 
+/**
+ * Initializes Lenis and provides a MotionValue that tracks Lenis's scroll position.
+ */
 export const useLenis = () => {
+  // Use MotionValue to store the smooth scroll position
+  const lenisScrollY = useMotionValue(0);
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
+    // Initialize Lenis
     const lenis = new Lenis({
-      duration: 1.5, // scroll speed / smoothness
+      duration: 1.5,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
+      orientation: "vertical",
       gestureOrientation: "vertical",
-      touchMultiplier: 1.5,
+      syncTouch: true,
+      wheelMultiplier: 1.5,
     });
+    lenisRef.current = lenis;
 
-    // optional: log scroll position
-    // lenis.on('scroll', ({ scroll }) => console.log(scroll));
+    // Hook the Lenis 'scroll' event to update our MotionValue
+    const updateScroll = ({ scroll }: { scroll: number }) => {
+      lenisScrollY.set(scroll);
+    };
 
-    const raf = (time: number) => {
+    lenis.on("scroll", updateScroll);
+
+    // Function for smooth frame updates
+    function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
-    };
+    }
 
     requestAnimationFrame(raf);
 
+    // Cleanup on unmount
     return () => {
+      lenis.off("scroll", updateScroll);
       lenis.destroy();
+      lenisRef.current = null;
     };
-  }, []);
+  }, [lenisScrollY]);
+
+  // Return the motion value instead of the default scrollY
+  return lenisScrollY;
 };
