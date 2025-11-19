@@ -7,6 +7,7 @@ import {
   useAnimationFrame,
 } from "framer-motion";
 import { useLenis } from "../hooks/useLenis";
+import CircularText from "./CircularText";
 // Import the custom hook
 // Adjust path as needed
 
@@ -14,8 +15,6 @@ import { useLenis } from "../hooks/useLenis";
 const BASE_ROTATION_SPEED = 5;
 const VELOCITY_MULTIPLIER = 10;
 const MAPPING_RANGE = 500;
-const HEXAGON_COLOR = "#61DAFB";
-const HEXAGON_PATH = "M 50 0 L 100 25 L 100 75 L 50 100 L 0 75 L 0 25 Z";
 
 interface HexagonSpinnerProps {
   baseVelocity: number;
@@ -58,26 +57,23 @@ function HexagonSpinner({ baseVelocity }: HexagonSpinnerProps) {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
+        width: "100vw",
         position: "sticky",
         top: 0,
         zIndex: 10,
         pointerEvents: "none",
       }}
     >
-      <motion.svg
-        width="200"
-        height="200"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ rotate: baseRotation }}
+      <motion.div
+        style={{
+          rotate: baseRotation,
+          transformOrigin: "center center",
+          aspectRatio: 1,
+          height: "100%",
+        }}
       >
-        <path
-          d={HEXAGON_PATH}
-          fill={HEXAGON_COLOR}
-          stroke="black"
-          strokeWidth="2"
-        />
-      </motion.svg>
+        <CircularText />
+      </motion.div>
     </div>
   );
 }

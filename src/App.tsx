@@ -37,11 +37,14 @@ function App() {
         </div>
       </Section>
 
+      <Section className="flex justify-center items-center" isBoxed={false}>
+        <h2 className=" text-9xl font-display font-semibold">Works</h2>
+      </Section>
+
       <Section
-        className="flex justify-center items-center bg-slate-400"
+        className="flex justify-center items-center bg-green-200"
         isBoxed={false}
       >
-        <div>Works</div>
         <div>
           <img src="./projects/matrimony-screenshot-1.png" />
         </div>
