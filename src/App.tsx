@@ -42,12 +42,37 @@ function App() {
       </Section>
 
       <Section
-        className="flex justify-center items-center bg-green-200"
+        className="flex justify-center items-center bg-red-900"
         isBoxed={false}
       >
-        <div>
+        <div className="p-40">
           <img src="./projects/matrimony-screenshot-1.png" />
         </div>
+      </Section>
+      <Section
+        className="flex justify-center items-center bg-indigo-950"
+        isBoxed={false}
+      >
+        <div className="p-40">
+          <img src="./projects/matrimony-screenshot-1.png" />
+        </div>
+      </Section>
+      <Section
+        className="flex justify-center items-center bg-orange-800"
+        isBoxed={false}
+      >
+        <div className="p-40">
+          <img src="./projects/matrimony-screenshot-1.png" />
+        </div>
+      </Section>
+
+      <Section
+        className="flex justify-center items-center bg-black"
+        isBoxed={false}
+      >
+        <h2 className=" text-9xl font-display font-semibold text-white">
+          Thank you
+        </h2>
       </Section>
     </>
   );

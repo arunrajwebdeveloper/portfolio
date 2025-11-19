@@ -57,11 +57,12 @@ function HexagonSpinner({ baseVelocity }: HexagonSpinnerProps) {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        width: "100vw",
+        width: "100%",
         position: "sticky",
         top: 0,
         zIndex: 10,
         pointerEvents: "none",
+        overflow: "hidden",
       }}
     >
       <motion.div
