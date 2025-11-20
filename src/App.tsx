@@ -25,7 +25,7 @@ function App() {
       </Section>
 
       <Section className="flex justify-center items-center" isBoxed={false}>
-        <h2 className=" text-9xl font-display font-semibold">Works</h2>
+        <h2 className=" text-9xl">Works</h2>
       </Section>
 
       <Section
@@ -54,12 +54,10 @@ function App() {
       </Section>
 
       <Section
-        className="flex justify-center items-center bg-black"
+        className="flex justify-center items-center bg-blue-800"
         isBoxed={false}
       >
-        <h2 className=" text-9xl font-display font-semibold text-white">
-          Thank you
-        </h2>
+        <h2 className=" text-9xl text-white">Thank you</h2>
       </Section>
     </>
   );
