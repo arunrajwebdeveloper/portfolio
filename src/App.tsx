@@ -1,7 +1,5 @@
-import { stackList } from "./assets/stack";
 import HexagonSpinner from "./components/HexagonSpinner";
 import Section from "./components/Section";
-import StackItem from "./components/StackItem";
 import { useLenis } from "./hooks/useLenis";
 import LandingSection from "./components/LandingSection";
 import AboutSection from "./components/AboutSection";
