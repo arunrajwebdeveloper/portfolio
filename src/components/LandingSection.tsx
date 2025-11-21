@@ -3,7 +3,7 @@ import { useInView, motion, type Variants } from "framer-motion";
 
 const LandingSection = () => {
   const body = useRef(null);
-  const isInView = useInView(body, { once: false, margin: "-75%" });
+  const isInView = useInView(body, { once: true, margin: "-75%" });
 
   const animation: Variants = {
     initial: { y: "100%" },

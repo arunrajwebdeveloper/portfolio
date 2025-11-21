@@ -19,7 +19,7 @@ const containerVariants: Variants = {
 const StackSection = () => {
   const ref = useRef(null);
   // Detect when the element is in view. The once: true ensures it only triggers once.
-  const isInView = useInView(ref, { once: false, amount: 0.5 }); // amount: 0.5 means 50% must be visible
+  const isInView = useInView(ref, { once: true, amount: 0.5 }); // amount: 0.5 means 50% must be visible
 
   // We use useAnimation for more complex, imperative controls, though the variant approach is sufficient here.
   // const controls = useAnimation();
