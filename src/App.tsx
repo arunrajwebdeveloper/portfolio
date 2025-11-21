@@ -14,20 +14,8 @@ function App() {
     <>
       <HexagonSpinner baseVelocity={4} />
       <LandingSection />
-
       <AboutSection />
-
       <StackSection />
-
-      {/* <div className="w-full bg-white">
-        <Section className="flex justify-center items-center">
-          <div className="flex flex-wrap">
-            {stackList?.map((stack) => {
-              return <StackItem key={stack.title} stack={stack} />;
-            })}
-          </div>
-        </Section>
-      </div> */}
 
       <Section
         className="flex justify-center items-center bg-white"
