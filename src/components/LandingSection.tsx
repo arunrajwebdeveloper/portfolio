@@ -56,12 +56,12 @@ export default LandingSection;
 // import { motion, useScroll } from "framer-motion";
 
 // const LandingSection = () => {
-//   const container = useRef(null);
+// const container = useRef(null);
 
-//   const { scrollYProgress } = useScroll({
-//     target: container,
-//     offset: ["start 0.9", "start 0.25"],
-//   });
+// const { scrollYProgress } = useScroll({
+//   target: container,
+//   offset: ["start 0.9", "start 0.25"],
+// });
 
 //   return (
 //     <section className="bg-white w-full min-h-screen flex flex-col justify-end">
