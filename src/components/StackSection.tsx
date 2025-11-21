@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
-import { motion, useInView, useAnimation, type Variants } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView, type Variants } from "framer-motion";
 import { stackList } from "../assets/stack";
 import StackItem from "./StackItem";
 import Section from "./Section";
