@@ -16,15 +16,20 @@ function App() {
 
       <AboutSection />
 
-      <Section className="flex justify-center items-center">
-        <div className="flex flex-wrap">
-          {stackList?.map((stack) => {
-            return <StackItem key={stack.title} stack={stack} />;
-          })}
-        </div>
-      </Section>
+      <div className="w-full bg-white">
+        <Section className="flex justify-center items-center">
+          <div className="flex flex-wrap">
+            {stackList?.map((stack) => {
+              return <StackItem key={stack.title} stack={stack} />;
+            })}
+          </div>
+        </Section>
+      </div>
 
-      <Section className="flex justify-center items-center" isBoxed={false}>
+      <Section
+        className="flex justify-center items-center bg-white"
+        isBoxed={false}
+      >
         <h2 className=" text-9xl">Works</h2>
       </Section>
 
@@ -54,10 +59,10 @@ function App() {
       </Section>
 
       <Section
-        className="flex justify-center items-center bg-blue-800"
+        className="flex justify-center items-center bg-[#18a163]"
         isBoxed={false}
       >
-        <h2 className=" text-9xl text-white">Thank you</h2>
+        <h2 className=" text-9xl text-[#55ad85]">Thank you</h2>
       </Section>
     </>
   );

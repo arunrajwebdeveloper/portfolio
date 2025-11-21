@@ -15,7 +15,7 @@ const LandingSection = () => {
         {/* font-display */}
         <motion.h1
           style={{ opacity: scrollYProgress }}
-          className="text-blue-800 text-9xl text-left"
+          className="text-[#18a163] text-9xl text-left"
         >
           Building modern, responsive web experiences with passion.
         </motion.h1>

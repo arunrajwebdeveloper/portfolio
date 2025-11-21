@@ -48,7 +48,7 @@ const Char = ({ children, progress, range }: ComponentProps) => {
       >
         {children}
       </span>
-      <motion.span style={{ opacity: opacity, color: "#67ff00" }}>
+      <motion.span style={{ opacity: opacity, color: "#18a163" }}>
         {children}
       </motion.span>
     </span>
@@ -70,7 +70,7 @@ const AboutSection = () => {
   const words = paragraph.split(" ");
 
   return (
-    <motion.section className="flex flex-col justify-center bg-slate-50 w-full px-4 min-h-screen">
+    <motion.section className="flex flex-col justify-center bg-slate-50 w-full px-4 py-28 min-h-screen">
       <div className="max-w-6xl mx-auto">
         <p
           ref={container}
@@ -87,6 +87,16 @@ const AboutSection = () => {
               </Word>
             );
           })}
+        </p>
+
+        <p className="mt-16 text-slate-700 text-xl max-w-xl">
+          Software Developer with 10+ years of experience in building
+          responsive, high-performance web applications, and 5+ years of
+          expertise in React.js. Skilled in JavaScript, TypeScript, Next.js,
+          Redux Toolkit, Tailwind CSS and modern libraries including TanStack
+          Query. Experienced in collaborating with backend teams, delivering
+          scalable solutions, and implementing UI/UX best practices to enhance
+          user engagement and overall product quality.
         </p>
       </div>
     </motion.section>
