@@ -5,6 +5,7 @@ import StackItem from "./components/StackItem";
 import { useLenis } from "./hooks/useLenis";
 import LandingSection from "./components/LandingSection";
 import AboutSection from "./components/AboutSection";
+import StackSection from "./components/StackSection";
 
 function App() {
   useLenis();
@@ -16,7 +17,9 @@ function App() {
 
       <AboutSection />
 
-      <div className="w-full bg-white">
+      <StackSection />
+
+      {/* <div className="w-full bg-white">
         <Section className="flex justify-center items-center">
           <div className="flex flex-wrap">
             {stackList?.map((stack) => {
@@ -24,7 +27,7 @@ function App() {
             })}
           </div>
         </Section>
-      </div>
+      </div> */}
 
       <Section
         className="flex justify-center items-center bg-white"
