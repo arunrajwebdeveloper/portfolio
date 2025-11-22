@@ -48,7 +48,7 @@ const Char = ({ children, progress, range }: ComponentProps) => {
       >
         {children}
       </span>
-      <motion.span style={{ opacity: opacity, color: "#18a163" }}>
+      <motion.span style={{ opacity: opacity, color: "#ffffff" }}>
         {children}
       </motion.span>
     </span>
@@ -70,7 +70,7 @@ const AboutSection = () => {
   const words = paragraph.split(" ");
 
   return (
-    <motion.section className="flex flex-col justify-center bg-slate-50 w-full px-4 py-20 min-h-screen">
+    <motion.section className="flex flex-col justify-center bg-[#18a163] w-full px-4 py-20 min-h-screen">
       <div className="max-w-6xl mx-auto">
         <p
           ref={container}
