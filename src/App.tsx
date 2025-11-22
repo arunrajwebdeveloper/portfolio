@@ -10,6 +10,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "./lib/utils";
 import PhotographySection from "./components/PhotographySection";
+import FloatingGallery from "./components/FloatingGallery";
 
 function App() {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
@@ -43,6 +44,7 @@ function App() {
       <HexagonSpinner baseVelocity={4} />
       <LandingSection />
       <AboutSection />
+      <FloatingGallery />
       <StackSection />
       <PhotographySection />
 
