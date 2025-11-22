@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
-import { useMotionValue } from "framer-motion";
+import { type MotionValue, useMotionValue } from "framer-motion";
 
 /**
  * Initializes Lenis and provides a MotionValue that tracks Lenis's scroll position.
  */
-export const useLenis = () => {
+export const useLenis = (): MotionValue<number> => {
   // Use MotionValue to store the smooth scroll position
-  const lenisScrollY = useMotionValue(0);
+  const lenisScrollY = useMotionValue<number>(0);
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {

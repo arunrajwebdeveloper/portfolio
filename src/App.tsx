@@ -9,6 +9,7 @@ import Cursor from "./components/Cursor";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "./lib/utils";
+import PhotographySection from "./components/PhotographySection";
 
 function App() {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
@@ -43,6 +44,7 @@ function App() {
       <LandingSection />
       <AboutSection />
       <StackSection />
+      <PhotographySection />
 
       <Section
         className="flex justify-center items-center bg-white"

@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 import { stackList } from "../assets/stack";
 import StackItem from "./StackItem";
-import Section from "./Section";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -31,11 +30,10 @@ const StackSection = () => {
   // }, [isInView, controls]);
 
   return (
-    <div className="w-full bg-white">
-      <Section className="flex justify-center items-center">
+    <div className="w-full bg-slate-50">
+      <section className="flex justify-center items-center max-w-6xl mx-auto py-32">
         <motion.div
           ref={ref}
-          // Set the initial state to 'hidden' and the animate state based on isInView
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
@@ -45,7 +43,7 @@ const StackSection = () => {
             <StackItem key={stack.title} stack={stack} />
           ))}
         </motion.div>
-      </Section>
+      </section>
     </div>
   );
 };
