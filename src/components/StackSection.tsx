@@ -30,7 +30,7 @@ const StackSection = () => {
   // }, [isInView, controls]);
 
   return (
-    <div className="w-full bg-slate-50">
+    <div className="w-full bg-green-50">
       <section className="flex justify-center items-center max-w-6xl mx-auto py-32">
         <motion.div
           ref={ref}
