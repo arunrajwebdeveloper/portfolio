@@ -1,5 +1,4 @@
 import HexagonSpinner from "./components/HexagonSpinner";
-import Section from "./components/Section";
 import { useLenis } from "./hooks/useLenis";
 import LandingSection from "./components/LandingSection";
 import AboutSection from "./components/AboutSection";
@@ -9,7 +8,7 @@ import Cursor from "./components/Cursor";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "./lib/utils";
-import PhotographySection from "./components/PhotographySection";
+// import PhotographySection from "./components/PhotographySection";
 import FloatingGallery from "./components/FloatingGallery";
 import ScrollScale from "./components/ScrollScale";
 
