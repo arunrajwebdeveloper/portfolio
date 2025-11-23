@@ -67,13 +67,13 @@ export default function FloatingGrid() {
   return (
     <div
       onMouseMove={handleMouseMove}
-      className="relative h-screen w-full overflow-hidden bg-linear-to-b from-neutral-900 to-black cursor-default px-4 flex justify-between"
+      className="relative h-screen w-full overflow-hidden bg-linear-to-b from-neutral-900 to-black cursor-default px-4 flex justify-between items-center"
     >
       <div className="grid grid-cols-3 gap-12 h-full items-center justify-items-center w-full">
         {columns.map((col, colIndex) => (
           <div
             key={colIndex}
-            className="flex flex-col gap-y-28 items-center justify-center w-sm"
+            className="flex flex-col gap-y-28 items-center justify-center w-xs"
           >
             {col.map((img, i) => {
               // Each image has its own multiplier for depth
@@ -84,7 +84,7 @@ export default function FloatingGrid() {
                   key={i}
                   src={img.src}
                   alt={`img-${i}`}
-                  className={`rounded-md w-[${img.w}rem]`}
+                  className={`rounded-md w-[${img.w}rem] aspect-square object-cover`}
                   style={{
                     x: useTransform(smoothX, (v) => v * depthMultiplier),
                     y: useTransform(smoothY, (v) => v * depthMultiplier),
