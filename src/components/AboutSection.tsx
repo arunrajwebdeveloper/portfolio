@@ -63,7 +63,6 @@ const AboutSection = () => {
 
   const { scrollYProgress } = useScroll({
     target: container,
-
     offset: ["start 0.9", "start 0.25"],
   });
 
@@ -71,10 +70,13 @@ const AboutSection = () => {
 
   return (
     <motion.section className="flex flex-col justify-center bg-[#18a163] w-full px-4 py-20 min-h-screen">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto relative">
+        {/* <p className="text-[70rem] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0">
+          10
+        </p> */}
         <p
           ref={container}
-          className="mt-4 text-slate-700 text-7xl leading-20 text-center flex flex-wrap"
+          className="mt-4 text-slate-700 text-7xl leading-20 text-center flex flex-wrap relative z-10"
         >
           {words.map((word, i) => {
             const start = i / words.length;

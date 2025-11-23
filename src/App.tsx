@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { cn } from "./lib/utils";
 import PhotographySection from "./components/PhotographySection";
 import FloatingGallery from "./components/FloatingGallery";
+import ScrollScale from "./components/ScrollScale";
 
 function App() {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
@@ -44,41 +45,27 @@ function App() {
       <HexagonSpinner baseVelocity={4} />
       <LandingSection />
       <AboutSection />
-      <FloatingGallery />
       <StackSection />
-      <PhotographySection />
+      <FloatingGallery />
+      {/* <PhotographySection /> */}
 
-      <Section
-        className="flex justify-center items-center bg-white"
-        isBoxed={false}
-      >
-        <h2 className=" text-9xl">Works</h2>
-      </Section>
-
-      <Section
-        className="flex justify-center items-center bg-red-900"
-        isBoxed={false}
-      >
-        <div className="p-40">
-          <img src="./projects/matrimony-screenshot-1.png" />
+      <section className="flex flex-col justify-center bg-white w-full px-4 py-20 min-h-screen">
+        <div className="max-w-6xl mx-auto relative">
+          <h2 className=" text-9xl">Works</h2>
+          <div className="">
+            <div className="pt-20">
+              <ScrollScale>
+                <img src="./projects/matrimony-screenshot-1.png" />
+              </ScrollScale>
+            </div>
+            <div className="pt-20">
+              <ScrollScale>
+                <img src="./projects/matrimony-screenshot-1.png" />
+              </ScrollScale>
+            </div>
+          </div>
         </div>
-      </Section>
-      <Section
-        className="flex justify-center items-center bg-indigo-950"
-        isBoxed={false}
-      >
-        <div className="p-40">
-          <img src="./projects/matrimony-screenshot-1.png" />
-        </div>
-      </Section>
-      <Section
-        className="flex justify-center items-center bg-orange-800"
-        isBoxed={false}
-      >
-        <div className="p-40">
-          <img src="./projects/matrimony-screenshot-1.png" />
-        </div>
-      </Section>
+      </section>
 
       <Footer />
     </>
