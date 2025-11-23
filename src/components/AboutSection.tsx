@@ -48,7 +48,7 @@ const Char = ({ children, progress, range }: ComponentProps) => {
       >
         {children}
       </span>
-      <motion.span style={{ opacity: opacity, color: "#ffffff" }}>
+      <motion.span style={{ opacity: opacity, color: "#000000" }}>
         {children}
       </motion.span>
     </span>
@@ -69,7 +69,7 @@ const AboutSection = () => {
   const words = paragraph.split(" ");
 
   return (
-    <motion.section className="flex flex-col justify-center bg-[#18a163] w-full px-4 py-20 min-h-screen">
+    <motion.section className="flex flex-col justify-center bg-white w-full px-4 py-20 min-h-screen">
       <div className="max-w-6xl mx-auto relative">
         {/* <p className="text-[70rem] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0">
           10
@@ -91,15 +91,34 @@ const AboutSection = () => {
           })}
         </p>
 
-        {/* <p className="mt-16 text-slate-700 text-xl max-w-xl">
-          Software Developer with 10+ years of experience in building
-          responsive, high-performance web applications, and 5+ years of
-          expertise in React.js. Skilled in JavaScript, TypeScript, Next.js,
-          Redux Toolkit, Tailwind CSS and modern libraries including TanStack
-          Query. Experienced in collaborating with backend teams, delivering
-          scalable solutions, and implementing UI/UX best practices to enhance
-          user engagement and overall product quality.
-        </p> */}
+        <div className="w-full mt-20 pe-48 flex justify-end">
+          <div className="max-w-2xl grid-cols-2 grid gap-10">
+            <div className="space-y-3">
+              <p className=" text-black text-base">
+                For the last ten years, I've been dedicated to transforming
+                complex requirements into intuitive, high-performance digital
+                experiences.
+              </p>
+              <p className=" text-black text-base">
+                As a specialized Frontend Software Developer, I have spent over
+                five years mastering the React.js ecosystem. I rely on a modern
+                and robust stack, including TypeScript, Next.js, Redux Toolkit,
+                and Tailwind CSS, and leverage advanced state management tools
+                like TanStack Query to deliver seamless, data-rich user
+                interfaces.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <p className=" text-black text-base">
+                My expertise goes beyond writing clean code—it's in engineering
+                scalable solutions that enhance the overall user journey,
+                collaborating effectively with backend teams, and implementing
+                UI/UX best practices that bring measurable improvements to
+                product quality and engagement.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </motion.section>
   );
