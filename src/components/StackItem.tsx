@@ -19,12 +19,12 @@ const StackItem = ({
   stack: { title: string; icon: string; alt: string };
 }) => {
   return (
-    <motion.div variants={itemVariants} className="group w-1/9 p-6 relative">
+    <motion.div variants={itemVariants} className="group w-1/9 relative">
       <Tooltip title={stack.title} />
       <img
         src={stack.icon}
         alt={stack.alt}
-        className="align-middle max-w-full"
+        className="align-middle max-w-full p-6"
       />
     </motion.div>
   );

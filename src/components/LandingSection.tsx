@@ -3,7 +3,10 @@ import { useInView, motion, type Variants } from "framer-motion";
 
 const LandingSection = () => {
   const body = useRef(null);
-  const isInView = useInView(body, { once: true, margin: "-75%" });
+  const isInView = useInView(body, {
+    once: !true,
+    margin: "0px 0px -40% 0px",
+  });
 
   const animation: Variants = {
     initial: { y: "100%" },
@@ -18,7 +21,7 @@ const LandingSection = () => {
   };
 
   return (
-    <section className="bg-white w-full min-h-screen flex flex-col justify-end">
+    <section className="bg-white w-full min-h-screen flex flex-col justify-center">
       <div ref={body} className="space-y-8 max-w-6xl mx-auto">
         <div>
           {[

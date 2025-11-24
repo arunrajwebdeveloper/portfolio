@@ -23,27 +23,49 @@ function App() {
       <LandingSection />
       <AboutSection />
       <StackSection />
-      <FloatingGallery />
+
       {/* <PhotographySection /> */}
 
       <section className="flex flex-col justify-center bg-white w-full px-4 py-20 min-h-screen">
-        <div className="max-w-6xl mx-auto relative">
-          <h2 className=" text-9xl">Works</h2>
-          <div className="">
-            <div className="pt-20">
-              <ScrollScale>
-                <img src="./projects/matrimony-screenshot-1.png" />
-              </ScrollScale>
+        <div className="relative">
+          <h2 className="text-2xl text-center">Recent Works</h2>
+          <div className="grid grid-cols-2 items-start gap-8 mt-32">
+            <div className=" bg-green-50  rounded-2xl overflow-hidden">
+              {/* <ScrollScale> */}
+              <img
+                src="./projects/matrimony-screenshot-1.png"
+                className="translate-y-1/4 -translate-x-1/4"
+              />
+              {/* </ScrollScale> */}
             </div>
-            <div className="pt-20">
-              <ScrollScale>
-                <img src="./projects/matrimony-screenshot-1.png" />
-              </ScrollScale>
+            <div className="pt-20 bg-yellow-50 p-20 rounded-2xl overflow-hidden mt-52">
+              {/* <ScrollScale> */}
+              <img
+                src="./projects/matrimony-screenshot-1.png"
+                className="translate-y-1/4 translate-x-1/4"
+              />
+              {/* </ScrollScale> */}
+            </div>
+            <div className=" bg-red-50  rounded-2xl overflow-hidden">
+              {/* <ScrollScale> */}
+              <img
+                src="./projects/matrimony-screenshot-1.png"
+                className="translate-y-1/4 -translate-x-1/4"
+              />
+              {/* </ScrollScale> */}
+            </div>
+            <div className="pt-20 bg-violet-50 p-20 rounded-2xl overflow-hidden mt-52">
+              {/* <ScrollScale> */}
+              <img
+                src="./projects/matrimony-screenshot-1.png"
+                className="translate-y-1/4 translate-x-1/4"
+              />
+              {/* </ScrollScale> */}
             </div>
           </div>
         </div>
       </section>
-
+      <FloatingGallery />
       <Footer />
     </>
   );
