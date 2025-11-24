@@ -1,45 +1,4 @@
-import { useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import FloatingImage from "./FloatingImage";
-
-const images = [
-  {
-    src: "https://images.unsplash.com/photo-1527873722743-67759f0854aa?w=1000",
-    w: 72,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1483519173755-be893fab1f46?w=1000",
-    w: 72,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1705674076072-41db4ff670e8?w=1000",
-    w: 56,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1591588368590-7b6f50b87663?w=1000",
-    w: 64,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1567605183923-0ae4e2284933?w=1000",
-    w: 52,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1580854256166-e01d8a34da4a?w=1000",
-    w: 52,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1521200052569-1799509456d3?w=1000",
-    w: 56,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1591588368590-7b6f50b87663?w=1000",
-    w: 56,
-  },
-  {
-    src: "",
-    w: 52,
-  },
-];
 
 export default function FloatingGrid() {
   return (
