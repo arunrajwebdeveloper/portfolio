@@ -92,7 +92,13 @@ const AboutSection = () => {
         </p>
 
         <div className="w-full mt-20 pe-48 flex justify-end">
-          <div className="max-w-2xl grid-cols-2 grid gap-10">
+          <motion.div
+            className="max-w-2xl grid-cols-2 grid gap-10"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+            viewport={{ once: true, amount: 0.4 }}
+          >
             <div className="space-y-3">
               <p className=" text-black text-base">
                 For the last ten years, I've been dedicated to transforming
@@ -117,7 +123,7 @@ const AboutSection = () => {
                 product quality and engagement.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.section>

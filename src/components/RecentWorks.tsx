@@ -24,12 +24,14 @@ const items = [
   },
 ];
 
+const ITEM_HEIGHT = "800px";
+
 function RecentWorks() {
   return (
     <section className="flex flex-col justify-center bg-white w-full py-20 min-h-screen">
       <div className="relative">
         <h2 className="text-2xl text-center">Recent Works</h2>
-        <div className="grid md:grid-cols-2 gap-x-48 gap-y-24 relative mt-32">
+        <div className="grid md:grid-cols-2 gap-x-48 gap-y-24 align-middle  relative mt-32">
           {items.map((item, index) => {
             const isRight = index % 2 !== 0;
 
@@ -38,21 +40,25 @@ function RecentWorks() {
                 key={index}
                 className={`relative flex w-full ${
                   isRight
-                    ? "md:col-start-2 mt-32 justify-start"
+                    ? "md:col-start-2 mt-48 justify-start"
                     : "md:col-start-1 justify-end"
                 }`}
-                style={{ height: "500px" }}
+                style={{ height: ITEM_HEIGHT }}
               >
                 <div className="w-full relative">
-                  <ParallaxImage src={item.src} speed={40} height="500px" />
+                  <ParallaxImage
+                    src={item.src}
+                    speed={40}
+                    height={ITEM_HEIGHT}
+                  />
                 </div>
 
                 <motion.div
-                  initial={{ opacity: 0, x: isRight ? 100 : -100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-                  viewport={{ once: false, amount: 0.4 }}
-                  className={`absolute top-1/2 -translate-y-1/2 w-[300px] ${
+                  // initial={{ opacity: 0, y: 100 }}
+                  // whileInView={{ opacity: 1, y: 0 }}
+                  // transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+                  // viewport={{ once: false, amount: 0.4 }}
+                  className={`absolute top-1/2 -translate-y-1/2 w-auto ${
                     isRight
                       ? " -ml-16 text-left" // push text to outside left of right image
                       : " -mr-16 text-right" // push text to outside right of left image
