@@ -32,12 +32,12 @@ const Cursor = ({ hideCursor = false }: { hideCursor?: boolean }) => {
         translateX: cursorXSpring,
         translateY: cursorYSpring,
       }}
-      className="fixed z-9999 w-0 h-0 bg-orange-500"
+      className="fixed z-9999 w-0 h-0 bg-[#ffc903]"
     >
       {!hideCursor ? (
         <motion.div
           layoutId="cursor"
-          className="absolute w-4 h-4 -top-2 -left-2 bg-orange-500 pointer-events-none rounded-full"
+          className="absolute w-4 h-4 -top-2 -left-2 bg-[#ffd53e] pointer-events-none rounded-full"
         ></motion.div>
       ) : null}
     </motion.div>

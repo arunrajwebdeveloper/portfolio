@@ -55,7 +55,7 @@ function Logo({
       {magnetActive ? (
         <motion.div
           layoutId="cursor"
-          className="absolute inset-0 bg-orange-500 rounded-full flex z-10"
+          className="absolute inset-0 bg-[#ffc903] rounded-full flex z-10"
         ></motion.div>
       ) : null}
       <span className="m-auto relative z-20 transition duration-300 text-xl text-white">
