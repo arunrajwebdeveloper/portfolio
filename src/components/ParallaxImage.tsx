@@ -33,7 +33,7 @@ export const ParallaxImage = ({
   return (
     <div
       ref={ref}
-      className="relative overflow-hidden w-full "
+      className="relative overflow-hidden w-full"
       style={{ height }}
     >
       <motion.img
