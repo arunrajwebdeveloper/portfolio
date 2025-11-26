@@ -20,6 +20,51 @@ import {
 
 export const stackList = [
   {
+    title: "ReactJs",
+    alt: "reactjs icon",
+    icon: reactjs,
+  },
+  {
+    title: "NextJs",
+    alt: "nextjs icon",
+    icon: nextjs,
+  },
+  {
+    title: "JavaScript (ES6+)",
+    alt: "javascript icon",
+    icon: javascript,
+  },
+  {
+    title: "TypeScript",
+    alt: "typescript icon",
+    icon: typescript,
+  },
+  {
+    title: "NodeJs",
+    alt: "nodejs icon",
+    icon: nodejs,
+  },
+  {
+    title: "NestJs",
+    alt: "nestjs icon",
+    icon: nestjs,
+  },
+  {
+    title: "Tanstack Query",
+    alt: "reactquery icon",
+    icon: reactquery,
+  },
+  {
+    title: "Redux",
+    alt: "redux icon",
+    icon: redux,
+  },
+  {
+    title: "MongoDB",
+    alt: "mongodb icon",
+    icon: mongodb,
+  },
+  {
     title: "Html5",
     alt: "html5 icon",
     icon: html5,
@@ -30,9 +75,9 @@ export const stackList = [
     icon: css3,
   },
   {
-    title: "JavaScript (ES6+)",
-    alt: "javascript icon",
-    icon: javascript,
+    title: "TailwindCSS",
+    alt: "tailwindcss icon",
+    icon: tailwindcss,
   },
   {
     title: "Bootstrap 5",
@@ -54,55 +99,11 @@ export const stackList = [
     alt: "github icon",
     icon: github,
   },
-  {
-    title: "MongoDB",
-    alt: "mongodb icon",
-    icon: mongodb,
-  },
-  {
-    title: "NestJs",
-    alt: "nestjs icon",
-    icon: nestjs,
-  },
-  {
-    title: "NextJs",
-    alt: "nextjs icon",
-    icon: nextjs,
-  },
-  {
-    title: "NodeJs",
-    alt: "nodejs icon",
-    icon: nodejs,
-  },
-  {
-    title: "Tanstack Query",
-    alt: "reactquery icon",
-    icon: reactquery,
-  },
-  {
-    title: "ReactJs",
-    alt: "reactjs icon",
-    icon: reactjs,
-  },
-  {
-    title: "Redux",
-    alt: "redux icon",
-    icon: redux,
-  },
+
   {
     title: "Sass",
     alt: "sass icon",
     icon: sass,
-  },
-  {
-    title: "TailwindCSS",
-    alt: "tailwindcss icon",
-    icon: tailwindcss,
-  },
-  {
-    title: "TypeScript",
-    alt: "typescript icon",
-    icon: typescript,
   },
   {
     title: "React Native",
