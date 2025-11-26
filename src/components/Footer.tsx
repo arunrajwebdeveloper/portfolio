@@ -45,7 +45,7 @@ export default function Footer() {
                 <li className="text-white text-base">
                   <a
                     className="text-white no-underline tracking-wider hover:text-[#ffd53e] transition duration-300"
-                    href=""
+                    href="https://www.linkedin.com/in/arunraj90/"
                     target="_blank"
                   >
                     Linkedin
@@ -54,7 +54,7 @@ export default function Footer() {
                 <li className="text-white text-base">
                   <a
                     className="text-white no-underline tracking-wider hover:text-[#ffd53e] transition duration-300"
-                    href=""
+                    href="https://www.instagram.com/ar_macros"
                     target="_blank"
                   >
                     Instagram

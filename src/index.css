@@ -40,3 +40,21 @@
     background-color: #f9f9f9;
   }
 } */
+
+.circle {
+  animation: spinner 4s linear infinite;
+}
+
+.circle.right {
+  animation-direction: reverse;
+}
+
+@keyframes spinner {
+  25% {
+    transform: translateX(-32px);
+  }
+
+  75% {
+    transform: translateX(32px);
+  }
+}

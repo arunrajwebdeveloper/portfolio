@@ -1,5 +1,6 @@
 import { motion, useInView, type Variants } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router";
 
 const images = [
   "./photos/gallery-1.JPG",
@@ -126,8 +127,8 @@ function HobbySection() {
                     </g>
                   </svg>
                 </a>
-                <a
-                  href="/"
+                <Link
+                  to="/photography"
                   className="text-black relative flex gap-2 items-center outline-0 group hover:text-[#ffd53e] transition duration-300"
                 >
                   <svg
@@ -186,7 +187,7 @@ function HobbySection() {
                       />
                     </g>
                   </svg>
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>
