@@ -30,7 +30,7 @@ export const stackList = [
     icon: css3,
   },
   {
-    title: "JavaScript",
+    title: "JavaScript (ES6+)",
     alt: "javascript icon",
     icon: javascript,
   },

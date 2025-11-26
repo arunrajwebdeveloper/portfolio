@@ -20,15 +20,20 @@ const LandingSection = () => {
     }),
   };
 
+  // const title = [
+  //           "Building modern, ",
+  //           "responsive web experiences ",
+  //           "with passion.",
+  //         ]
+
+  // const title = ["Always Learning.", "Always Building."];
+  const title = ["Learn.", "Build.", "Repeat."];
+
   return (
-    <section className="bg-white w-full min-h-screen flex flex-col justify-center">
-      <div ref={body} className="space-y-8 max-w-6xl mx-auto">
+    <section className="bg-white w-full flex justify-start items-center py-28">
+      <div ref={body} className="space-y-8 max-w-6xl mx-auto w-full">
         <div>
-          {[
-            "Building modern, ",
-            "responsive web experiences ",
-            "with passion.",
-          ].map((phrase, index) => {
+          {title.map((phrase, index) => {
             return (
               <div key={index} className="overflow-hidden">
                 <motion.h1
@@ -36,7 +41,7 @@ const LandingSection = () => {
                   variants={animation}
                   initial="initial"
                   animate={isInView ? "enter" : ""}
-                  className="text-black text-9xl text-left m-0"
+                  className="text-black text-[12rem] leading-44 text-left m-0"
                 >
                   {phrase}
                 </motion.h1>

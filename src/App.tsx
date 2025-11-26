@@ -6,10 +6,11 @@ import StackSection from "./components/StackSection";
 import Footer from "./components/Footer";
 import Cursor from "./components/Cursor";
 // import PhotographySection from "./components/PhotographySection";
-import FloatingGallery from "./components/FloatingGallery";
+// import FloatingGallery from "./components/FloatingGallery";
 import { useState } from "react";
 import Logo from "./components/Logo";
 import RecentWorks from "./components/RecentWorks";
+import HobbySection from "./components/HobbySection";
 
 function App() {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
@@ -27,7 +28,10 @@ function App() {
 
       {/* <PhotographySection /> */}
 
-      <FloatingGallery />
+      {/* <FloatingGallery /> */}
+
+      <HobbySection />
+
       <Footer />
     </>
   );
