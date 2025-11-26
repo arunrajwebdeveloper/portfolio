@@ -4,28 +4,18 @@ import { motion } from "framer-motion";
 const items = [
   {
     src: "./projects/matrimony-screenshot-1.jpg",
-    title: "Creative Design",
-    text: "Transforming ideas into digital art and interactive experiences.",
+    title: "Matrimony App",
+    text: "A matrimony app with Nextjs and NestJs.",
   },
   {
     src: "./projects/matrimony-screenshot-2.jpg",
-    title: "Modern Aesthetics",
-    text: "Elegant visuals that blend minimalism and storytelling.",
+    title: "Photography portfolio",
+    text: "Elegant visuals that blend minimalism and storytelling using html5, css3, javascript and GSAP.",
   },
   {
     src: "./projects/matrimony-screenshot-3.jpg",
-    title: "Seamless Interaction",
-    text: "Smooth, performant interfaces that feel alive and intuitive.",
-  },
-  {
-    src: "./projects/matrimony-screenshot-4.jpg",
-    title: "Purposeful Visuals",
-    text: "Every pixel crafted to convey emotion and clarity.",
-  },
-  {
-    src: "./projects/matrimony-screenshot-5.jpg",
-    title: "Demo project",
-    text: "Every pixel crafted to convey emotion and clarity.",
+    title: "Notes Application",
+    text: "Notes application using ReactJS and NestJS.",
   },
 ];
 
