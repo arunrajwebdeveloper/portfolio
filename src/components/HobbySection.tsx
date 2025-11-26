@@ -1,3 +1,6 @@
+import { motion, useInView, type Variants } from "framer-motion";
+import { useRef } from "react";
+
 const images = [
   "https://images.unsplash.com/photo-1527873722743-67759f0854aa?w=700",
   "https://images.unsplash.com/photo-1591588368590-7b6f50b87663?w=700",
@@ -5,21 +8,83 @@ const images = [
   "https://images.unsplash.com/photo-1521200052569-1799509456d3?w=700",
 ];
 
+const itemVariants: Variants = {
+  hidden: { y: 40, opacity: 0 }, // Start slightly below and invisible
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring", // Use a spring for a bouncy, nice effect
+      stiffness: 100,
+    },
+  },
+};
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    // This is the key: staggerChildren will apply a delay between children
+    transition: {
+      staggerChildren: 0.2, // Delay between each icon animation
+      when: "beforeChildren", // Start the container animation before the children
+    },
+  },
+};
+
+const ImageItem = ({ src, i }: { src: string; i: number }) => {
+  return (
+    <motion.div
+      key={i}
+      variants={itemVariants}
+      className={`shrink-0 w-1/4 aspect-square flex items-center justify-center`}
+    >
+      <img
+        src={src}
+        alt={`Image ${i + 1}`}
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
+  );
+};
+
 function HobbySection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
+
   return (
     <section className="relative min-h-screen w-full px-4 py-48 flex justify-between items-center bg-white">
       <div className="max-w-6xl mx-auto flex flex-col gap-32">
+        {/* <h2 className="text-2xl text-center">Macro shots</h2> */}
         <div className="flex gap-10">
-          <p className="text-6xl m-0 text-black">
+          <motion.p
+            className="text-6xl m-0 text-black"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+            viewport={{ once: true, amount: 0.4 }}
+          >
             Macro photography fuels my curiosity for detail and design.
-          </p>
+          </motion.p>
           <div>
-            <p className="text-base text-black">
+            <motion.p
+              className="text-base text-black"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
               Every close-up reveals a new perspective — a hidden landscape
               within the ordinary. Through macro photography, I’ve learned to
               see beauty in simplicity and creativity in every tiny form.
-            </p>
-            <div className="mt-6">
+            </motion.p>
+            <motion.div
+              className="mt-6"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+              viewport={{ once: true, amount: 0.4 }}
+            >
               <a href="/" className="text-black flex gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -35,25 +100,20 @@ function HobbySection() {
                 </svg>
                 <span>instagram</span>
               </a>
-            </div>
+            </motion.div>
           </div>
         </div>
-        <div className="flex">
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={containerVariants}
+          className="flex"
+        >
           {images.map((src, i) => {
-            return (
-              <div
-                key={i}
-                className={`shrink-0 w-1/4 aspect-square flex items-center justify-center`}
-              >
-                <img
-                  src={src}
-                  alt={`Image ${i + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            );
+            return <ImageItem src={src} i={i} />;
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
