@@ -1,9 +1,4 @@
-import {
-  motion,
-  // AnimatePresence,
-  useSpring,
-  useMotionValue,
-} from "framer-motion";
+import { motion, useSpring, useMotionValue } from "framer-motion";
 import { useEffect } from "react";
 
 const Cursor = ({ hideCursor = false }: { hideCursor?: boolean }) => {
