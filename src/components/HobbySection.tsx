@@ -45,6 +45,7 @@ const ImageItem = ({ src, i }: { src: string; i: number }) => {
       <img
         src={src}
         alt={`Image ${i + 1}`}
+        loading="lazy"
         className="w-full h-full object-cover"
       />
     </motion.div>
@@ -90,7 +91,8 @@ function HobbySection() {
             >
               <div className="flex items-center gap-6">
                 <a
-                  href="/"
+                  href="https://www.instagram.com/ar_macros"
+                  target="_blank"
                   className="text-black relative flex gap-2 items-center outline-0 group hover:text-[#ffd53e] transition duration-300"
                 >
                   <svg

@@ -24,6 +24,7 @@ const StackItem = ({
       <img
         src={stack.icon}
         alt={stack.alt}
+        loading="lazy"
         className="align-middle max-w-full p-6 relative z-10 pointer-events-none"
       />
       <motion.div

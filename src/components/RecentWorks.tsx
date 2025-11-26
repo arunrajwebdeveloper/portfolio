@@ -3,23 +3,28 @@ import { motion } from "framer-motion";
 
 const items = [
   {
-    src: "https://images.unsplash.com/photo-1527873722743-67759f0854aa?w=1000",
+    src: "./projects/matrimony-screenshot-1.jpg",
     title: "Creative Design",
     text: "Transforming ideas into digital art and interactive experiences.",
   },
   {
-    src: "https://images.unsplash.com/photo-1483519173755-be893fab1f46?w=1000",
+    src: "./projects/matrimony-screenshot-2.jpg",
     title: "Modern Aesthetics",
     text: "Elegant visuals that blend minimalism and storytelling.",
   },
   {
-    src: "https://images.unsplash.com/photo-1705674076072-41db4ff670e8?w=1000",
+    src: "./projects/matrimony-screenshot-3.jpg",
     title: "Seamless Interaction",
     text: "Smooth, performant interfaces that feel alive and intuitive.",
   },
   {
-    src: "https://images.unsplash.com/photo-1591588368590-7b6f50b87663?w=1000",
+    src: "./projects/matrimony-screenshot-4.jpg",
     title: "Purposeful Visuals",
+    text: "Every pixel crafted to convey emotion and clarity.",
+  },
+  {
+    src: "./projects/matrimony-screenshot-5.jpg",
+    title: "Demo project",
     text: "Every pixel crafted to convey emotion and clarity.",
   },
 ];

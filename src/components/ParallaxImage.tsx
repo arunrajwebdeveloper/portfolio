@@ -40,7 +40,8 @@ export const ParallaxImage = ({
         src={src}
         alt={alt}
         style={{ y }}
-        className="w-full h-full object-cover will-change-transform"
+        loading="lazy"
+        className="w-full h-full object-contain will-change-transform"
       />
     </div>
   );
