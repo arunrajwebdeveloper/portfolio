@@ -31,7 +31,6 @@ function App() {
       {/* <FloatingGallery /> */}
 
       <HobbySection />
-
       <Footer />
     </>
   );

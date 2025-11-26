@@ -50,7 +50,7 @@ const ImageItem = ({ src, i }: { src: string; i: number }) => {
 
 function HobbySection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
     <section className="relative min-h-screen w-full px-4 py-48 flex justify-between items-center bg-white">
@@ -85,7 +85,10 @@ function HobbySection() {
               transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <a href="/" className="text-black flex gap-2 items-center">
+              <a
+                href="/"
+                className="text-black flex gap-2 items-center outline-0"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -99,6 +102,24 @@ function HobbySection() {
                   />
                 </svg>
                 <span>instagram</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22px"
+                  height="22px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <g id="Arrow / Arrow_Up_Right_SM">
+                    <path
+                      id="Vector"
+                      d="M8 16L16 8M16 8H10M16 8V14"
+                      stroke="#000000"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </g>
+                </svg>
               </a>
             </motion.div>
           </div>
