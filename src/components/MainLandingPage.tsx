@@ -14,11 +14,11 @@ const VELOCITY_MULTIPLIER = 10;
 const MAPPING_RANGE = 500;
 const PARALLAX_RANGE = 500; // adjust how much to move vertically
 
-interface HexagonSpinnerProps {
+interface MainLandingPageProps {
   baseVelocity: number;
 }
 
-function HexagonSpinner({ baseVelocity }: HexagonSpinnerProps) {
+function MainLandingPage({ baseVelocity }: MainLandingPageProps) {
   // Lenis scroll position (motion value)
   const lenisScrollY = useLenis();
 
@@ -95,4 +95,4 @@ function HexagonSpinner({ baseVelocity }: HexagonSpinnerProps) {
   );
 }
 
-export default HexagonSpinner;
+export default MainLandingPage;

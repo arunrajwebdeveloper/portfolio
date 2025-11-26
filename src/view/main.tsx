@@ -1,4 +1,4 @@
-import HexagonSpinner from "../components/HexagonSpinner";
+import MainLandingPage from "../components/MainLandingPage";
 import LandingSection from "../components/LandingSection";
 import AboutSection from "../components/AboutSection";
 import StackSection from "../components/StackSection";
@@ -18,16 +18,13 @@ const Main = () => {
     <>
       <Logo magnetActive={magnetActive} setMagnetActive={setMagnetActive} />
       <Cursor hideCursor={magnetActive} />
-      <HexagonSpinner baseVelocity={4} />
+      <MainLandingPage baseVelocity={4} />
       <LandingSection />
       <AboutSection />
       <StackSection />
       <RecentWorks />
-
       {/* <PhotographySection /> */}
-
       {/* <FloatingGallery /> */}
-
       <HobbySection />
       <Footer />
     </>
