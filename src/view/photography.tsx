@@ -143,7 +143,10 @@ const Photography = () => {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
 
   return (
-    <div className="w-full relative">
+    <>
+      <Logo magnetActive={magnetActive} setMagnetActive={setMagnetActive} />
+      <Cursor hideCursor={magnetActive} />
+
       <div className="mx-auto px-6 md:px-14 max-w-[1800px] py-20">
         <div className="inline-block">
           <Link to="/" className="flex items-center gap-2">
@@ -163,8 +166,6 @@ const Photography = () => {
           </Link>
         </div>
       </div>
-      <Logo magnetActive={magnetActive} setMagnetActive={setMagnetActive} />
-      <Cursor hideCursor={magnetActive} />
 
       <div className="mx-auto px-6 md:px-14 max-w-3xl">
         <div className="pb-32 pt-20">
@@ -181,7 +182,7 @@ const Photography = () => {
           images={galleryImages}
         />
       </div>
-    </div>
+    </>
   );
 };
 
