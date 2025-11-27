@@ -5,14 +5,12 @@ import { useRef } from "react";
 interface ParallaxImageProps {
   src: string;
   alt?: string;
-  height?: string | number;
-  speed?: number; // control intensity
+  speed?: number;
 }
 
 export const ParallaxImage = ({
   src,
   alt = "",
-  height = "500px",
   speed = 30,
 }: ParallaxImageProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,15 +31,15 @@ export const ParallaxImage = ({
   return (
     <div
       ref={ref}
-      className="relative overflow-hidden w-full"
-      style={{ height }}
+      className="relative overflow-hidden w-full h-auto md:h-[400px] lg:h-[800px]"
+      // style={{ height }}
     >
       <motion.img
         src={src}
         alt={alt}
         style={{ y }}
         loading="lazy"
-        className="w-full h-full object-contain will-change-transform"
+        className="w-full h-full object-cover md:object-contain will-change-transform"
       />
     </div>
   );

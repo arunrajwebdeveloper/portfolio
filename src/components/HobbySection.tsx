@@ -40,7 +40,7 @@ const ImageItem = ({ src, i }: { src: string; i: number }) => {
     <motion.div
       key={i}
       variants={itemVariants}
-      className={`shrink-0 w-1/6 aspect-square flex items-center justify-center`}
+      className={`shrink-0 w-1/3 md:w-1/6 aspect-square flex items-center justify-center`}
     >
       <img
         src={src}
@@ -57,12 +57,12 @@ function HobbySection() {
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
-    <section className="relative min-h-screen w-full px-4 py-48 flex justify-between items-center bg-white">
-      <div className="max-w-6xl mx-auto flex flex-col gap-32">
+    <section className="relative min-h-screen w-full py-16 lg:py-48 flex justify-between items-center bg-white">
+      <div className="max-w-6xl mx-auto flex flex-col gap-32 px-4">
         {/* <h2 className="text-2xl text-center">Macro shots</h2> */}
-        <div className="flex gap-10">
+        <div className="flex flex-col md:flex-row gap-10">
           <motion.p
-            className="text-6xl m-0 text-black"
+            className="text-4xl md:text-6xl m-0 text-black"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
@@ -199,7 +199,7 @@ function HobbySection() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="flex"
+          className="flex flex-wrap md:flex-nowrap"
         >
           {images.map((src, i) => {
             return <ImageItem src={src} i={i} />;

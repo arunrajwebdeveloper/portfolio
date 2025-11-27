@@ -1,13 +1,13 @@
 export default function Footer() {
   return (
     <footer
-      className="relative h-[800px] bg-black"
+      className="relative h-[600px] md:h-[800px] bg-black"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="fixed bottom-0 h-[800px] w-full flex">
-        <div className="max-w-4xl mx-auto h-full flex flex-col justify-between px-4 py-28">
+      <div className="fixed bottom-0 h-[600px] md:h-[800px] w-full flex">
+        <div className="max-w-4xl mx-auto h-full flex flex-col justify-between px-4 py-24 md:py-28">
           <div className="text-center flex items-center flex-col">
-            <p className="m-auto text-9xl text-white mb-14 tracking-wider">
+            <p className="m-auto text-6xl lg:text-9xl text-white mb-10 lg:mb-14 tracking-wider">
               Let's work togather
             </p>
             <a
@@ -36,9 +36,9 @@ export default function Footer() {
               </svg>
             </a>
           </div>
-          <div className="flex justify-between items-end">
+          <div className="flex md:justify-between items-center md:items-end flex-col md:flex-row gap-8 md:gap-0">
             <div>
-              <p className="text-gray-400 text-sm mb-3 tracking-wider">
+              <p className="text-gray-400 text-sm mb-3 tracking-wider text-center md:text-left">
                 Social
               </p>
               <ul className="flex list-none gap-6">
@@ -64,10 +64,10 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-white text-sm tracking-wider">
+              <p className="text-white text-sm tracking-wider text-center md:text-left">
                 Designed, coded, and shipped by me.
               </p>
-              <p className="text-white text-sm tracking-wider">
+              <p className="text-white text-sm tracking-wider text-center md:text-left">
                 <span>&copy;</span>
                 {`${new Date().getFullYear()} Arunraj`}
               </p>

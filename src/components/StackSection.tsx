@@ -31,7 +31,7 @@ const StackSection = () => {
 
   return (
     <div className="w-full bg-white">
-      <section className="flex justify-center items-center max-w-6xl mx-auto py-32">
+      <section className="flex justify-center items-center max-w-6xl mx-auto px-4 py-6 lg:py-32">
         <motion.div
           ref={ref}
           initial="hidden"
