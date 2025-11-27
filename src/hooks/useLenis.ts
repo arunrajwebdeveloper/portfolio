@@ -20,7 +20,7 @@ export const useLenis = (): MotionValue<number> => {
       gestureOrientation: "vertical",
       syncTouch: true,
       wheelMultiplier: 1.5,
-      touchMultiplier: 2,
+      touchMultiplier: 3,
       lerp: 0.2,
     });
     lenisRef.current = lenis;
