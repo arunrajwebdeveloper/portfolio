@@ -130,7 +130,7 @@ function HobbySection() {
                   </svg>
                 </a>
                 <Link
-                  to="/portfolio/photography"
+                  to="/photography"
                   className="text-black relative flex gap-2 items-center outline-0 group hover:text-[#ffd53e] transition duration-300"
                 >
                   <svg
