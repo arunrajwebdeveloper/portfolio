@@ -146,7 +146,7 @@ const Photography = () => {
     <div className="w-full relative">
       <div className="mx-auto px-6 md:px-14 max-w-[1800px] py-20">
         <div className="inline-block">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/portfolio/" className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
