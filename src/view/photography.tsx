@@ -141,6 +141,34 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
 
 const Photography = () => {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
+  const [loadedImages, setLoadedImages] = useState<{ imageUrl: string }[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const loaded: { imageUrl: string }[] = [];
+
+    galleryImages.forEach((image) => {
+      const img = new Image();
+      img.src = image.imageUrl;
+
+      img.onload = () => {
+        loaded.push(image);
+        setLoadedImages([...loaded]); // trigger UI updates
+        if (loaded.length === galleryImages.length) setIsLoaded(true);
+      };
+
+      img.onerror = () => {
+        loaded.push(image); // even on error, continue
+        setLoadedImages([...loaded]);
+        if (loaded.length === galleryImages.length) setIsLoaded(true);
+      };
+    });
+  }, []);
+
+  const progress = Math.min(
+    Math.round((loadedImages.length / galleryImages.length) * 100),
+    100
+  );
 
   return (
     <>
@@ -173,14 +201,30 @@ const Photography = () => {
           <h2 className="text-6xl text-black">
             The World is Smaller Than You Think.
           </h2>
+          {!isLoaded && (
+            <div className="mt-10">
+              <div className="w-full bg-gray-100 h-1 rounded overflow-hidden">
+                <div
+                  className="bg-[#ffd53e] h-full transition-all duration-300"
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <p className="text-xs text-gray-800">Loading images...</p>
+                <p className="text-xs text-gray-800">{progress}%</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
       <div className="mx-auto px-6 md:px-14 max-w-[1800px]">
-        <SimpleGallery
-          galleryID="my-photography-gallery"
-          images={galleryImages}
-        />
+        {isLoaded && (
+          <SimpleGallery
+            galleryID="my-photography-gallery"
+            images={loadedImages}
+          />
+        )}
       </div>
     </>
   );
