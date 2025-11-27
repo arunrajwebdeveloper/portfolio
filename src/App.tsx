@@ -5,6 +5,7 @@ import Spinner from "./components/Spinner";
 
 const Main = lazy(() => import("./view/main"));
 const Photography = lazy(() => import("./view/photography"));
+const NotFound = lazy(() => import("./view/NotFound"));
 
 function App() {
   useLenis();
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/photography" element={<Photography />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );
