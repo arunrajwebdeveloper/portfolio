@@ -17,7 +17,7 @@ function App() {
   return (
     <Suspense fallback={<Spinner />}>
       <Routes>
-        <Route path="/portfolio/" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route path="/photography" element={<Photography />} />
       </Routes>
     </Suspense>
