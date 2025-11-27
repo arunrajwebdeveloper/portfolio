@@ -44,7 +44,6 @@ export const ParallaxImage = ({
         loading="lazy"
         className="w-full h-full object-cover md:object-contain will-change-transform relative z-3"
       />
-      {/* <div className="bg-black/10 blur-lg absolute top-0 left-0 h-full w-full -translate-y-4  z-2 rounded-md"></div> */}
     </motion.div>
   );
 };
