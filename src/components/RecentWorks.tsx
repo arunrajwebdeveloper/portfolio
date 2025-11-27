@@ -20,6 +20,12 @@ const items = [
     text: "Notes application using ReactJS and NestJS.",
     bg: "#aeefb3",
   },
+  {
+    src: "./projects/matrimony-screenshot-4.png",
+    title: "Coming soon",
+    text: "Next project will add soon.",
+    bg: "#b5d181",
+  },
 ];
 
 function RecentWorks() {
@@ -29,8 +35,8 @@ function RecentWorks() {
         <h2 className="text-xl md:text-2xl text-center relative z-10">
           Recent Works
         </h2>
-        <div className="absolute text-gray-100 left-1/2 -translate-x-1/2 top-0 -translate-y-36 text-[16rem] tracking-tight flex justify-center items-center">
-          W.
+        <div className="absolute text-gray-100 left-1/2 -translate-x-1/2 top-0 -translate-y-48 text-[16rem] tracking-tight flex justify-center items-center">
+          w.
         </div>
         <div className="relative mt-20 md:mt-32 lg:flex lg:flex-wrap">
           {items.map((item, index) => {
@@ -47,10 +53,26 @@ function RecentWorks() {
                   viewport={{ once: false, amount: 0.4 }}
                   className="text-center max-w-md mx-auto"
                 >
-                  <h3 className="text-2xl md:text-3xl text-black mb-2">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-black leading-relaxed">{item.text}</p>
+                  <p className="text-gray-700 leading-relaxed">{item.text}</p>
+                  <div className="flex gap-2 items-center justify-center mt-4">
+                    <a
+                      className="text-white px-4 py-1 border border-white rounded-4xl"
+                      href="."
+                      target="_blank"
+                    >
+                      Demo
+                    </a>
+                    <a
+                      className="text-white px-4 py-1 border border-white rounded-4xl"
+                      href="."
+                      target="_blank"
+                    >
+                      Source
+                    </a>
+                  </div>
                 </motion.div>
                 <ParallaxImage src={item.src} speed={40} />
               </div>
