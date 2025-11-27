@@ -24,9 +24,14 @@ const items = [
 
 function RecentWorks() {
   return (
-    <section className="flex flex-col justify-center bg-white w-full py-20 min-h-screen">
-      <div className="relative ">
-        <h2 className="text-xl md:text-2xl text-center">Recent Works</h2>
+    <section className="flex flex-col justify-center bg-white w-full py-28 min-h-screen">
+      <div className="relative">
+        <h2 className="text-xl md:text-2xl text-center relative z-10">
+          Recent Works
+        </h2>
+        <div className="absolute text-gray-100 left-1/2 -translate-x-1/2 top-0 -translate-y-36 text-[16rem] tracking-tight flex justify-center items-center">
+          W.
+        </div>
         <div className="relative mt-20 md:mt-32 lg:flex lg:flex-wrap">
           {items.map((item, index) => {
             return (
