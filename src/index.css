@@ -79,3 +79,50 @@ body {
     transform: translateX(32px);
   }
 }
+
+/* PHOTOSWIPE GALLERY */
+
+.pswp {
+  --pswp-bg: #ffffff !important; /* Background of overlay */
+  --pswp-root-color: #000000 !important; /* Default text/icon color */
+  --pswp-icon-color: #000000 !important; /* Toolbar icons */
+  --pswp-icon-color-secondary: #666666 !important;
+  --pswp-icon-stroke-color: #ffffff !important;
+  --pswp-icon-stroke-width: 2px !important;
+
+  --pswp-placeholder-bg: #f0f0f0 !important; /* Preload placeholder */
+  --pswp-error-text-color: #d33 !important; /* Error message */
+}
+button.pswp__button svg {
+  outline: 0 !important;
+  border: 0 !important;
+}
+/* .pswp.pswp--open .pswp__item {
+  opacity: 0;
+  transition: opacity 500ms ease;
+  pointer-events: none;
+}
+
+.pswp.pswp--open .pswp__item.pswp-item-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+*/
+/* .pswp__img {
+  border-radius: 6px;
+} */
+
+button.pswp__button.pswp__button--arrow--next,
+button.pswp__button.pswp__button--arrow--prev {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+button.pswp__button.pswp__button--arrow--next svg,
+button.pswp__button.pswp__button--arrow--prev svg {
+  height: 26px;
+  width: 26px;
+}
+.pswp__counter {
+  text-shadow: none !important;
+}
