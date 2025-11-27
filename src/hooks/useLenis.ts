@@ -21,7 +21,7 @@ export const useLenis = (): MotionValue<number> => {
       syncTouch: true,
       wheelMultiplier: 1.5,
       touchMultiplier: 4,
-      lerp: 0.3,
+      // lerp: 0.2,
     });
     lenisRef.current = lenis;
 
