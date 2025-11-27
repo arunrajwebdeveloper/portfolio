@@ -69,14 +69,11 @@ const AboutSection = () => {
   const words = paragraph.split(" ");
 
   return (
-    <motion.section className="flex flex-col justify-center bg-white w-full px-4 py-20 min-h-screen">
-      <div className="max-w-6xl mx-auto relative">
-        {/* <p className="text-[70rem] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0">
-          10
-        </p> */}
+    <motion.section className="flex flex-col justify-center bg-white w-full py-10 lg:py-20 min-h-screen">
+      <div className="max-w-6xl mx-auto relative px-4">
         <p
           ref={container}
-          className="mt-4 text-slate-700 text-7xl leading-20 text-center flex flex-wrap relative z-10"
+          className=" text-slate-700 text-3xl leading-7 lg:text-7xl lg:leading-20 text-center flex flex-wrap relative z-10"
         >
           {words.map((word, i) => {
             const start = i / words.length;
@@ -91,9 +88,9 @@ const AboutSection = () => {
           })}
         </p>
 
-        <div className="w-full mt-20 pe-48 flex justify-end">
+        <div className="w-full mt-20 pe-0 lg:pe-48 flex justify-end">
           <motion.div
-            className="max-w-2xl grid-cols-2 grid gap-10"
+            className="md:max-w-2xl md:grid-cols-2 md:grid md:gap-10 space-y-4 md:space-y-0"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
