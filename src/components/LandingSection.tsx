@@ -29,7 +29,7 @@ const LandingSection = () => {
   const title = ["Learn.", "Build.", "Repeat."];
 
   return (
-    <section className="bg-white w-full flex justify-start items-center py-16 lg:py-28">
+    <section className="bg-white w-full flex justify-start items-center py-16 md:py-28">
       <div ref={body} className="space-y-8 max-w-6xl mx-auto px-4 w-full">
         <div>
           {title.map((phrase, index) => {
@@ -40,7 +40,7 @@ const LandingSection = () => {
                   variants={animation}
                   initial="initial"
                   animate={isInView ? "enter" : ""}
-                  className="text-black text-[6rem] leading-24 lg:text-[10rem] lg:leading-44 text-left m-0"
+                  className="text-black text-[6rem] leading-24 md:text-[10rem] md:leading-44 text-left m-0"
                 >
                   {phrase}
                 </motion.h1>

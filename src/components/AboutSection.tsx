@@ -73,7 +73,7 @@ const AboutSection = () => {
       <div className="max-w-6xl mx-auto relative px-4">
         <p
           ref={container}
-          className=" text-slate-700 text-3xl leading-7 lg:text-7xl lg:leading-20 text-center flex flex-wrap relative z-10"
+          className=" text-slate-700 text-3xl leading-7 md:text-7xl md:leading-20 text-center flex flex-wrap relative z-10"
         >
           {words.map((word, i) => {
             const start = i / words.length;
@@ -88,7 +88,7 @@ const AboutSection = () => {
           })}
         </p>
 
-        <div className="w-full mt-20 pe-0 lg:pe-48 flex justify-end">
+        <div className="w-full mt-20 pe-0 lg:pe-48 flex lg:justify-end">
           <motion.div
             className="md:max-w-2xl md:grid-cols-2 md:grid md:gap-10 space-y-4 md:space-y-0"
             initial={{ opacity: 0, y: 100 }}

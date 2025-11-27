@@ -33,7 +33,7 @@ function RecentWorks() {
               <div
                 key={index}
                 className={`relative md:flex w-full ${
-                  index === 0 ? "mt-0" : "mt-8 md:-mt-[400px]"
+                  index === 0 ? "mt-0" : "mt-8 md:-mt-[200px] lg:-mt-[400px]"
                 } ${isRight ? "md:justify-start" : "md:justify-end"}`}
                 // style={{ height: ITEM_HEIGHT }}
               >
@@ -50,7 +50,7 @@ function RecentWorks() {
                     // whileInView={{ opacity: 1, y: 0 }}
                     // transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
                     // viewport={{ once: false, amount: 0.4 }}
-                    className={`md:absolute md:top-1/2 md:-translate-y-1/2 md:w-[360px] mt-4 ${
+                    className={`md:absolute md:top-1/2 md:-translate-y-1/2 lg:w-[360px] mt-4 ${
                       isRight
                         ? "md:right-0 md:translate-x-1/4 md:text-right"
                         : "md:left-0 md:-translate-x-1/4 md:text-left"

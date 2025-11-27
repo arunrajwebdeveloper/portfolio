@@ -21,7 +21,7 @@ const StackItem = ({
   return (
     <motion.div
       variants={itemVariants}
-      className="group w-1/3 lg:w-1/9 relative"
+      className="group w-1/3 md:w-1/6 lg:w-1/9 relative"
     >
       <Tooltip title={stack.title} />
       <img
