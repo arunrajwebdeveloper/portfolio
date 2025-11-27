@@ -28,6 +28,8 @@ export const ParallaxImage = ({
     [`-${speed}px`, `${speed}px`]
   );
 
+  console.log("y :>> ", y);
+
   return (
     <motion.div
       ref={ref}
