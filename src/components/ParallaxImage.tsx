@@ -29,18 +29,22 @@ export const ParallaxImage = ({
   );
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className="relative overflow-hidden w-full h-auto md:h-[400px] lg:h-[800px]"
-      // style={{ height }}
+      className="relative w-full max-w-2xl h-auto z-20"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+      viewport={{ once: false, amount: 0.4 }}
     >
       <motion.img
         src={src}
         alt={alt}
-        style={{ y }}
+        // style={{ y }}
         loading="lazy"
-        className="w-full h-full object-cover md:object-contain will-change-transform"
+        className="w-full h-full object-cover md:object-contain will-change-transform relative z-3"
       />
-    </div>
+      {/* <div className="bg-black/10 blur-lg absolute top-0 left-0 h-full w-full -translate-y-4  z-2 rounded-md"></div> */}
+    </motion.div>
   );
 };

@@ -64,10 +64,10 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-white text-sm tracking-wider text-center md:text-left">
+              <p className="text-white text-sm tracking-wider text-center md:text-right">
                 Designed, coded, and shipped by me.
               </p>
-              <p className="text-white text-sm tracking-wider text-center md:text-left">
+              <p className="text-white text-sm tracking-wider text-center md:text-right">
                 <span>&copy;</span>
                 {`${new Date().getFullYear()} Arunraj`}
               </p>
