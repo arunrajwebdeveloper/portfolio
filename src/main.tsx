@@ -7,6 +7,7 @@ import "lenis/dist/lenis.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    {/* if not using gh-pages use BrowserRouter with basename */}
     <HashRouter>
       <App />
     </HashRouter>
