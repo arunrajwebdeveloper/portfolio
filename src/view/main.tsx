@@ -10,7 +10,6 @@ import { useState } from "react";
 import RecentWorks from "../components/RecentWorks";
 import HobbySection from "../components/HobbySection";
 import Logo from "../components/Logo";
-import { AnimatePresence } from "framer-motion";
 import Modal from "../components/Modal";
 
 const Main = () => {
@@ -23,6 +22,7 @@ const Main = () => {
         magnetActive={magnetActive}
         setMagnetActive={setMagnetActive}
         setModalOpen={setModalOpen}
+        modalOpen={modalOpen}
       />
       <Cursor hideCursor={magnetActive} />
       <MainLandingPage baseVelocity={4} />

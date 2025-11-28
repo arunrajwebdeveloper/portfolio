@@ -5,8 +5,10 @@ function Logo({
   magnetActive,
   setMagnetActive,
   setModalOpen,
+  modalOpen,
 }: {
   magnetActive: boolean;
+  modalOpen: boolean;
   setMagnetActive: any;
   setModalOpen: any;
 }) {
@@ -52,18 +54,42 @@ function Logo({
       animate={isVisible ? "visible" : "hidden"}
       onPointerEnter={() => setMagnetActive(true)}
       onPointerLeave={() => setMagnetActive(false)}
-      className="z-50 fixed bottom-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-black rounded-full flex select-none"
+      className="z-50 fixed bottom-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-black rounded-full flex select-none cursor-pointer"
       onClick={() => setModalOpen((prev: any) => !prev)}
     >
       {magnetActive ? (
         <motion.div
           layoutId="cursor"
-          className="absolute inset-0 bg-[#ffc903] rounded-full flex z-10"
+          className="absolute inset-0 bg-[#ffc903]/80 rounded-full flex z-10"
         ></motion.div>
       ) : null}
-      <span className="m-auto relative z-20 transition duration-300 text-xl text-white">
-        AR
-      </span>
+      {modalOpen ? (
+        <span className="m-auto relative z-20 transition duration-300 text-xl text-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6L6 18" />
+            <path d="M6 6L18 18" />
+          </svg>
+        </span>
+      ) : (
+        <>
+          <img
+            className="w-full h-full object-cover rounded-full overflow-hidden relative z-2"
+            src="./photos/user.jpg"
+            alt="arunraj photo"
+          />
+          <div className="animate-ping absolute inline-flex h-14 w-14 rounded-full bg-[#ffc903] opacity-50 z-1"></div>
+        </>
+      )}
     </motion.div>
   );
 }
