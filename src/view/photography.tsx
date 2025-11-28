@@ -57,7 +57,7 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
       // CONTROL OPTIONS
       //------------------
       padding: { top: 40, bottom: 40, left: 50, right: 50 },
-      bgOpacity: 0.95,
+      bgOpacity: 1, // lightbox bg transparancy
       loop: false,
       wheelToZoom: true,
       pinchToClose: true,
