@@ -40,7 +40,7 @@ const Modal = ({
         >
           <motion.div
             onClick={(e) => e.stopPropagation()}
-            className="mb-4 bg-white select-none h-auto w-72 rounded-lg overflow-hidden shadow-lg flex flex-col items-center justify-center"
+            className="mb-12 md:mb-4 bg-white select-none h-auto w-72 rounded-lg overflow-hidden shadow-lg flex flex-col items-center justify-center"
             variants={badSuspension}
             initial="hidden"
             animate="visible"

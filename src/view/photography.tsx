@@ -204,7 +204,7 @@ const Photography = () => {
       </div>
 
       <div className="mx-auto px-6 md:px-14 max-w-3xl">
-        <div className="pb-32 pt-20">
+        <div className="pb-32 pt-10">
           <p className="text-2xl text-gray-600 mb-4">Life at 1:1</p>
           <h2 className="text-6xl text-black">
             The World is Smaller Than You Think.
