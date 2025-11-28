@@ -54,7 +54,7 @@ function Logo({
       animate={isVisible ? "visible" : "hidden"}
       onPointerEnter={() => setMagnetActive(true)}
       onPointerLeave={() => setMagnetActive(false)}
-      className="z-50 fixed bottom-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-black rounded-full flex select-none cursor-pointer"
+      className="z-9999 fixed bottom-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-black rounded-full flex select-none cursor-pointer"
       onClick={() => setModalOpen((prev: any) => !prev)}
     >
       {magnetActive ? (

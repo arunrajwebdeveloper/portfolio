@@ -33,7 +33,7 @@ const Modal = ({
       {isOpen && (
         <motion.div
           onClick={handleClose}
-          className="w-screen h-screen fixed bg-black/50 inset-0 z-40 flex items-end justify-center"
+          className="w-screen h-screen fixed bg-black/50 inset-0 z-999 flex items-end justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

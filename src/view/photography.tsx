@@ -5,6 +5,7 @@ import "photoswipe/style.css";
 import Logo from "../components/Logo";
 import Cursor from "../components/Cursor";
 import { Link } from "react-router";
+import Modal from "../components/Modal";
 
 type GalleryImage = {
   imageUrl: string;
@@ -142,6 +143,8 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
 const Photography = () => {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
   const [loadedImages, setLoadedImages] = useState<{ imageUrl: string }[]>([]);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -172,7 +175,12 @@ const Photography = () => {
 
   return (
     <>
-      <Logo magnetActive={magnetActive} setMagnetActive={setMagnetActive} />
+      <Logo
+        magnetActive={magnetActive}
+        setMagnetActive={setMagnetActive}
+        setModalOpen={setModalOpen}
+        modalOpen={modalOpen}
+      />
       <Cursor hideCursor={magnetActive} />
 
       <div className="mx-auto px-6 md:px-14 max-w-[1800px] py-20">
@@ -226,6 +234,8 @@ const Photography = () => {
           />
         )}
       </div>
+
+      <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)} />
     </>
   );
 };
