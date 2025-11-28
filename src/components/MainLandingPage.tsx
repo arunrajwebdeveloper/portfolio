@@ -20,7 +20,7 @@ interface MainLandingPageProps {
 
 function MainLandingPage({ baseVelocity }: MainLandingPageProps) {
   // Lenis scroll position (motion value)
-  const lenisScrollY = useLenis();
+  const { lenisScrollY } = useLenis();
 
   // Smooth velocity based on Lenis scroll
   const scrollVelocity = useVelocity(lenisScrollY);

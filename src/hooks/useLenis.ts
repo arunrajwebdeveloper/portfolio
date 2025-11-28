@@ -2,10 +2,16 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import { type MotionValue, useMotionValue } from "framer-motion";
 
+interface LenisHookType {
+  lenisScrollY: MotionValue<number>;
+  stopLenis: () => void;
+  startLenis: () => void;
+}
+
 /**
  * Initializes Lenis and provides a MotionValue that tracks Lenis's scroll position.
  */
-export const useLenis = (): MotionValue<number> => {
+export const useLenis = (): LenisHookType => {
   // Use MotionValue to store the smooth scroll position
   const lenisScrollY = useMotionValue<number>(0);
   const lenisRef = useRef<Lenis | null>(null);
@@ -21,7 +27,9 @@ export const useLenis = (): MotionValue<number> => {
       syncTouch: true,
       wheelMultiplier: 1.5,
       touchMultiplier: 4,
-      // lerp: 0.2,
+      lerp: 0.05,
+      infinite: false,
+      autoResize: true,
     });
     lenisRef.current = lenis;
 
@@ -48,6 +56,18 @@ export const useLenis = (): MotionValue<number> => {
     };
   }, [lenisScrollY]);
 
+  const stopLenis = () => {
+    if (lenisRef.current) {
+      lenisRef.current.stop();
+    }
+  };
+
+  const startLenis = () => {
+    if (lenisRef.current) {
+      lenisRef.current.start();
+    }
+  };
+
   // Return the motion value instead of the default scrollY
-  return lenisScrollY;
+  return { lenisScrollY, stopLenis, startLenis };
 };
