@@ -174,7 +174,7 @@ const Photography = () => {
   );
 
   return (
-    <>
+    <div className="bg-[#fbffef] w-full">
       <Logo
         magnetActive={magnetActive}
         setMagnetActive={setMagnetActive}
@@ -239,7 +239,7 @@ const Photography = () => {
       </div>
 
       <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)} />
-    </>
+    </div>
   );
 };
 

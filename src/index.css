@@ -83,7 +83,7 @@ body {
 /* PHOTOSWIPE GALLERY */
 
 .pswp {
-  --pswp-bg: #ffffff !important; /* Background of overlay */
+  --pswp-bg: #fbffef !important; /* Background of overlay */
   --pswp-root-color: #000000 !important; /* Default text/icon color */
   --pswp-icon-color: #000000 !important; /* Toolbar icons */
   --pswp-icon-color-secondary: #666666 !important;
@@ -115,7 +115,7 @@ button.pswp__button svg {
 
 button.pswp__button.pswp__button--arrow--next,
 button.pswp__button.pswp__button--arrow--prev {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 button.pswp__button.pswp__button--arrow--next,
