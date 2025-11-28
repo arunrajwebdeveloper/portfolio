@@ -183,7 +183,7 @@ const Photography = () => {
       />
       <Cursor hideCursor={magnetActive} />
 
-      <div className="mx-auto px-6 md:px-14 max-w-[1800px] py-20">
+      <div className="mx-auto px-6 md:px-14 max-w-[1800px] pt-20 pb-10">
         <div className="inline-block">
           <Link to="/" className="flex items-center gap-2">
             <svg
@@ -204,11 +204,14 @@ const Photography = () => {
       </div>
 
       <div className="mx-auto px-6 md:px-14 max-w-3xl">
-        <div className="pb-32 pt-10">
-          <p className="text-2xl text-gray-600 mb-4">Life at 1:1</p>
-          <h2 className="text-6xl text-black">
+        <div className="pb-32 pt-5">
+          <p className="text-3xl text-gray-600 mb-4">Life at 1:1</p>
+          <h2 className="text-6xl text-black mb-4">
             The World is Smaller Than You Think.
           </h2>
+          <p className="text-xl text-gray-600">
+            A Deep Dive through the Canon EF 100mm f/2.8 USM Macro Lens
+          </p>
           {!isLoaded && (
             <div className="mt-10">
               <div className="w-full bg-gray-100 h-1 rounded overflow-hidden">
