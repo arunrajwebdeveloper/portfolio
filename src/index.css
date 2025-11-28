@@ -118,6 +118,14 @@ button.pswp__button.pswp__button--arrow--prev {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+button.pswp__button.pswp__button--arrow--next,
+button.pswp__button.pswp__button--arrow--prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+}
+
 button.pswp__button.pswp__button--arrow--next svg,
 button.pswp__button.pswp__button--arrow--prev svg {
   height: 26px;
