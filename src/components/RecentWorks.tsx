@@ -46,7 +46,7 @@ function RecentWorks() {
               <div
                 key={index}
                 style={{ backgroundColor: item.bg }}
-                className="w-full lg:w-1/2 overflow-hidden min-h-[600px] flex flex-col items-center justify-between pt-20 px-20"
+                className="w-full lg:w-1/2 overflow-hidden min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-between pt-20 px-6 md:px-10 lg:20"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
