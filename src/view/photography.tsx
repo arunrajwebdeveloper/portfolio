@@ -185,7 +185,7 @@ const Photography = () => {
 
       <div className="mx-auto px-6 md:px-14 max-w-[1800px] pt-20 pb-10">
         <div className="inline-block">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2 outline-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"

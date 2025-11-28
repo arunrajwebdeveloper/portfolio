@@ -43,7 +43,7 @@ export default function Footer() {
               <ul className="flex list-none gap-6">
                 <li className="text-white text-base">
                   <a
-                    className="text-white no-underline tracking-wider hover:text-[#ffd53e] transition duration-300"
+                    className="text-white outline-0 no-underline tracking-wider hover:text-[#ffd53e] transition duration-300"
                     href="https://www.linkedin.com/in/arunraj90/"
                     target="_blank"
                   >
@@ -52,7 +52,7 @@ export default function Footer() {
                 </li>
                 <li className="text-white text-base">
                   <a
-                    className="text-white no-underline tracking-wider hover:text-[#ffd53e] transition duration-300"
+                    className="text-white outline-0 no-underline tracking-wider hover:text-[#ffd53e] transition duration-300"
                     href="https://www.instagram.com/ar_macros"
                     target="_blank"
                   >
