@@ -28,7 +28,9 @@ export const ParallaxImage = ({
     [`-${speed}px`, `${speed}px`]
   );
 
+  // REMOVE
   console.log("y :>> ", y);
+  console.clear();
 
   return (
     <motion.div

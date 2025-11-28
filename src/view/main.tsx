@@ -10,13 +10,20 @@ import { useState } from "react";
 import RecentWorks from "../components/RecentWorks";
 import HobbySection from "../components/HobbySection";
 import Logo from "../components/Logo";
+import { AnimatePresence } from "framer-motion";
+import Modal from "../components/Modal";
 
 const Main = () => {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
     <>
-      <Logo magnetActive={magnetActive} setMagnetActive={setMagnetActive} />
+      <Logo
+        magnetActive={magnetActive}
+        setMagnetActive={setMagnetActive}
+        setModalOpen={setModalOpen}
+      />
       <Cursor hideCursor={magnetActive} />
       <MainLandingPage baseVelocity={4} />
       <LandingSection />
@@ -27,6 +34,8 @@ const Main = () => {
       {/* <FloatingGallery /> */}
       <HobbySection />
       <Footer />
+
+      <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)} />
     </>
   );
 };

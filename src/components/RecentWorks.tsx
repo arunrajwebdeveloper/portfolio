@@ -39,7 +39,9 @@ function RecentWorks() {
           w.
         </div>
         <div className="relative mt-20 md:mt-32 lg:flex lg:flex-wrap">
-          {items.map((item, index) => {
+          {items.map((item, index, arr) => {
+            const isNotLastItem = arr.length - 1 !== index;
+
             return (
               <div
                 key={index}
@@ -57,22 +59,32 @@ function RecentWorks() {
                     {item.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{item.text}</p>
-                  <div className="flex gap-2 items-center justify-center mt-4">
-                    <a
-                      className="text-white px-4 py-1 border border-white rounded-4xl"
-                      href="."
-                      target="_blank"
-                    >
-                      Demo
-                    </a>
-                    <a
-                      className="text-white px-4 py-1 border border-white rounded-4xl"
-                      href="."
-                      target="_blank"
-                    >
-                      Source
-                    </a>
-                  </div>
+                  {isNotLastItem && (
+                    <div className="flex gap-2 items-center justify-center mt-4">
+                      <a
+                        className="text-white text-sm px-4 py-1 border border-white rounded-4xl"
+                        href="."
+                        target="_blank"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert("On progress...");
+                        }}
+                      >
+                        Demo
+                      </a>
+                      <a
+                        className="text-white text-sm px-4 py-1 border border-white rounded-4xl"
+                        href="."
+                        target="_blank"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert("On progress...");
+                        }}
+                      >
+                        Source
+                      </a>
+                    </div>
+                  )}
                 </motion.div>
                 <ParallaxImage src={item.src} speed={40} />
               </div>

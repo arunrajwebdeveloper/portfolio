@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 function Logo({
   magnetActive,
   setMagnetActive,
+  setModalOpen,
 }: {
   magnetActive: boolean;
   setMagnetActive: any;
+  setModalOpen: any;
 }) {
   const { scrollY } = useScroll();
   const [isVisible, setIsVisible] = useState(false);
@@ -51,6 +53,7 @@ function Logo({
       onPointerEnter={() => setMagnetActive(true)}
       onPointerLeave={() => setMagnetActive(false)}
       className="z-50 fixed bottom-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-black rounded-full flex select-none"
+      onClick={() => setModalOpen((prev: any) => !prev)}
     >
       {magnetActive ? (
         <motion.div
