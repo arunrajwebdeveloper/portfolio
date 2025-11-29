@@ -39,7 +39,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #d1a400;
+  background-color: #ffe600;
 }
 body {
   overflow-x: hidden;
