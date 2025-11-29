@@ -40,7 +40,7 @@ const LandingSection = () => {
                   variants={animation}
                   initial="initial"
                   animate={isInView ? "enter" : ""}
-                  className="text-black text-[6rem] leading-24 md:text-[10rem] md:leading-44 text-left m-0"
+                  className="text-black font-sans font-black text-[6rem] leading-24 md:text-[10rem] md:leading-44 text-left m-0"
                 >
                   {phrase}
                 </motion.h1>

@@ -35,7 +35,7 @@ function RecentWorks() {
         <h2 className="text-xl md:text-2xl text-center relative z-10">
           Recent Works
         </h2>
-        <div className="absolute text-gray-100 left-1/2 -translate-x-1/2 top-0 -translate-y-48 text-[16rem] tracking-tight flex justify-center items-center">
+        <div className="absolute font-sans font-semibold text-gray-100 left-1/2 -translate-x-1/2 top-0 -translate-y-48 text-[16rem] tracking-tight flex justify-center items-center">
           w.
         </div>
         <div className="relative mt-20 md:mt-32 lg:flex lg:flex-wrap">
