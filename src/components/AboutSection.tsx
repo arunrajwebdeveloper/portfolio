@@ -69,7 +69,7 @@ const AboutSection = () => {
   const words = paragraph.split(" ");
 
   return (
-    <motion.section className="flex flex-col justify-center bg-white w-full py-10 lg:py-20 min-h-screen">
+    <motion.section className="flex flex-col justify-center bg-white w-full py-10 lg:py-20 lg:min-h-screen">
       <div className="max-w-6xl mx-auto relative px-4">
         <p
           ref={container}

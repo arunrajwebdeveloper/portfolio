@@ -11,6 +11,7 @@ import RecentWorks from "../components/RecentWorks";
 import HobbySection from "../components/HobbySection";
 import Logo from "../components/Logo";
 import Modal from "../components/Modal";
+import ParallaxText from "../components/ParallaxText";
 
 const Main = () => {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
@@ -32,6 +33,11 @@ const Main = () => {
       <RecentWorks />
       {/* <PhotographySection /> */}
       {/* <FloatingGallery /> */}
+      <section className="bg-white flex flex-col gap-0 w-full">
+        <ParallaxText baseVelocity={-1}>Code Learn Build Repeat</ParallaxText>
+        <ParallaxText baseVelocity={1}>Code Learn Build Repeat</ParallaxText>
+      </section>
+
       <HobbySection />
       <Footer />
 

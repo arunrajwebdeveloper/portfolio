@@ -57,7 +57,7 @@ function HobbySection() {
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
-    <section className="relative min-h-screen w-full py-16 lg:py-48 flex justify-between items-center bg-white">
+    <section className="relative lg:min-h-screen w-full py-16 lg:py-48 flex justify-between items-center bg-white">
       <div className="max-w-6xl mx-auto flex flex-col gap-32 px-4">
         {/* <h2 className="text-2xl text-center">Macro shots</h2> */}
         <div className="flex flex-col md:flex-row gap-10">
