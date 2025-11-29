@@ -1,13 +1,14 @@
 import { useRef } from "react";
 import {
   motion,
-  useScroll,
+  // useScroll,
   useSpring,
   useTransform,
   useMotionValue,
   useVelocity,
   useAnimationFrame,
 } from "framer-motion";
+import { useLenis } from "../hooks/useLenis";
 // import { wrap } from "@motionone/utils";
 
 interface ParallaxProps {
@@ -25,7 +26,8 @@ export default function ParallaxText({
   baseVelocity = 100,
 }: ParallaxProps) {
   const baseX = useMotionValue(0);
-  const { scrollY } = useScroll();
+  // const { scrollY } = useScroll();
+  const { lenisScrollY: scrollY } = useLenis();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
