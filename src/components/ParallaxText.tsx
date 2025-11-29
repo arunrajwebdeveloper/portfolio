@@ -8,11 +8,16 @@ import {
   useVelocity,
   useAnimationFrame,
 } from "framer-motion";
-import { wrap } from "@motionone/utils";
+// import { wrap } from "@motionone/utils";
 
 interface ParallaxProps {
   children: string;
   baseVelocity: number;
+}
+
+function wrap(min: number, max: number, v: number) {
+  const range = max - min;
+  return ((((v - min) % range) + range) % range) + min;
 }
 
 export default function ParallaxText({
