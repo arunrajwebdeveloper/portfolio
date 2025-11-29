@@ -174,7 +174,7 @@ const Photography = () => {
   );
 
   return (
-    <div className="bg-[#fbffef] w-full">
+    <div className="bg-[#fbffef] w-full min-h-screen">
       <Logo
         magnetActive={magnetActive}
         setMagnetActive={setMagnetActive}
