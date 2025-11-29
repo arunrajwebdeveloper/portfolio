@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { useLenis } from "../hooks/useLenis";
 import CircularText from "./CircularText";
+import { useRef } from "react";
 
 const BASE_ROTATION_SPEED = 5;
 const VELOCITY_MULTIPLIER = 10;
@@ -41,10 +42,25 @@ function MainLandingPage({ baseVelocity }: MainLandingPageProps) {
 
   // Rotation logic
   const baseRotation = useMotionValue(0);
+  const directionFactor = useRef<number>(1);
+
   useAnimationFrame((_, delta) => {
-    const baseMovement = baseVelocity * BASE_ROTATION_SPEED * (delta / 1000);
-    const accelerationMovement = baseMovement * velocityFactor.get();
-    baseRotation.set(baseRotation.get() + baseMovement + accelerationMovement);
+    let baseMovement =
+      directionFactor.current *
+      baseVelocity *
+      BASE_ROTATION_SPEED *
+      (delta / 1000);
+
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = -1;
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = 1;
+    }
+
+    baseMovement +=
+      directionFactor.current * baseMovement * velocityFactor.get();
+
+    baseRotation.set(baseRotation.get() + baseMovement);
   });
 
   return (
