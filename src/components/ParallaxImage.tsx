@@ -46,7 +46,7 @@ export const ParallaxImage = ({
         alt={alt}
         // style={{ y }}
         loading="lazy"
-        className="w-full h-full object-cover md:object-contain will-change-transform relative z-3"
+        className="w-full h-full object-cover md:object-contain will-change-transform relative z-3 shadow-2xl"
       />
     </motion.div>
   );

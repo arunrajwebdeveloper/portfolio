@@ -6,25 +6,25 @@ const items = [
     src: "./projects/matrimony-screenshot-1.png",
     title: "Matrimony App",
     text: "A matrimony app with Nextjs and NestJs.",
-    bg: "#838beb",
+    bg: "#fff",
   },
   {
     src: "./projects/matrimony-screenshot-2.png",
     title: "Photography portfolio",
     text: "Elegant visuals that blend minimalism and storytelling using html5, css3, javascript and GSAP.",
-    bg: "#ffee72",
+    bg: "#fff",
   },
   {
     src: "./projects/matrimony-screenshot-3.png",
     title: "Notes Application",
     text: "Notes application using ReactJS and NestJS.",
-    bg: "#aeefb3",
+    bg: "#fff",
   },
   {
     src: "./projects/matrimony-screenshot-4.png",
     title: "Coming soon",
     text: "Next project will add soon.",
-    bg: "#b5d181",
+    bg: "#fff",
   },
 ];
 
@@ -55,14 +55,14 @@ function RecentWorks() {
                   viewport={{ once: false, amount: 0.4 }}
                   className="text-center max-w-md mx-auto"
                 >
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl text-white mb-2">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl text-black mb-2">
                     {item.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{item.text}</p>
                   {isNotLastItem && (
                     <div className="flex gap-2 items-center justify-center mt-4">
                       <a
-                        className="text-white display-text outline-0 text-sm px-4 py-1 border border-white rounded-4xl"
+                        className="text-black display-text outline-0 text-sm px-4 py-1 border border-black rounded-4xl"
                         href="."
                         target="_blank"
                         onClick={(e) => {
@@ -73,7 +73,7 @@ function RecentWorks() {
                         Demo
                       </a>
                       <a
-                        className="text-white display-text outline-0 text-sm px-4 py-1 border border-white rounded-4xl"
+                        className="text-black display-text outline-0 text-sm px-4 py-1 border border-black rounded-4xl"
                         href="."
                         target="_blank"
                         onClick={(e) => {
