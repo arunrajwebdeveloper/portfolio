@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
     <footer
-      className="relative h-[600px] md:h-[800px] bg-black"
+      className="relative h-[600px] md:h-[800px] bg-black overflow-hidden"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="fixed bottom-0 h-[600px] md:h-[800px] w-full flex">
+      <div className="fixed bottom-0 h-[600px] md:h-[800px] w-full flex z-2">
         <div className="max-w-4xl relative mx-auto h-full flex flex-col justify-between px-4 py-24 md:py-28">
           <div className="text-center flex items-center flex-col">
             <p className="m-auto text-6xl lg:text-9xl text-white mb-10 lg:mb-14 tracking-wider">
@@ -73,27 +73,20 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-        {/* <div
-          onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
-          className="absolute select-none z-2 w-14 h-14 cursor-pointer flex justify-center items-center right-2 bottom-6 lg:right-10 lg:bottom-12"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="#ffffff"
-            height="30"
-            width="30"
-            viewBox="0 0 512.027 512.027"
-          >
-            <path d="M476.881 216.453L263.547 3.12c-4.16-4.16-10.88-4.16-15.04 0L35.174 216.453c-4.053 4.267-3.947 10.987.213 15.04 4.16 3.947 10.667 3.947 14.827 0L245.307 36.4v464.96c0 5.867 4.8 10.667 10.667 10.667s10.667-4.8 10.667-10.667V36.4l195.093 195.093c4.267 4.053 10.987 3.947 15.04-.213a10.66 10.66 0 0 0 .107-14.827z" />
-          </svg>
-        </div> */}
       </div>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="100%"
+        height="100%"
+        viewBox="0 0 52.917 52.917"
+        className=" fixed bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4 z-0 opacity-50 "
+      >
+        <path
+          fill="#f00"
+          d="M42.231 51.603L39.766 32.82q-1.233 4.486-3.106 8.085-1.824 3.599-4.289 6.113-2.465 2.514-5.522 3.895-3.057 1.331-6.754 1.331-3.057 0-5.67-.937-2.564-.937-4.437-2.712-1.873-1.775-2.958-4.289-1.035-2.564-1.035-5.768 0-3.845 1.479-6.656 1.479-2.81 3.895-4.832 2.465-2.071 5.522-3.55 3.106-1.479 6.36-2.712 3.254-1.233 6.311-2.366 3.106-1.134 5.522-2.465 2.465-1.38 3.944-3.106 1.479-1.726 1.479-4.191 0-3.007-2.219-4.486-2.169-1.528-5.768-1.085-3.55.394-8.085 2.958-4.536 2.514-9.219 7.642l-2.81-6.409q3.993-3.106 8.677-4.782Q25.814.823 30.596.823q7.444 0 11.487 4.141 4.092 4.092 4.092 12.177v34.461zm-18.784-3.944q8.184 0 12.227-8.184 4.092-8.233 4.092-24.897-1.972 1.873-4.733 3.352-2.712 1.479-5.719 2.859-3.007 1.38-5.965 2.859-2.909 1.43-5.226 3.352-2.317 1.873-3.796 4.388-1.43 2.514-1.43 5.965 0 4.881 2.81 7.592 2.859 2.712 7.74 2.712z"
+        />
+      </svg>
     </footer>
   );
 }
