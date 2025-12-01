@@ -60,14 +60,16 @@ const Modal = ({
                 alt="arunraj photo"
               />
               <div className="p-6 bg-white relative text-center">
-                <p className="text-2xl text-black">Arun Raj R</p>
-                <p className="text-lg text-gray-700 mb-0.5">
+                <p className="text-2xl display-text text-black">Arun Raj R</p>
+                <p className="text-lg display-text text-gray-700 mb-0.5">
                   Software Developer
                 </p>
-                <p className="text-base text-gray-600">Kerala, India</p>
+                <p className="text-base display-text text-gray-600">
+                  Kerala, India
+                </p>
                 <div className="flex flex-col items-center mt-6">
                   <a
-                    className="text-lg group hover:bg-black hover:text-white rounded-4xl border-2 border-black px-4 py-2 max-w-48 flex gap-x-1 items-center outline-0 transition duration-300"
+                    className="text-lg display-text group hover:bg-black hover:text-white rounded-4xl border-2 border-black px-4 py-2 max-w-48 flex gap-x-1 items-center outline-0 transition duration-300"
                     href="mailto:arunrajwebdeveloper@gmail.com"
                   >
                     <span>Say Hello</span>

@@ -62,7 +62,7 @@ function RecentWorks() {
                   {isNotLastItem && (
                     <div className="flex gap-2 items-center justify-center mt-4">
                       <a
-                        className="text-white outline-0 text-sm px-4 py-1 border border-white rounded-4xl"
+                        className="text-white display-text outline-0 text-sm px-4 py-1 border border-white rounded-4xl"
                         href="."
                         target="_blank"
                         onClick={(e) => {
@@ -73,7 +73,7 @@ function RecentWorks() {
                         Demo
                       </a>
                       <a
-                        className="text-white outline-0 text-sm px-4 py-1 border border-white rounded-4xl"
+                        className="text-white display-text outline-0 text-sm px-4 py-1 border border-white rounded-4xl"
                         href="."
                         target="_blank"
                         onClick={(e) => {

@@ -141,7 +141,7 @@ function HobbySection() {
                 <a
                   href="https://www.instagram.com/ar_macros"
                   target="_blank"
-                  className="text-black group rounded-4xl border-2 border-black hover:text-[#ffd53e] px-6 py-4 max-w-48 flex gap-x-2 items-center tracking-wider outline-0 hover:border-[#ffd53e] transition duration-300"
+                  className="text-black display-text group rounded-4xl border-2 border-black hover:text-[#ffd53e] px-6 py-4 max-w-48 flex gap-x-2 items-center tracking-wider outline-0 hover:border-[#ffd53e] transition duration-300"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +183,7 @@ function HobbySection() {
                 </a>
                 <Link
                   to="/photography"
-                  className="text-black group rounded-4xl border-2 border-black hover:text-[#ffd53e] px-6 py-4 max-w-48 flex gap-x-2 items-center tracking-wider outline-0 hover:border-[#ffd53e] transition duration-300"
+                  className="text-black display-text group rounded-4xl border-2 border-black hover:text-[#ffd53e] px-6 py-4 max-w-48 flex gap-x-2 items-center tracking-wider outline-0 hover:border-[#ffd53e] transition duration-300"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
