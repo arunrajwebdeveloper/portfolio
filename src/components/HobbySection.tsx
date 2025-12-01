@@ -1,14 +1,51 @@
-import { motion, useInView, type Variants } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+  type Variants,
+} from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router";
+
+interface ParallaxImage {
+  src: string;
+  alt: string;
+  className: string;
+  speed: number; // parallax speed factor (+ for down, - for up)
+}
 
 const images = [
   "./photos/gallery-1.JPG",
   "./photos/gallery-2.JPG",
-  "./photos/gallery-3.JPG",
-  "./photos/gallery-4.jpg",
   "./photos/gallery-5.JPG",
-  "./photos/gallery-6.jpg",
+];
+
+const parallaxImages: ParallaxImage[] = [
+  {
+    src: "./photos/gallery-6.jpg",
+    alt: "",
+    className: "absolute bottom-1/4 left-1/3 w-64 rounded-2xl",
+    speed: -100,
+  },
+  {
+    src: "./photos/gallery-1.JPG",
+    alt: "",
+    className: "absolute top-38 left-1/6 w-60 rounded-2xl",
+    speed: -80,
+  },
+  {
+    src: "./photos/gallery-2.JPG",
+    alt: "",
+    className: "absolute bottom-0 left-1/3 -translate-x-1/2 w-72 rounded-2xl",
+    speed: -140,
+  },
+  {
+    src: "./photos/gallery-5.JPG",
+    alt: "",
+    className: "absolute top-1/4 right-1/8 w-72 rounded-2xl",
+    speed: -105,
+  },
 ];
 
 const itemVariants: Variants = {
@@ -40,7 +77,7 @@ const ImageItem = ({ src, i }: { src: string; i: number }) => {
     <motion.div
       key={i}
       variants={itemVariants}
-      className={`shrink-0 w-1/3 p-2 md:w-1/6 aspect-square flex items-center justify-center`}
+      className={`shrink-0 w-1/3 p-2 aspect-square flex items-center justify-center`}
     >
       <img
         src={src}
@@ -53,14 +90,23 @@ const ImageItem = ({ src, i }: { src: string; i: number }) => {
 };
 
 function HobbySection() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"], // start anim when section enters viewport
+  });
+
   return (
-    <section className="relative lg:min-h-screen w-full py-16 lg:py-48 flex justify-between items-center bg-white">
+    <section
+      ref={sectionRef}
+      className="relative lg:min-h-screen w-full py-16 lg:py-48 flex justify-between items-center bg-white"
+    >
       <div className="max-w-6xl mx-auto flex flex-col gap-20 md:gap-32 px-4">
         {/* <h2 className="text-2xl text-center">Macro shots</h2> */}
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 relative z-2">
           <div className="md:w-3/4">
             <motion.p
               className="text-5xl display-text font-black md:text-6xl lg:text-8xl m-0 text-black"
@@ -204,17 +250,40 @@ function HobbySection() {
             </motion.div>
           </div>
         </div>
+        {/* FOR SMALL SCREENS */}
         <motion.div
           ref={ref}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="flex flex-wrap md:flex-nowrap"
+          className="flex flex-nowrap max-w-2xl mx-auto lg:hidden"
         >
           {images.map((src, i) => {
             return <ImageItem key={`gallery-thumb-${i}`} src={src} i={i} />;
           })}
         </motion.div>
+
+        {/* FOR LARGE SCREENS */}
+
+        <div className="absolute z-0 h-full w-full inset-0 hidden lg:block">
+          {parallaxImages.map((img, i) => {
+            // Dynamically calculate motion transform for each image
+            const y = useTransform(
+              scrollYProgress,
+              [0, 1],
+              ["0%", `${img.speed}%`]
+            );
+            return (
+              <motion.img
+                key={i}
+                src={img.src}
+                alt={img.alt}
+                className={img.className}
+                style={{ y }}
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );
