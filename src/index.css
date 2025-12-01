@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
 @import "tailwindcss";
 
 :root {
   --text-font: "Syne", sans-serif;
+  --display-font: "Gabarito", sans-serif;
   font-family: var(--text-font);
   line-height: 1.5;
   font-weight: 400;
@@ -47,6 +47,10 @@ body {
 }
 .font-text {
   font-family: var(--text-font) !important;
+}
+
+.display-text {
+  font-family: var(--display-font) !important;
 }
 
 /* @media (prefers-color-scheme: light) {

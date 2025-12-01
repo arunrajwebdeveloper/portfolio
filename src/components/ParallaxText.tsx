@@ -73,19 +73,19 @@ export default function ParallaxText({
   return (
     <div className="select-none overflow-hidden whitespace-nowrap flex flex-nowrap">
       <motion.div
-        className="uppercase text-6xl sm:text-9xl lg:gap-x-12 lg:text-[16rem] text-black -tracking-wider font-sans font-bold flex whitespace-nowrap flex-nowrap"
+        className="uppercase text-8xl sm:text-9xl lg:gap-x-12 lg:text-[16rem] text-black -tracking-wider display-text font-black flex whitespace-nowrap flex-nowrap"
         style={{ x }}
       >
-        <span className="leading-14 sm:leading-28 lg:leading-56">
+        <span className="leading-20 sm:leading-28 lg:leading-56">
           {children}
         </span>
-        <span className="leading-14 sm:leading-28 lg:leading-56">
+        <span className="leading-20 sm:leading-28 lg:leading-56">
           {children}
         </span>
-        <span className="leading-14 sm:leading-28 lg:leading-56">
+        <span className="leading-20 sm:leading-28 lg:leading-56">
           {children}
         </span>
-        <span className="leading-14 sm:leading-28 lg:leading-56">
+        <span className="leading-20 sm:leading-28 lg:leading-56">
           {children}
         </span>
       </motion.div>
