@@ -4,7 +4,7 @@ import { useInView, motion, type Variants } from "framer-motion";
 const LandingSection = () => {
   const body = useRef(null);
   const isInView = useInView(body, {
-    once: !true,
+    once: false,
     margin: "0px 0px -40% 0px",
   });
 
@@ -20,16 +20,10 @@ const LandingSection = () => {
     }),
   };
 
-  // const title = [
-  //           "Building modern, ",
-  //           "responsive web experiences ",
-  //           "with passion.",
-  //         ]
-
   const title = ["Learn.", "Build.", "Repeat."];
 
   return (
-    <section className="bg-white w-full flex justify-start items-center py-16 md:py-28">
+    <section className="bg-white w-full flex justify-start items-center pt-16 md:pt-28">
       <div ref={body} className="space-y-8 max-w-6xl mx-auto px-4 w-full">
         <div>
           {title.map((phrase, index) => {
@@ -40,7 +34,7 @@ const LandingSection = () => {
                   variants={animation}
                   initial="initial"
                   animate={isInView ? "enter" : ""}
-                  className="text-black display-text uppercase font-black text-[5rem] leading-24 md:text-[10rem] md:leading-44 text-left m-0"
+                  className="text-black display-text font-black text-[5rem] leading-24 md:text-[10rem] md:leading-44 text-left m-0"
                 >
                   {phrase}
                 </motion.h1>

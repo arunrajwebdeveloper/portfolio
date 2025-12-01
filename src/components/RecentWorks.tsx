@@ -32,7 +32,7 @@ function RecentWorks() {
   return (
     <section className="flex flex-col justify-center bg-white w-full py-28 min-h-screen">
       <div className="relative">
-        <h2 className="text-xl md:text-2xl text-center relative z-10">
+        <h2 className="text-3xl display-text font-black md:text-4xl text-center relative z-10">
           Recent Works
         </h2>
         <div className="absolute font-sans font-semibold text-gray-100 left-1/2 -translate-x-1/2 top-0 -translate-y-48 text-[16rem] tracking-tight flex justify-center items-center">
