@@ -80,7 +80,7 @@ export default function Footer() {
         width="100%"
         height="100%"
         viewBox="0 0 52.917 52.917"
-        className=" fixed bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4 z-0 opacity-50 "
+        className=" fixed bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4 z-0 opacity-50 select-none pointer-events-none "
       >
         <path
           fill="#f00"
