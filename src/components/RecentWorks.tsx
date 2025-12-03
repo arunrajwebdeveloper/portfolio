@@ -67,7 +67,7 @@ function RecentWorks() {
                         target="_blank"
                         onClick={(e) => {
                           e.preventDefault();
-                          alert("On progress...");
+                          alert("In progress...");
                         }}
                       >
                         Demo
@@ -78,7 +78,7 @@ function RecentWorks() {
                         target="_blank"
                         onClick={(e) => {
                           e.preventDefault();
-                          alert("On progress...");
+                          alert("In progress...");
                         }}
                       >
                         Source
