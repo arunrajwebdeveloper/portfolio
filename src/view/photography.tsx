@@ -96,25 +96,25 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
         '<svg fill="none" stroke="black" strokeWidth="2" tabindex="-1" width="24" height="24" viewBox="0 0 24 24"><path d="M19.286 4.714 4.714 19.286M4.714 4.714l14.572 14.572"></path></svg>',
     });
 
-    lightbox.on("beforeOpen", () => {
-      console.log("beforeOpen");
-      // photoswipe starts to open
-    });
+    // lightbox.on("beforeOpen", () => {
+    //   console.log("beforeOpen");
+    //   // photoswipe starts to open
+    // });
 
-    lightbox.on("firstUpdate", () => {
-      console.log("firstUpdate");
-      // photoswipe keeps opening
-      // you may modify initial index or basic DOM structure
-    });
+    // lightbox.on("firstUpdate", () => {
+    //   console.log("firstUpdate");
+    //   // photoswipe keeps opening
+    //   // you may modify initial index or basic DOM structure
+    // });
 
-    lightbox.on("close", () => {
-      // PhotoSwipe starts to close, unbind most events here
-      console.log("close");
-    });
-    lightbox.on("destroy", () => {
-      // PhotoSwipe is fully closed, destroy everything
-      console.log("destroy");
-    });
+    // lightbox.on("close", () => {
+    //   // PhotoSwipe starts to close, unbind most events here
+    //   console.log("close");
+    // });
+    // lightbox.on("destroy", () => {
+    //   // PhotoSwipe is fully closed, destroy everything
+    //   console.log("destroy");
+    // });
 
     lightbox.init();
 
