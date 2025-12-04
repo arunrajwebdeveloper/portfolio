@@ -14,7 +14,7 @@ const ScrollToTopButton = () => {
       {/* Line */}
       <span
         className="relative w-[180px] h-0.5 bg-white overflow-hidden z-1
-                   after:content-[''] after:block after:absolute after:left-24 after:top-3.5 after:w-[70px] after:h-px after:bg-white"
+                   after:content-[''] after:block after:absolute after:left-24 after:top-2.5 after:w-[70px] after:h-px after:bg-white"
       ></span>
       {/* Text */}
       <span className="text-white text-sm uppercase whitespace-nowrap">
