@@ -12,6 +12,7 @@ import HobbySection from "../components/HobbySection";
 import Logo from "../components/Logo";
 import Modal from "../components/Modal";
 import ParallaxText from "../components/ParallaxText";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 
 const Main = () => {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
@@ -42,6 +43,7 @@ const Main = () => {
       <Footer />
 
       <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)} />
+      <ScrollToTopButton />
     </>
   );
 };

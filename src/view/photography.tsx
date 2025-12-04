@@ -6,6 +6,7 @@ import Logo from "../components/Logo";
 import Cursor from "../components/Cursor";
 import { Link } from "react-router";
 import Modal from "../components/Modal";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 
 type GalleryImage = {
   imageUrl: string;
@@ -239,6 +240,8 @@ const Photography = () => {
       </div>
 
       <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)} />
+
+      <ScrollToTopButton />
 
       {/* <div
         onClick={() => {
