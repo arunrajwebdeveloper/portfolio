@@ -9,7 +9,7 @@ const ScrollToTopButton = () => {
   return (
     <div
       onClick={handleScrollToTop}
-      className="fixed cursor-pointer -rotate-90 group right-8 top-1/2 -translate-y-1/2 z-50 mix-blend-difference hidden lg:block"
+      className="fixed cursor-pointer -rotate-90 group right-2 top-1/2 -translate-y-1/2 z-50 mix-blend-difference hidden md:block"
     >
       {/* Line */}
       <span
