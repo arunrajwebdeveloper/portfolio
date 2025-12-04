@@ -89,11 +89,31 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
       // zoomSVG: '',
       // loadingIndicatorSVG: '',
       arrowPrevSVG:
-        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-width="1.3" viewBox="0 0 24 24" tabindex="-1"><path d="M15 3l-9 9 9 9"></path></svg>',
+        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24" tabindex="-1"><path d="M15 3l-9 9 9 9"></path></svg>',
       arrowNextSVG:
-        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-width="1.3" viewBox="0 0 24 24" tabindex="-1"><path d="M9 3l9 9-9 9"></path></svg>',
+        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24" tabindex="-1"><path d="M9 3l9 9-9 9"></path></svg>',
       closeSVG:
-        '<svg fill="none" stroke="black" stroke-width="1.3" tabindex="-1" width="24" height="24" viewBox="0 0 24 24"><path d="M19.286 4.714 4.714 19.286M4.714 4.714l14.572 14.572"></path></svg>',
+        '<svg fill="none" stroke="black" strokeWidth="2" tabindex="-1" width="24" height="24" viewBox="0 0 24 24"><path d="M19.286 4.714 4.714 19.286M4.714 4.714l14.572 14.572"></path></svg>',
+    });
+
+    lightbox.on("beforeOpen", () => {
+      console.log("beforeOpen");
+      // photoswipe starts to open
+    });
+
+    lightbox.on("firstUpdate", () => {
+      console.log("firstUpdate");
+      // photoswipe keeps opening
+      // you may modify initial index or basic DOM structure
+    });
+
+    lightbox.on("close", () => {
+      // PhotoSwipe starts to close, unbind most events here
+      console.log("close");
+    });
+    lightbox.on("destroy", () => {
+      // PhotoSwipe is fully closed, destroy everything
+      console.log("destroy");
     });
 
     lightbox.init();
@@ -192,8 +212,8 @@ const Photography = () => {
               viewBox="0 0 32 32"
               fill="none"
               stroke="#000"
-              stroke-width="2"
-              stroke-miterlimit="10"
+              strokeWidth="2"
+              strokeMiterlimit="10"
               height={20}
               width={20}
             >
