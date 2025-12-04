@@ -1,6 +1,6 @@
 const Spinner = () => {
   return (
-    <div className="fixed inset-0 z-99999 bg-white flex w-full h-full">
+    <div className="fixed inset-0 z-99999 bg-[#ffc903] flex w-full h-full">
       <div className="m-auto">
         <svg height={0} width={0}>
           <defs>
@@ -28,12 +28,12 @@ const Spinner = () => {
         </svg>
         <svg height={100} width={300} viewBox="0 0 320 180">
           <g filter="url(#goo)">
-            <circle cy={90} cx={160} r={24} fill="#ffd53e" className="circle" />
+            <circle cy={90} cx={160} r={24} fill="#000000" className="circle" />
             <circle
               cy={90}
               cx={160}
               r={24}
-              fill="#ffd53e"
+              fill="#000000"
               className="circle right"
             />
           </g>
