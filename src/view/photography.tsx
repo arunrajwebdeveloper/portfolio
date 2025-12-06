@@ -60,7 +60,7 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
       padding: { top: 40, bottom: 40, left: 50, right: 50 },
       bgOpacity: 1, // lightbox bg transparancy
       loop: false,
-      wheelToZoom: true,
+      wheelToZoom: false,
       pinchToClose: true,
       closeOnVerticalDrag: true,
       escKey: true,
@@ -74,7 +74,7 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
 
       // -----------------
 
-      zoom: false,
+      // zoom: false,
       // arrowPrev: false,
       // arrowNext: false,
       // close: false,
