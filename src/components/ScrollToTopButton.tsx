@@ -65,7 +65,7 @@ const ScrollToTopButton = () => {
           style={{
             scaleX: scrollYProgress,
           }}
-          className="bg-white origin-left w-full h-full top-0 left-0 z-1"
+          className="bg-white origin-right w-full h-full top-0 left-0 z-1"
         ></motion.div>
       </div>
     </motion.div>
