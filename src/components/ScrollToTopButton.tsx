@@ -2,8 +2,10 @@ import { motion, useScroll, type Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const ScrollToTopButton = () => {
-  const { scrollY } = useScroll();
+  const { scrollY, scrollYProgress } = useScroll();
   const [isVisible, setIsVisible] = useState(false);
+
+  console.log("object :>> ", scrollY, scrollYProgress);
 
   const indicatorVariants: Variants = {
     hidden: {
@@ -50,17 +52,22 @@ const ScrollToTopButton = () => {
       variants={indicatorVariants}
       animate={isVisible ? "visible" : "hidden"}
       onClick={handleScrollToTop}
-      className="fixed cursor-pointer -rotate-90 group right-2 top-1/2 -translate-y-1/2 z-50 mix-blend-difference hidden md:block"
+      className="fixed w-[180px] gap-x-4 items-center cursor-pointer -rotate-90 group -right-10 top-1/2 -translate-y-1/2 z-50 mix-blend-difference hidden md:flex"
     >
-      {/* Line */}
-      <span
-        className="relative w-[180px] h-0.5 bg-white overflow-hidden z-1
-                   after:content-[''] after:block after:absolute after:left-24 after:top-2.5 after:w-[70px] after:h-px after:bg-white"
-      ></span>
       {/* Text */}
       <span className="text-white text-sm uppercase whitespace-nowrap">
         Scroll Top
       </span>
+
+      {/* Line */}
+      <div className="relative bg-black w-[180px] h-px overflow-hidden z-1">
+        <motion.div
+          style={{
+            scaleX: scrollYProgress,
+          }}
+          className="bg-white origin-left w-full h-full top-0 left-0 z-1"
+        ></motion.div>
+      </div>
     </motion.div>
   );
 };
