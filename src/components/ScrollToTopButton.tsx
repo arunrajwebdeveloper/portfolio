@@ -50,7 +50,7 @@ const ScrollToTopButton = () => {
       variants={indicatorVariants}
       animate={isVisible ? "visible" : "hidden"}
       onClick={handleScrollToTop}
-      className="fixed w-[180px] gap-x-4 items-center cursor-pointer -rotate-90 group -right-10 top-1/2 -translate-y-1/2 z-50 mix-blend-difference hidden md:flex"
+      className="fixed select-none w-[180px] gap-x-4 items-center cursor-pointer -rotate-90 group -right-10 top-1/2 -translate-y-1/2 z-50 mix-blend-difference hidden md:flex"
     >
       {/* Text */}
       <span className="text-white text-sm uppercase whitespace-nowrap">
