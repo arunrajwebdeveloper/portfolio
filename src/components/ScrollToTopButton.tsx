@@ -5,8 +5,6 @@ const ScrollToTopButton = () => {
   const { scrollY, scrollYProgress } = useScroll();
   const [isVisible, setIsVisible] = useState(false);
 
-  console.log("object :>> ", scrollY, scrollYProgress);
-
   const indicatorVariants: Variants = {
     hidden: {
       opacity: 0,

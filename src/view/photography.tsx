@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import { galleryImages } from "../assets/images";
-import "photoswipe/style.css";
 import Logo from "../components/Logo";
 import Cursor from "../components/Cursor";
 import { Link } from "react-router";
 import Modal from "../components/Modal";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import "photoswipe/style.css";
 
 type GalleryImage = {
   imageUrl: string;
@@ -38,7 +38,7 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
   useEffect(() => {
     Promise.all(
       images.map(async (img) => {
-        if (img.width && img.height) return img; // already provided
+        if (img.width && img.height) return img;
         const { width, height } = await getImageDimensions(img.imageUrl);
         return { ...img, width, height };
       })
@@ -126,7 +126,7 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
   return (
     <div>
       <ul
-        className="pswp-gallery select-none columns-2 md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6 gap-10 md:gap-20"
+        className="pswp-gallery select-none columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-10 md:gap-20"
         id={galleryID}
       >
         {imagesWithSize.map((image, index) => (
@@ -135,7 +135,6 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
               href={image.imageUrl}
               data-pswp-width={image.width}
               data-pswp-height={image.height}
-              key={galleryID + "-" + index}
               target="_blank"
               rel="noreferrer"
               className="block outline-0"
@@ -150,8 +149,7 @@ function SimpleGallery({ galleryID, images }: SimpleGalleryProps) {
           </li>
         ))}
       </ul>
-
-      <div className="py-36 mt-16 select-none">
+      <div className="py-36 select-none">
         <p className="text-lg text-gray-600 max-w-lg mx-auto text-center">
           You’ve reached the end, but we hope you leave with a new appreciation
           for the intricate beauty found in the world's smallest details.
@@ -165,7 +163,6 @@ const Photography = () => {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
   const [loadedImages, setLoadedImages] = useState<{ imageUrl: string }[]>([]);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -177,12 +174,12 @@ const Photography = () => {
 
       img.onload = () => {
         loaded.push(image);
-        setLoadedImages([...loaded]); // trigger UI updates
+        setLoadedImages([...loaded]);
         if (loaded.length === galleryImages.length) setIsLoaded(true);
       };
 
       img.onerror = () => {
-        loaded.push(image); // even on error, continue
+        loaded.push(image);
         setLoadedImages([...loaded]);
         if (loaded.length === galleryImages.length) setIsLoaded(true);
       };
@@ -258,30 +255,8 @@ const Photography = () => {
           />
         )}
       </div>
-
       <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)} />
-
       <ScrollToTopButton />
-
-      {/* <div
-        onClick={() => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        }}
-        className="fixed select-none z-2 w-14 h-14 cursor-pointer flex justify-center items-center right-2 bottom-6 lg:right-10 lg:bottom-12"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="#000000"
-          height="30"
-          width="30"
-          viewBox="0 0 512.027 512.027"
-        >
-          <path d="M476.881 216.453L263.547 3.12c-4.16-4.16-10.88-4.16-15.04 0L35.174 216.453c-4.053 4.267-3.947 10.987.213 15.04 4.16 3.947 10.667 3.947 14.827 0L245.307 36.4v464.96c0 5.867 4.8 10.667 10.667 10.667s10.667-4.8 10.667-10.667V36.4l195.093 195.093c4.267 4.053 10.987 3.947 15.04-.213a10.66 10.66 0 0 0 .107-14.827z" />
-        </svg>
-      </div> */}
     </div>
   );
 };
