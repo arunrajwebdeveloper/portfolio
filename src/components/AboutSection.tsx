@@ -57,7 +57,7 @@ const Char = ({ children, progress, range }: ComponentProps) => {
 
 const AboutSection = () => {
   const paragraph =
-    "My main focus is creating modern, responsive Frontend applications with ReactJS — but I also enjoy developing scalable APIs with NestJS.";
+    "I’m a Software Developer. My main focus is creating modern, responsive Frontend applications with ReactJS — but I also enjoy developing scalable APIs with NestJS.";
 
   const container = useRef(null);
 
