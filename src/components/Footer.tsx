@@ -77,8 +77,8 @@ export default function Footer() {
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="100%"
-        height="100%"
+        width="200%"
+        height="200%"
         viewBox="0 0 52.917 52.917"
         className=" fixed bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4 z-0 opacity-10 select-none pointer-events-none "
       >
