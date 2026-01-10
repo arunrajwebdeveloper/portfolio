@@ -16,6 +16,8 @@ import sass from "./stack-icons/sass.png";
 import tailwindcss from "./stack-icons/tailwind-css.png";
 import typescript from "./stack-icons/typescript.png";
 import vscode from "./stack-icons/vscode.png";
+import docker from "./stack-icons/docker.png";
+import socket from "./stack-icons/socket-io.png";
 
 export {
   html5,
@@ -36,4 +38,6 @@ export {
   tailwindcss,
   typescript,
   vscode,
+  docker,
+  socket,
 };

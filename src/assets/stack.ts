@@ -3,7 +3,6 @@ import {
   css3,
   expressjs,
   git,
-  github,
   html5,
   javascript,
   mongodb,
@@ -16,6 +15,8 @@ import {
   sass,
   tailwindcss,
   typescript,
+  docker,
+  socket,
 } from ".";
 
 export const stackList = [
@@ -95,9 +96,9 @@ export const stackList = [
     icon: git,
   },
   {
-    title: "GitHub",
-    alt: "github icon",
-    icon: github,
+    title: "Socket.Io",
+    alt: "socket-io icon",
+    icon: socket,
   },
 
   {
@@ -106,8 +107,8 @@ export const stackList = [
     icon: sass,
   },
   {
-    title: "React Native",
-    alt: "react-native icon",
-    icon: reactjs,
+    title: "Docker",
+    alt: "docker icon",
+    icon: docker,
   },
 ];
