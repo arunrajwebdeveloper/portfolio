@@ -62,6 +62,14 @@ import img9892 from "./photography/IMG_9892.jpg";
 import img9894 from "./photography/IMG_9894.jpg";
 import img9897 from "./photography/IMG_9897.jpg";
 import img5709 from "./photography/IMG_5709.jpg";
+import img5710 from "./photography/spider-3-1080.jpg";
+import img5711 from "./photography/insta-pic.jpg";
+import img5712 from "./photography/mushroom-1080.jpg";
+import img5713 from "./photography/pic-1080.jpg";
+import img5714 from "./photography/spider-00022.jpg";
+import img5715 from "./photography/bee-009.jpg";
+import img5716 from "./photography/bee-flower-0098.jpg";
+import img5717 from "./photography/flower-00567.jpg";
 
 export const galleryImages = [
   {
@@ -255,5 +263,29 @@ export const galleryImages = [
   },
   {
     imageUrl: pkj,
+  },
+  {
+    imageUrl: img5710,
+  },
+  {
+    imageUrl: img5711,
+  },
+  {
+    imageUrl: img5712,
+  },
+  {
+    imageUrl: img5713,
+  },
+  {
+    imageUrl: img5714,
+  },
+  {
+    imageUrl: img5715,
+  },
+  {
+    imageUrl: img5716,
+  },
+  {
+    imageUrl: img5717,
   },
 ];
