@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="max-w-4xl relative mx-auto h-full flex flex-col justify-between px-4 py-24 md:py-28">
           <div className="text-center flex items-center flex-col">
             <p className="m-auto text-6xl lg:text-9xl text-white mb-10 lg:mb-14 tracking-wider">
-              Let's work togather
+              Let's work together
             </p>
             <a
               className="text-white group rounded-4xl border-2 border-white hover:text-[#ffd53e] px-6 py-4 max-w-48 flex gap-x-2 items-center tracking-wider outline-0 hover:border-[#ffd53e] transition duration-300"
