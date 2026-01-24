@@ -138,7 +138,7 @@ function HobbySection() {
               viewport={{ once: true, amount: 0.4 }}
             >
               <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                <a
+                {/* <a
                   href="https://www.instagram.com/ar_macros"
                   target="_blank"
                   className="text-black display-text group rounded-4xl border-2 border-black hover:text-[#ffd53e] px-6 py-4 max-w-48 flex gap-x-2 items-center tracking-wider outline-0 hover:border-[#ffd53e] transition duration-300"
@@ -180,7 +180,7 @@ function HobbySection() {
                       />
                     </g>
                   </svg>
-                </a>
+                </a> */}
                 <Link
                   to="/photography"
                   className="text-black display-text group rounded-4xl border-2 border-black hover:text-[#ffd53e] px-6 py-4 max-w-48 flex gap-x-2 items-center tracking-wider outline-0 hover:border-[#ffd53e] transition duration-300"
