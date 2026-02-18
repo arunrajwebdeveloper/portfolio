@@ -1,30 +1,31 @@
+import { Link } from "react-router";
 import { ParallaxImage } from "./ParallaxImage";
 import { motion } from "framer-motion";
 
 const items = [
   {
+    src: "./projects/matrimony-screenshot-3.png",
+    title: "Notes Application",
+    text: "Notes application using ReactJS and NestJS.",
+    demoUrl: "https://notes-blond-seven.vercel.app/login",
+  },
+  {
     src: "./projects/matrimony-screenshot-1.png",
     title: "Matrimony App",
     text: "A matrimony app with Nextjs and NestJs.",
-    bg: "#fff",
+    demoUrl: null,
   },
   {
     src: "./projects/matrimony-screenshot-2.png",
     title: "Photography portfolio",
     text: "Elegant visuals that blend minimalism and storytelling using html5, css3, javascript and GSAP.",
-    bg: "#fff",
-  },
-  {
-    src: "./projects/matrimony-screenshot-3.png",
-    title: "Notes Application",
-    text: "Notes application using ReactJS and NestJS.",
-    bg: "#fff",
+    demoUrl: null,
   },
   {
     src: "./projects/matrimony-screenshot-4.png",
     title: "Coming soon",
     text: "Next project will add soon.",
-    bg: "#fff",
+    demoUrl: null,
   },
 ];
 
@@ -45,8 +46,7 @@ function RecentWorks() {
             return (
               <div
                 key={index}
-                style={{ backgroundColor: item.bg }}
-                className="w-full lg:w-1/2 overflow-hidden min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-between pt-20 px-6 md:px-10 lg:20"
+                className="w-full bg-white lg:w-1/2 overflow-hidden min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-between pt-20 px-6 md:px-10 lg:20"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
@@ -59,30 +59,15 @@ function RecentWorks() {
                     {item.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{item.text}</p>
-                  {isNotLastItem && (
+                  {isNotLastItem && item.demoUrl && (
                     <div className="flex gap-2 items-center justify-center mt-4">
-                      <a
-                        className="text-black display-text outline-0 text-sm px-4 py-1 border border-black rounded-4xl"
-                        href="."
+                      <Link
+                        to={item?.demoUrl}
                         target="_blank"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          alert("In progress...");
-                        }}
+                        className="text-black display-text outline-0 text-sm px-4 py-1 border border-black rounded-4xl"
                       >
                         Demo
-                      </a>
-                      <a
-                        className="text-black display-text outline-0 text-sm px-4 py-1 border border-black rounded-4xl"
-                        href="."
-                        target="_blank"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          alert("In progress...");
-                        }}
-                      >
-                        Source
-                      </a>
+                      </Link>
                     </div>
                   )}
                 </motion.div>
