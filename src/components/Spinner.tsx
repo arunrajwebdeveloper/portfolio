@@ -1,6 +1,6 @@
 const Spinner = () => {
   return (
-    <div className="fixed inset-0 z-99999 bg-[#ffc903] flex w-full h-full">
+    <div className="fixed inset-0 z-99999 bg-slate-200 flex w-full h-full">
       <div className="m-auto">
         <svg height={0} width={0}>
           <defs>

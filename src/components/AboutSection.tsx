@@ -71,9 +71,19 @@ const AboutSection = () => {
   return (
     <motion.section className="flex bg-white w-full pt-28 lg:pt-40 ">
       <div className="max-w-4xl mx-auto relative px-4">
-        <div className="flex items-center justify-center mb-14">
-          <img className="w-16 h-16 flex-none" src="./quote-up.svg" alt="" />
-        </div>
+        <motion.div
+          className="flex items-center justify-center mb-14"
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
+          <img
+            className="w-16 h-16 md:w-40 md:h-40 flex-none"
+            src="./quote-up.svg"
+            alt="quote icon"
+          />
+        </motion.div>
         <p
           ref={container}
           className=" text-slate-700 text-3xl leading-7 md:text-5xl md:leading-11 text-center flex flex-wrap justify-center relative z-10"
