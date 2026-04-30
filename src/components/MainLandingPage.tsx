@@ -72,7 +72,7 @@ function MainLandingPage({ baseVelocity }: MainLandingPageProps) {
         y: parallaxY, // parallax effect based on Lenis scroll
         backgroundColor: "#e2e8f0",
       }}
-      className="sticky top-0 h-dvh min-h-screen w-full flex justify-center items-center -z-1 pointer-events-none"
+      className="sticky overflow-hidden top-0 h-dvh min-h-screen w-full flex justify-center items-center -z-1 pointer-events-none"
     >
       <div className="flex-row w-full h-full absolute inset-0 flex items-center justify-between">
         <div className="w-full md:w-1/2 h-full relative overflow-hidden">
