@@ -118,7 +118,7 @@ function RecentWorks() {
 
   return (
     <>
-      <section className="bg-white w-full pt-10 md:pt-30 pb-15">
+      <section className="bg-slate-100 w-full pt-10 md:pt-30 pb-15">
         <div className="w-full max-w-3xl mx-auto px-4">
           <h2 className="text-3xl display-text font-black md:text-4xl text-left z-10 ">
             Key Projects
@@ -180,7 +180,7 @@ function RecentWorks() {
         </div>
       </section>
 
-      <section className="bg-white w-full pb-20  md:pb-30 pt-5 md:pt-15">
+      <section className="bg-slate-200 w-full pb-20 pt-5 md:pt-15">
         <div className="w-full max-w-3xl mx-auto px-4">
           <h2 className="text-3xl display-text font-black md:text-4xl text-left z-10 ">
             Personal Projects

@@ -36,7 +36,7 @@ const Main = () => {
       <RecentWorks />
       {/* <PhotographySection /> */}
       {/* <FloatingGallery /> */}
-      <section className="bg-white flex flex-col gap-0 w-full">
+      <section className="bg-white flex flex-col gap-0 w-full pt-20">
         <ParallaxText baseVelocity={-1}>Code Learn Build Repeat</ParallaxText>
         <ParallaxText baseVelocity={1}>Code Learn Build Repeat</ParallaxText>
       </section>
