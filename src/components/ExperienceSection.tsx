@@ -4,7 +4,7 @@ const data = [
   {
     id: "5104f3ae-9d20-45df-a783-6d058a0ed7b2",
     logo: {
-      text: "N",
+      text: "Nergy",
       color: "#1d458a",
     },
     position: "Software Developer",
@@ -16,7 +16,7 @@ const data = [
   {
     id: "f672318b-3500-4d23-9b00-f9917c6ddee8",
     logo: {
-      text: "H",
+      text: "Hopescoding",
       color: "#c21313",
     },
     position: "Frontend Developer",
@@ -28,7 +28,7 @@ const data = [
   {
     id: "f5c1e71f-25bb-4e79-9d51-db81f161dc7a",
     logo: {
-      text: "A",
+      text: "Acurax",
       color: "#00a8d5",
     },
     position: "Frontend Developer",
@@ -81,7 +81,7 @@ const ExperienceSection = () => {
                 {/* logo */}
                 <div
                   style={{ backgroundColor: ex.logo.color }}
-                  className="w-20 h-20 md:w-34 md:h-34 flex-none flex text-white text-4xl md:text-6xl rounded-xl md:rounded-4xl"
+                  className="w-28 h-28 md:w-34 md:h-34 flex-none flex text-white text-xs md:text-base uppercase rounded-xl md:rounded-4xl"
                 >
                   <span className="m-auto">{ex.logo.text}</span>
                 </div>

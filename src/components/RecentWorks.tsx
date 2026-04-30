@@ -132,7 +132,7 @@ function RecentWorks() {
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-                  viewport={{ once: false, amount: 0.4 }}
+                  viewport={{ once: true, amount: 0.4 }}
                   className="flex justify-between gap-5 flex-col-reverse md:flex-row"
                 >
                   <div>
@@ -180,7 +180,7 @@ function RecentWorks() {
         </div>
       </section>
 
-      <section className="bg-slate-200 w-full pb-20 pt-5 md:pt-15">
+      <section className="bg-slate-200 w-full pb-20 pt-10 md:pt-30">
         <div className="w-full max-w-3xl mx-auto px-4">
           <h2 className="text-3xl display-text font-black md:text-4xl text-left z-10 ">
             Personal Projects
@@ -195,7 +195,7 @@ function RecentWorks() {
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-                  viewport={{ once: false, amount: 0.4 }}
+                  viewport={{ once: true, amount: 0.4 }}
                   className="flex justify-between gap-5 flex-col-reverse md:flex-row"
                 >
                   <div>
