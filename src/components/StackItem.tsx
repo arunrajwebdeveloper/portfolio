@@ -28,7 +28,7 @@ const StackItem = ({
         src={stack.icon}
         alt={stack.alt}
         loading="lazy"
-        className="align-middle max-w-full p-6 relative z-10 pointer-events-none"
+        className="align-middle max-w-full p-7 relative z-10 pointer-events-none"
       />
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
@@ -37,7 +37,7 @@ const StackItem = ({
           opacity: 1,
         }}
         transition={{ type: "spring", stiffness: 500, damping: 10 }}
-        className="absolute inset-0 rounded-full origin-center bg-[#ffd53e] z-0"
+        className="absolute inset-0 rounded-full origin-center bg-slate-100 z-0"
       />
     </motion.div>
   );

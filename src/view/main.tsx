@@ -1,5 +1,5 @@
 import MainLandingPage from "../components/MainLandingPage";
-import LandingSection from "../components/LandingSection";
+// import LandingSection from "../components/LandingSection";
 import AboutSection from "../components/AboutSection";
 import StackSection from "../components/StackSection";
 import Footer from "../components/Footer";
@@ -13,6 +13,7 @@ import Logo from "../components/Logo";
 import Modal from "../components/Modal";
 import ParallaxText from "../components/ParallaxText";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import ExperienceSection from "../components/ExperienceSection";
 
 const Main = () => {
   const [magnetActive, setMagnetActive] = useState<boolean>(false);
@@ -28,9 +29,10 @@ const Main = () => {
       />
       <Cursor hideCursor={magnetActive} />
       <MainLandingPage baseVelocity={4} />
-      <LandingSection />
+      {/* <LandingSection /> */}
       <AboutSection />
       <StackSection />
+      <ExperienceSection />
       <RecentWorks />
       {/* <PhotographySection /> */}
       {/* <FloatingGallery /> */}

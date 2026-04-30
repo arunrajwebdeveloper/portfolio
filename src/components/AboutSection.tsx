@@ -57,7 +57,7 @@ const Char = ({ children, progress, range }: ComponentProps) => {
 
 const AboutSection = () => {
   const paragraph =
-    "I’m a Software Developer. My main focus is creating modern, responsive Frontend applications with ReactJS — but I also enjoy developing scalable APIs with NestJS.";
+    "I’m a Software Developer. My main focus is building modern, responsive frontend applications with ReactJS and Next.js — and I also develop scalable backend APIs using Node.js technologies like NestJS and Express.";
 
   const container = useRef(null);
 
@@ -69,11 +69,14 @@ const AboutSection = () => {
   const words = paragraph.split(" ");
 
   return (
-    <motion.section className="flex flex-col justify-center bg-white w-full pt-10 lg:pt-20 ">
-      <div className="max-w-6xl mx-auto relative px-4">
+    <motion.section className="flex bg-white w-full pt-28 lg:pt-40 ">
+      <div className="max-w-4xl mx-auto relative px-4">
+        <div className="flex items-center justify-center mb-14">
+          <img className="w-16 h-16 flex-none" src="./quote-up.svg" alt="" />
+        </div>
         <p
           ref={container}
-          className=" text-slate-700 text-3xl leading-7 md:text-7xl md:leading-20 text-center flex flex-wrap relative z-10"
+          className=" text-slate-700 text-3xl leading-7 md:text-5xl md:leading-11 text-center flex flex-wrap justify-center relative z-10"
         >
           {words.map((word, i) => {
             const start = i / words.length;
@@ -88,7 +91,7 @@ const AboutSection = () => {
           })}
         </p>
 
-        <div className="w-full mt-20 pe-0 lg:pe-48 flex lg:justify-end">
+        <div className="w-full mt-24 flex justify-center">
           <motion.div
             className="md:max-w-2xl md:grid-cols-2 md:grid md:gap-10 space-y-4 md:space-y-0"
             initial={{ opacity: 0, y: 100 }}
