@@ -1,9 +1,15 @@
-import { motion, useScroll, type Variants } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useMotionValueEvent,
+  type Variants,
+} from "framer-motion";
 import { useEffect, useState } from "react";
 
 const ScrollToTopButton = () => {
   const { scrollY, scrollYProgress } = useScroll();
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollPercent, setScrollPercent] = useState(0);
 
   const indicatorVariants: Variants = {
     hidden: {
@@ -17,6 +23,10 @@ const ScrollToTopButton = () => {
       transition: { duration: 0.5, type: "spring", stiffness: 100 },
     },
   };
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setScrollPercent(Math.round(latest * 100));
+  });
 
   useEffect(() => {
     // Function to update the visibility state based on scrollY position
@@ -50,7 +60,7 @@ const ScrollToTopButton = () => {
       variants={indicatorVariants}
       animate={isVisible ? "visible" : "hidden"}
       onClick={handleScrollToTop}
-      className="fixed select-none w-[180px] gap-x-4 items-center cursor-pointer -rotate-90 group -right-10 top-1/2 -translate-y-1/2 z-50 mix-blend-difference hidden md:flex"
+      className="fixed select-none w-[250px] gap-x-4 items-center cursor-pointer -rotate-90 group -right-20 top-1/2 -translate-y-1/2 z-50 mix-blend-difference hidden md:flex"
     >
       {/* Text */}
       <span className="text-white text-sm uppercase whitespace-nowrap">
@@ -58,7 +68,7 @@ const ScrollToTopButton = () => {
       </span>
 
       {/* Line */}
-      <div className="relative bg-black w-[180px] h-px overflow-hidden z-1">
+      <div className="relative bg-black flex-1 h-px overflow-hidden z-1">
         <motion.div
           style={{
             scaleX: scrollYProgress,
@@ -66,6 +76,11 @@ const ScrollToTopButton = () => {
           className="bg-white origin-right w-full h-full top-0 left-0 z-1"
         ></motion.div>
       </div>
+
+      {/* Percentage */}
+      <span className="text-white text-sm relative tracking-normal z-1 rotate-90 origin-center">
+        {`${scrollPercent}%`}
+      </span>
     </motion.div>
   );
 };
