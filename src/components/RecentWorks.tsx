@@ -6,7 +6,7 @@ const items = [
   {
     src: "./projects/matrimony-screenshot-3.png",
     title: "Notes Application",
-    text: "Notes application using ReactJS and NestJS.",
+    text: "Developed a full-stack note-taking application inspired by Google Keep, utilizing React.js for the frontend and NestJS for the backend. I implemented a dynamic, grid-based UI with a focus on real-time responsiveness, leveraging TanStack Query for efficient server-state management and optimistic updates. By designing a robust RESTful API and a modular system architecture, I ensured seamless data synchronization and a high-performance user experience across all devices.",
     demoUrl: "https://notes-blond-seven.vercel.app/login",
   },
   // {
