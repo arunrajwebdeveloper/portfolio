@@ -19,7 +19,7 @@ const items = [
     src: "./projects/matrimony-screenshot-2.png",
     title: "Photography portfolio",
     text: "Elegant visuals that blend minimalism and storytelling using html5, css3, javascript and GSAP.",
-    demoUrl: "https://arunrajwebdeveloper.github.io/photography-showcase/",
+    // demoUrl: "https://arunrajwebdeveloper.github.io/photography-showcase/",
   },
   {
     src: "./projects/matrimony-screenshot-4.png",
